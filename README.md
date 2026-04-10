@@ -28,10 +28,10 @@ The program runs across four sessions. Sessions 1–3 are for everyone. Session 
 
 | Session | Focus | Duration |
 |---------|-------|----------|
-| 1 | Foundation + problem framing | 60–90 min |
-| 2 | Applied lab + prompt mastery | 60–90 min |
-| 3 | Showcase + champion toolkit | 60–90 min |
-| 4 | Builder track (optional) | 90 min+ |
+| 1 | Foundation + problem framing | 60–90 min / session |
+| 2 | Applied lab + prompt mastery | 60–90 min / session |
+| 3 | Showcase + champion toolkit | 60–90 min / session |
+| 4 | Builder track (optional) | 90 min+ / session |
 
 **Built-in tools:**
 - Prompt lab with RCTFX framework
@@ -101,7 +101,5 @@ MIT — free to use, adapt, and share. Attribution appreciated but not required.
 ---
 
 ## Creator
-
-Built by [Mike Adediran](https://linkedin.com/in/mikeadediran) — strategic operations AI transformation leader.
 
 Questions, feedback, or want to share how you used this? Reach out at [mikeadediran11@gmail.com](mailto:mikeadediran11@gmail.com) or connect on [LinkedIn](https://linkedin.com/in/mikeadediran).
