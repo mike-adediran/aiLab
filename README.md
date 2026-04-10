@@ -4,7 +4,7 @@ A free, open-source, tool-agnostic AI upskilling program for professionals.
 
 **No installation. No server. No cost. Open it in any browser.**
 
-→ **[Launch the lab](https://mikeadediran.github.io/aiLab/)**
+→ **[Launch the lab](https://mike-adediran.github.io/aiLab/)**
 
 ---
 
@@ -73,7 +73,7 @@ The program runs across four sessions. Sessions 1–3 are for everyone. Session 
 No build step. No dependencies. No install.
 
 ```bash
-git clone https://github.com/mikeadediran/aiLab.git
+git clone https://github.com/mike-adediran/aiLab.git
 cd aiLab
 open index.html
 ```
