@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A free, open-source AI upskilling program for professionals. 4 sessions. Real problems. No slides.">
+<meta property="og:title" content="AI Transformation Lab">
+<meta property="og:description" content="A free, open-source AI upskilling program for professionals. 4 sessions. Real problems. No slides. Works in any browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikeadediran.github.io/ai-transformation-lab/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Transformation Lab">
+<meta name="twitter:description" content="A free, open-source AI upskilling program. 4 sessions. Real problems. No slides.">
+<meta name="theme-color" content="#e8500a">
+<title>AI Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0f0f;--paper:#fafaf8;--accent:#e8500a;--accent2:#1a472a;
+  --muted:#6b6b6b;--border:#e2e2dc;--card:#ffffff;--soft:#f4f4f0;
+  --warn:#c9a227;--success:#1a6b3a;
+}
+*,*::before,*::after{box-sizing:border-box;max-width:100%}
+img,video,iframe,embed,object{max-width:100%;height:auto}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;max-width:100vw}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;max-width:100vw;width:100%}
+.wrap{max-width:920px;margin:0 auto;padding:2rem 1.5rem 6rem;overflow-x:hidden;width:100%;box-sizing:border-box}
+.lab-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--ink)}
+.lab-eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.lab-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.1}
+.lab-title span{color:var(--accent)}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.session-badge{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:5px 12px;border-radius:2px;white-space:nowrap}
+.cohort-input{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;color:var(--muted);border:none;border-bottom:1px solid var(--border);background:transparent;outline:none;width:180px;text-align:right;padding:2px 0}
+.cohort-input::placeholder{color:var(--border)}
+.nav{display:flex;gap:5px;margin-bottom:0.75rem;flex-wrap:wrap;align-items:center;padding-bottom:2px}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 13px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .15s;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.nav-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-btn.s4{border-color:var(--accent);color:var(--accent)}
+.nav-btn.s4.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.fac-bar{display:flex;align-items:center;justify-content:space-between;background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:.65rem 1rem;margin-bottom:1.25rem;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.fac-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fac-icon{font-size:12px;color:var(--muted)}
+.fac-notes{background:#fffbf0;border:1.5px solid #f0d890;border-radius:4px;padding:1.1rem 1.25rem;margin:0;display:none}
+.fac-notes.open{display:block;margin-bottom:1rem}
+.fac-heading{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:.6rem}
+.fac-notes p{font-size:13px;color:#5a4a00;line-height:1.75;margin-bottom:.4rem}
+.fac-notes p:last-child{margin-bottom:0}
+.section{display:none;width:100%;box-sizing:border-box}
+.section.active{display:block}
+#promptlab,#tracker,#guardrails,#connect{padding-left:1.5rem;padding-right:1.5rem;box-sizing:border-box}
+.card{background:var(--card);border:1.5px solid var(--border);border-radius:4px;padding:1.4rem 1.5rem;margin-bottom:1rem}
+.card-accent{border-left:4px solid var(--accent)}
+.card-dark{background:var(--ink);border-color:var(--ink)}
+.card-warn{background:#fef2ef;border:1.5px solid #f7c4b3}
+.label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:.3rem}
+h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.7rem}
+p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:.5rem}
+.overline{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+.challenge{background:var(--accent);border-radius:4px;padding:1.4rem 1.5rem;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.challenge::after{content:'→';position:absolute;right:1.25rem;bottom:.75rem;font-family:'Syne',sans-serif;font-size:52px;font-weight:800;opacity:.12;line-height:1;color:#fff}
+.challenge .overline{color:rgba(255,255,255,.65)}
+.challenge h3{color:#fff;font-size:15px;margin-bottom:.4rem}
+.challenge p{color:rgba(255,255,255,.88);font-size:14px;margin:0}
+.challenge-dark{background:var(--ink)}
+.steps{list-style:none}
+.steps li{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
+.step-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;min-width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-main{font-size:14px;font-weight:500;color:var(--ink);line-height:1.5;margin-bottom:2px}
+.step-sub{font-size:13px;color:var(--muted);line-height:1.55}
+.step-inline{background:var(--soft);padding:.65rem .85rem;border-radius:3px;margin-top:.4rem;font-size:13px;line-height:1.6;color:var(--ink)}
+.surgery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0}
+.surg-bad,.surg-good{border-radius:4px;padding:.85rem 1rem;font-size:13px;line-height:1.6}
+.surg-bad{background:#fef2ef;border:1.5px solid #f7c4b3;color:#7a2a0f}
+.surg-good{background:#edf7f0;border:1.5px solid #9fe1cb;color:#0a3a1e}
+.surg-lbl{font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.35rem}
+.surg-lbl.bad{color:#c04020}.surg-lbl.good{color:#1a6b3a}
+.prompt-pattern{background:var(--soft);border-radius:4px;padding:.85rem 1rem;margin-bottom:.55rem;border-left:3px solid var(--ink);font-size:13px;line-height:1.6;color:var(--ink)}
+.prompt-pattern strong{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;display:block;margin-bottom:4px;color:var(--muted)}
+.fail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0}
+.fail-card{background:var(--soft);border-radius:4px;padding:1rem;border-top:3px solid var(--warn)}
+.fail-card h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.fail-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.fail-card .fix{font-size:12px;color:var(--success);margin-top:.35rem;font-style:italic}
+.tabs{display:flex;gap:6px;margin-bottom:1.1rem;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);margin-bottom:0;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.sess-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:1.5rem}
+.sess-card{border:1.5px solid var(--border);border-radius:4px;padding:1rem;cursor:pointer;background:var(--card);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.sess-card.curr{border-color:var(--accent);border-width:2px;background:#fff9f7}
+.sess-card.s4card{border-color:rgba(232,80,10,.35)}
+.sess-wk{font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.sess-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:.35rem;line-height:1.3}
+.sess-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.sess-opt{font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:.4rem}
+.principle-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.25rem}
+.principle{background:var(--soft);border-radius:4px;padding:.8rem .9rem}
+.principle-icon{font-size:16px;margin-bottom:.35rem}
+.principle-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.principle-text{font-size:11px;color:var(--muted);line-height:1.5}
+.quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0}
+.quality-item{background:var(--soft);border-radius:4px;padding:1rem;border-left:3px solid var(--ink)}
+.quality-item h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.quality-item p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.guard-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem}
+.guard-item{background:var(--soft);border-radius:4px;padding:.9rem 1rem;display:flex;gap:.65rem;align-items:flex-start}
+.guard-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+.guard-text{font-size:13px;color:var(--ink);line-height:1.5}
+.guard-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.dtree{display:flex;flex-direction:column;gap:8px;margin:.75rem 0}
+.dtree-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dtree-q{background:var(--ink);color:#fff;border-radius:4px;padding:.8rem 1rem;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center}
+.dtree-a{border-radius:4px;padding:.8rem 1rem;font-size:12px;line-height:1.5;display:flex;flex-direction:column;gap:4px}
+.dtree-a.yes{background:#edf7f0;border:1px solid #9fe1cb;color:#0a3a1e}
+.dtree-a.no{background:#fef2ef;border:1px solid #f7c4b3;color:#7a2a0f}
+.dtree-a strong{font-family:'Syne',sans-serif;font-size:10px;font-weight:700}
+.builder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:.75rem 0}
+.builder-card{background:var(--soft);border-radius:4px;padding:1rem;border-top:3px solid var(--accent);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.builder-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.builder-card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.vibe-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:.75rem 0}
+.vibe-step{background:var(--soft);border-radius:4px;padding:.9rem;text-align:center}
+.vibe-step-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--accent);margin-bottom:.3rem}
+.vibe-step-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.vibe-step-text{font-size:11px;color:var(--muted);line-height:1.5}
+.between{display:none;background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:1.1rem 1.25rem;margin-top:1rem}
+.section.active .between{display:block}
+.between .overline{color:var(--accent2)}
+.between p{color:var(--ink);font-size:14px;margin-bottom:.35rem}
+.between p:last-child{margin-bottom:0}
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem}
+.stat-block{background:var(--ink);border-radius:4px;padding:1rem 1.25rem}
+.stat-val{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;line-height:1;color:#fff}
+.stat-lbl{font-size:10px;color:rgba(255,255,255,.45);margin-top:.3rem;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.win-entry{display:flex;gap:.85rem;padding:.9rem 0;border-bottom:1px solid var(--border)}
+.win-avatar{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.win-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--ink)}
+.win-domain{font-size:11px;color:var(--muted);margin-left:6px}
+.win-text{font-size:13px;color:var(--ink);margin-top:3px;line-height:1.5}
+.win-roi{font-size:11px;font-family:'Syne',sans-serif;font-weight:700;color:var(--success);margin-top:3px}
+.win-time{font-size:10px;color:var(--muted);margin-top:2px}
+.pledge-block{background:var(--ink);border-radius:4px;padding:1.4rem 1.5rem;margin-top:1rem}
+.pledge-block h3{color:#fff;margin-bottom:.75rem}
+.pledge-block .label{color:rgba(255,255,255,.4)}
+.pledge-block textarea,.pledge-block input[type=text]{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}
+.pledge-block textarea::placeholder,.pledge-block input[type=text]::placeholder{color:rgba(255,255,255,.3)}
+.pledge-block textarea:focus,.pledge-block input[type=text]:focus{border-color:rgba(255,255,255,.5)}
+.contact-card{display:flex;align-items:center;gap:1rem;background:var(--soft);border-radius:4px;padding:1.1rem 1.25rem;border:1.5px solid var(--border);margin-bottom:1rem;overflow:hidden}
+.contact-avatar{width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap;overflow-wrap:break-word;word-break:break-word}
+.contact-link{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(232,80,10,.3);padding-bottom:1px}
+.share-block{background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:1.1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.share-text{font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+.share-text strong{color:var(--ink);font-weight:500}
+/* Copy modal */
+.copy-modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;padding:1.5rem;align-items:center;justify-content:center}
+.copy-modal-overlay.open{display:flex}
+.copy-modal-box{background:#fff;border-radius:8px;padding:1.5rem;width:100%;max-width:500px}
+.copy-modal-box h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:.5rem}
+.copy-modal-box .copy-hint{font-size:13px;color:var(--muted);margin-bottom:.75rem}
+.copy-modal-box textarea{width:100%;min-height:130px;padding:10px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--ink);line-height:1.6;resize:none;margin-bottom:.75rem}
+textarea,input[type=text],select{width:100%;max-width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;margin-bottom:.75rem;line-height:1.5;-webkit-appearance:none;appearance:none;word-break:break-word}
+textarea{min-height:88px;resize:vertical}
+textarea:focus,input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 18px;border-radius:2px;border:1.5px solid;cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;display:inline-flex;align-items:center;justify-content:center;transition:opacity .15s}
+.btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--border)}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-share{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 18px;border-radius:2px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.65rem}
+.confirm{font-size:11px;color:var(--success);font-family:'Syne',sans-serif;font-weight:700;margin-top:5px;display:none;letter-spacing:.05em;text-transform:uppercase}
+.saved-prompt{background:var(--soft);border-radius:4px;padding:.8rem 1rem;margin-bottom:.5rem;border-left:3px solid var(--accent)}
+.saved-prompt-time{font-size:10px;color:var(--muted);font-family:'Syne',sans-serif;margin-bottom:4px}
+.saved-prompt-text{font-size:13px;color:var(--ink);line-height:1.6;white-space:pre-wrap}
+.assembled{background:var(--soft);border:1.5px dashed var(--border);border-radius:4px;padding:1rem 1.1rem;font-size:14px;color:var(--ink);line-height:1.7;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word;overflow-x:hidden;max-width:100%;width:100%;min-height:80px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:.75rem 0}
+.tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--soft);border:1px solid var(--border);color:var(--muted)}
+hr{border:none;border-top:1.5px solid var(--border);margin:1.25rem 0}
+.mobile-hero{display:none}
+.do-now{background:#fff9f7;border:1.5px solid var(--accent);border-left:4px solid var(--accent);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0}
+.do-now .do-now-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.do-now p{font-size:14px;color:var(--ink);font-weight:500;margin:0;line-height:1.6}
+.example-toggle{background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:.75rem 1rem;margin:.75rem 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.example-toggle-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between}
+.example-content{display:none;margin-top:.75rem;font-size:13px;color:var(--ink);line-height:1.7;border-top:1px solid var(--border);padding-top:.75rem}
+.example-content.open{display:block}
+.fac-timer-btn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 10px;border-radius:2px;border:1.5px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);-webkit-tap-highlight-color:transparent}
+.fac-timer-btn:hover{color:var(--ink);border-color:var(--ink)}
+/* Grid overflow fix */
+.sess-grid,.principle-strip,.quality-grid,.guard-list,.fail-grid,.vibe-steps,.stat-strip,.form-row,.dtree-row,.builder-grid{min-width:0}
+.sess-grid > *,.principle-strip > *,.quality-grid > *,.guard-list > *,.fail-grid > *,.vibe-steps > *,.stat-strip > *,.form-row > *,.dtree-row > *,.builder-grid > *{min-width:0;word-break:break-word;overflow-wrap:break-word}
+/* Mode toggle */
+.mode-toggle-wrap{display:flex;align-items:center;gap:8px;margin-bottom:1.5rem;padding:1rem 1.25rem;background:var(--soft);border-radius:4px;border:1.5px solid var(--border);flex-wrap:wrap}
+.mode-toggle-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.mode-btn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;min-height:36px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:all .15s}
+.mode-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.mode-desc{font-size:12px;color:var(--muted);width:100%;margin-top:4px;line-height:1.5}
+/* Mode content visibility */
+.solo-only{display:none}
+.group-only{display:block}
+body.mode-solo .solo-only{display:block}
+body.mode-solo .group-only{display:none}
+.solo-only-inline{display:none}
+.group-only-inline{display:inline}
+body.mode-solo .solo-only-inline{display:inline}
+body.mode-solo .group-only-inline{display:none}
+body.mode-solo #fac-trigger-wrap{display:none}
+body.mode-solo #fac-notes{display:none!important}
+/* Session progress checks */
+.sess-check{display:none;font-size:11px;color:var(--success);font-family:'Syne',sans-serif;font-weight:700;margin-top:4px}
+body.mode-solo .sess-check{display:block}
+.sess-check.done::before{content:'✓ Started'}
+/* Font fallbacks */
+body{font-family:'DM Sans','Arial',sans-serif}
+.lab-title,h2,h3,.label,.overline,.nav-btn,.tab,.sess-wk,.sess-title,.fac-label,.session-badge,.stat-lbl,.win-name,.win-roi,.tag,.btn{font-family:'Syne','Arial Black','Arial Bold',sans-serif}
+@media(max-width:768px){
+  .wrap{padding:1.25rem 1rem 5rem}
+  .lab-header{grid-template-columns:1fr;gap:.75rem;margin-bottom:1.5rem;padding-bottom:1.25rem}
+  .lab-title{font-size:24px}
+  .header-right{flex-direction:row;align-items:center;justify-content:space-between}
+  .cohort-input{text-align:left;width:140px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;margin-bottom:0.75rem;gap:4px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{font-size:9px;padding:7px 11px;flex-shrink:0}
+  .sess-grid{grid-template-columns:1fr 1fr}
+  .principle-strip{grid-template-columns:1fr 1fr}
+  .quality-grid,.guard-list,.form-row,.fail-grid,.dtree-row{grid-template-columns:1fr}
+  .builder-grid{grid-template-columns:1fr}
+  .vibe-steps{grid-template-columns:1fr 1fr}
+  .card{overflow:hidden}
+  .surgery{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .wrap{padding:1rem .9rem 4rem;width:100%}
+  .lab-title{font-size:22px}
+  .session-badge{font-size:9px;padding:4px 9px}
+  .cohort-input{width:120px;font-size:9px}
+  .mobile-hero{display:block;background:var(--accent);border-radius:4px;padding:1.1rem 1.25rem;margin-bottom:1.25rem}
+  .mobile-hero p{color:rgba(255,255,255,.9);font-size:13px;line-height:1.65;margin:0}
+  .mobile-hero strong{color:#fff;font-weight:600}
+  .card{padding:1rem;margin-left:0;margin-right:0;max-width:100%;width:100%;overflow:hidden}
+  .sess-grid{grid-template-columns:1fr}
+  .principle-strip{grid-template-columns:1fr 1fr;gap:7px}
+  h2{font-size:20px}
+  .step-main{font-size:13px}
+  .surgery{grid-template-columns:1fr}
+  .dtree-row{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .vibe-steps{grid-template-columns:1fr 1fr}
+  .stat-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat-val{font-size:22px}
+  .challenge,.pledge-block{padding:1.1rem}
+  .challenge::after{font-size:38px}
+  .contact-card{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .share-block{flex-direction:column;align-items:flex-start}
+  .section{padding:0 0.1rem}
+  .section .card{margin:0 0 1rem 0;max-width:100%}
+  #promptlab,#tracker,#guardrails,#connect{padding-left:0.9rem;padding-right:0.9rem}
+}
+</style>
+</head>
+<body>
+<!-- COPY MODAL (universal fallback for all devices) -->
+<div class="copy-modal-overlay" id="copy-modal">
+  <div class="copy-modal-box">
+    <h4>Copy this text</h4>
+    <p class="copy-hint">Tap and hold the text below, then choose "Select All" and "Copy".</p>
+    <textarea id="copy-modal-text" readonly></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="copy-modal-try-btn">Try to auto-copy</button>
+      <button class="btn btn-ghost" id="copy-modal-close-btn">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- HEADER -->
+  <div class="lab-header">
+    <div>
+      <div class="lab-eyebrow">Open-source · Tool-agnostic · Free to share</div>
+      <div class="lab-title">AI <span>Transformation</span> Lab</div>
+    </div>
+    <div class="header-right">
+      <div class="session-badge" id="current-badge">Overview</div>
+      <input class="cohort-input" id="cohort-id" placeholder="Name your cohort...">
+    </div>
+  </div>
+
+  <!-- NAV — all buttons use data-section, bound via JS -->
+  <nav class="nav" id="main-nav">
+    <button class="nav-btn active" data-section="overview">Overview</button>
+    <button class="nav-btn" data-section="session1">Session 1</button>
+    <button class="nav-btn" data-section="session2">Session 2</button>
+    <button class="nav-btn" data-section="session3">Session 3</button>
+    <button class="nav-btn s4" data-section="session4">Session 4 ✦</button>
+    <button class="nav-btn" data-section="promptlab">Prompt Lab</button>
+    <button class="nav-btn" data-section="tracker">Wins Wall</button>
+    <button class="nav-btn" data-section="guardrails">Guardrails</button>
+    <button class="nav-btn" data-section="connect">Connect</button>
+  </nav>
+
+  <!-- FACILITATOR TRIGGER -->
+  <div id="fac-trigger-wrap" style="text-align:right;margin-top:0;margin-bottom:0.5rem;">
+    <button id="fac-trigger-btn" style="
+      font-family:'Syne','Arial Black',sans-serif;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      padding:4px 0;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    ">I'm a facilitator &#9660;</button>
+  </div>
+  <div class="fac-notes" id="fac-notes">
+    <div class="fac-heading">For the person running this session</div>
+    <p id="fac-text">Navigate to a session to see facilitator notes.</p>
+    <div class="fac-timer" id="fac-timer" style="margin-top:.85rem;padding-top:.85rem;border-top:1px solid #f0d890;">
+      <div style="font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:.5rem;">Session timer</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.6rem;">
+        <button class="fac-timer-btn" data-mins="3">3 min</button>
+        <button class="fac-timer-btn" data-mins="5">5 min</button>
+        <button class="fac-timer-btn" data-mins="20">20 min</button>
+        <button class="fac-timer-btn" data-mins="30">30 min</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div id="timer-display" style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--ink);">--:--</div>
+        <button id="timer-stop" class="fac-timer-btn" style="display:none;">Stop</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div id="overview" class="section active">
+    <div class="mode-toggle-wrap">
+      <span class="mode-toggle-label">I am</span>
+      <button class="mode-btn active" id="btn-mode-group">Attending a group session</button>
+      <button class="mode-btn" id="btn-mode-solo">Learning on my own</button>
+      <div class="mode-desc" id="mode-desc-text">Facilitator-led cohort experience. All exercises are designed for group participation.</div>
+    </div>
+    <div class="mobile-hero">
+      <p><strong>Welcome.</strong> A free, hands-on AI upskilling program. 4 sessions. Real problems. No slides. Open on desktop for the full experience — or explore right here.</p>
+    </div>
+    <div class="sess-grid">
+      <div class="sess-card curr" data-goto="session1">
+        <div class="sess-wk">Week 1</div><div class="sess-title">Foundation + problem framing</div>
+        <div class="sess-desc">Understand real capability. Surface your problems. Set a baseline.</div>
+        <div class="sess-check" id="check-s1"></div>
+      </div>
+      <div class="sess-card" data-goto="session2">
+        <div class="sess-wk">Week 2</div><div class="sess-title">Applied lab + prompt mastery</div>
+        <div class="sess-desc">Prompt surgery. Cross-functional challenges. Capture ROI.</div>
+        <div class="sess-check" id="check-s2"></div>
+      </div>
+      <div class="sess-card" data-goto="session3">
+        <div class="sess-wk">Week 3</div><div class="sess-title">Showcase + champion toolkit</div>
+        <div class="sess-desc">Present your story. Commit to next steps. Teach others.</div>
+        <div class="sess-check" id="check-s3"></div>
+      </div>
+      <div class="sess-card s4card" data-goto="session4">
+        <div class="sess-wk">Week 4</div><div class="sess-title">Builder track — optional</div>
+        <div class="sess-desc">Design workflows, build UI, intro to vibe coding.</div>
+        <div class="sess-opt">Self-selected ✦</div>
+        <div class="sess-check" id="check-s4"></div>
+      </div>
+    </div>
+    <div class="principle-strip">
+      <div class="principle"><div class="principle-icon">⚡</div><div class="principle-title">Real problems only</div><div class="principle-text">No toy exercises. Bring what you actually do.</div></div>
+      <div class="principle"><div class="principle-icon">🔁</div><div class="principle-title">Iterate out loud</div><div class="principle-text">Bad prompt → better → best. That's the skill.</div></div>
+      <div class="principle"><div class="principle-icon">📐</div><div class="principle-title">Measure everything</div><div class="principle-text">Time before. Time after. That's your ROI story.</div></div>
+      <div class="principle"><div class="principle-icon">🎙</div><div class="principle-title">Teach to lock in</div><div class="principle-text">Session 3 ends with you teaching someone else.</div></div>
+    </div>
+    <div class="solo-only" style="background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin-bottom:1rem;">
+      <div class="label" style="margin-bottom:.4rem">Self-paced tips</div>
+      <ol class="steps" style="margin:0">
+        <li><div class="step-num">1</div><div><div class="step-main">Work through each session at your own speed — there is no time pressure.</div><div class="step-sub">The session time labels are rough guides, not deadlines.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Do the exercises for real. Reading without doing is the fastest way to forget everything.</div><div class="step-sub">Every "Do this now" callout is a genuine pause point. Stop and do it before moving on.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Use the wins journal to track what works. Your log is your proof of progress.</div><div class="step-sub">Even rough wins count. Name them.</div></div></li>
+        <li><div class="step-num">4</div><div><div class="step-main">Session 4 is genuinely optional — only go there if Sessions 1–3 felt solid.</div><div class="step-sub">The checklist on the Session 4 card in Session 3 will tell you if you're ready.</div></div></li>
+      </ol>
+    </div>
+    <div class="card card-dark">
+      <div class="label" style="color:rgba(255,255,255,.4)">How this works</div>
+      <ol class="steps">
+        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">1</div><div><div class="step-main" style="color:#fff">Each session tab is your live guide — follow steps, work in the prompt lab, log wins.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">No slides. Everything lives here.</div></div></li>
+        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">2</div><div><div class="step-main" style="color:#fff">Bring your top 2 real problems. Vague problems get vague AI help.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Captured in Session 1 before anything else.</div></div></li>
+        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">3</div><div><div class="step-main" style="color:#fff">Each week has one async challenge — 15 minutes max. Don't skip it.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Where real learning compounds between sessions.</div></div></li>
+        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">4</div><div><div class="step-main" style="color:#fff">Download your session data before closing. Nothing persists on refresh.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Export button on the Wins wall.</div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SESSION 1 -->
+  <div id="session1" class="section">
+    <div class="overline">Session 1 · Week 1 · <span class="group-only-inline">60–90 min</span><span class="solo-only-inline">Go at your own pace</span></div>
+    <h2>Foundation + problem framing</h2>
+    <p style="margin-bottom:1.25rem">You've used AI tools before. Today we go deeper — and apply it to work you actually own.</p>
+    <div class="challenge"><div class="overline">Challenge of the day</div><h3>The 30-minute task</h3><p class="group-only-inline">Pick one recurring task that takes more than 30 minutes a week. By end of session, produce a version using AI — and estimate the time saved. Log it to the Wins wall.</p><p class="solo-only-inline">Pick one recurring task that takes more than 30 minutes a week. Work through this session at your own pace. By the end, produce an AI version of that task and note the time difference in your wins journal.</p></div>
+    <div class="card">
+      <h3>What AI actually is — and isn't</h3>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div><div class="step-main">AI is a reasoning engine, not a search engine.</div><div class="step-sub">It generates — doesn't retrieve. It can be wrong. Confidently wrong. Verification stays with you, always.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Your prompt is your lever. Everything else is commentary.</div><div class="step-sub">A 3-word prompt gives you a generic intern. A structured prompt gives you a great analyst.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Treat it like a smart new hire who needs a proper brief.</div><div class="step-sub">Role, context, task, format. Give all four and you'll be amazed. Give one and you'll be disappointed.</div></div></li>
+        <li><div class="step-num">4</div><div><div class="step-main">People who get the most from AI iterate fast.</div><div class="step-sub">First output is a draft. Run corrections. Tighten again. Three passes beats one "perfect" prompt every time.</div></div></li>
+      </ol>
+    </div>
+    <div class="card card-accent">
+      <h3>Surface your problems — before we go any further</h3>
+      <p>This shapes your entire experience. Be specific — vague problems get vague AI help.</p>
+      <div class="form-row">
+        <div><div class="label">Your name</div><input type="text" id="s1-name" placeholder="First name"></div>
+        <div><div class="label">Your function</div><input type="text" id="s1-fn" placeholder="Finance / Supply chain..."></div>
+      </div>
+      <div class="label">Problem 1 — biggest time sink</div>
+      <textarea id="s1-p1" placeholder="What is the task, how often, what does the output look like, who receives it?"></textarea>
+      <div class="label">Baseline — how long does it take today?</div>
+      <input type="text" id="s1-base" placeholder="e.g. 3 hours every Monday morning">
+      <div class="label">Problem 2 — second biggest frustration</div>
+      <textarea id="s1-p2" placeholder="What drains your time or creates friction?"></textarea>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-save-s1">Save my problems</button>
+        <button class="btn btn-ghost" data-goto="promptlab">Prompt lab →</button>
+      </div>
+      <div class="confirm" id="s1-confirm">Saved. Head to the prompt lab and start with Problem 1.</div>
+    </div>
+    <div class="card">
+      <h3>Live: prompt surgery</h3>
+      <p>Watch how the same request changes in quality as the prompt improves.</p>
+      <div class="surgery">
+        <div class="surg-bad"><div class="surg-lbl bad">Weak</div>Summarize the supply chain report.</div>
+        <div class="surg-good"><div class="surg-lbl good">Strong</div>You are a supply chain analyst. Summarize this report for a VP audience. Lead with the top 3 risks, then recommended actions with owners and timelines. Under 200 words.</div>
+      </div>
+      <div class="surgery">
+        <div class="surg-bad"><div class="surg-lbl bad">Weak</div>Write a finance update.</div>
+        <div class="surg-good"><div class="surg-lbl good">Strong</div>Write a one-page Q3 finance update for a CFO. Tone: direct, no jargon. Structure: headline number → 3 drivers of variance → one forward-looking risk. Bullets for the drivers.</div>
+      </div>
+      <div class="example-toggle" data-example="ex1">
+        <div class="example-toggle-label">See a real worked example <span id="ex1-icon">▼</span></div>
+        <div class="example-content" id="ex1-content">
+          <strong>Problem:</strong> Every Monday I spend 2 hours pulling last week's sales data from three systems and writing a summary email for my VP.<br><br>
+          <strong>Weak prompt:</strong> "Summarize last week's sales."<br>
+          <strong>Output:</strong> A generic paragraph with no structure, no variance analysis, no action items. Would need complete rewrite.<br><br>
+          <strong>Strong prompt:</strong> "You are a sales analyst. Here is last week's data by region [paste]. Write a 150-word summary for a VP. Structure: 1) headline number vs target, 2) top 2 regions and why, 3) one risk to flag. Bullet points only."<br>
+          <strong>Output:</strong> Structured, send-ready in one pass. Time: 8 minutes instead of 2 hours.<br><br>
+          <strong>ROI:</strong> 1hr 52min saved. Every week.
+        </div>
+      </div>
+    </div>
+    <div class="do-now">
+      <div class="do-now-label">Your turn — do this now</div>
+      <p>Open your AI tool. Take Problem 1 you just wrote above and paste it in with a weak prompt. See what you get. Then rebuild the prompt using the surgery examples above. Run it again. Notice the difference. Don't move on until you've done both runs.</p>
+    </div>
+    <div class="card">
+      <h3>Output quality check — is it actually better?</h3>
+      <div class="quality-grid">
+        <div class="quality-item"><h4>Is it accurate?</h4><p>Verify numbers and claims against source data. Never assume.</p></div>
+        <div class="quality-item"><h4>Appropriate for the audience?</h4><p>Would you send this to the intended recipient right now?</p></div>
+        <div class="quality-item"><h4>Does it reflect your judgment?</h4><p>AI generates options. Your expertise shapes the final call.</p></div>
+        <div class="quality-item"><h4>Better than alone?</h4><p>If not — the prompt needs work, not more of the same output.</p></div>
+      </div>
+    </div>
+    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what didn't, and your best prompt. Bring it to Session 2.</p><p style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
+  </div>
+
+  <!-- SESSION 2 -->
+  <div id="session2" class="section">
+    <div class="overline">Session 2 · Week 2 · <span class="group-only-inline">60–90 min</span><span class="solo-only-inline">Go at your own pace</span></div>
+    <h2>Applied lab + prompt mastery</h2>
+    <p style="margin-bottom:1.25rem">Bring your best prompt from the week. Today we go deeper — and solve each other's problems.</p>
+    <div class="challenge"><div class="overline">Challenge of the day</div><h3>Solve someone else's problem</h3><p class="group-only-inline">Pair with someone from a different function. 20 minutes on their Problem 1 — you bring prompting skill, they bring domain knowledge. Then swap.</p><p class="solo-only-inline">Pick a problem outside your primary domain — imagine you work in a different function. Use AI to tackle it using only the prompt patterns from this session. This builds transferable skill faster than staying in your lane.</p></div>
+    <div class="card">
+      <h3>Opening debrief — 20 minutes</h3>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div>
+          <div class="group-only"><div class="step-main">Share your best prompt — what made it work?</div><div class="step-sub">3–4 minutes each. Show the prompt, show the output.</div></div>
+          <div class="solo-only"><div class="step-main">Review your own best prompt from the week — write down what made it work.</div><div class="step-sub">Be specific. Was it the role? The format constraint? The negative instruction? Naming it makes it repeatable.</div></div>
+        </div></li>
+        <li><div class="step-num">2</div><div>
+          <div class="group-only"><div class="step-main">Share one thing that didn't work — and your hypothesis for why.</div><div class="step-sub">Failure cases teach faster than successes.</div></div>
+          <div class="solo-only"><div class="step-main">Write down one prompt that didn't work — and your best guess at why.</div><div class="step-sub">Was the role missing? Too vague on format? Wrong tool for the task? Use the decision tree tab to diagnose it.</div></div>
+        </div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Log your best win to the Wins wall before moving on.</div><div class="step-sub"><span class="group-only-inline">Even small. Especially small.</span><span class="solo-only-inline">Log it to your wins journal. Even if it's rough — it counts.</span></div></div></li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="tabs" id="s2-tabs">
+        <button class="tab active" data-tab-group="s2" data-tab="anatomy">Prompt anatomy</button>
+        <button class="tab" data-tab-group="s2" data-tab="patterns">By function</button>
+        <button class="tab" data-tab-group="s2" data-tab="failures">Failure modes</button>
+        <button class="tab" data-tab-group="s2" data-tab="tools">Which tool?</button>
+      </div>
+      <div id="s2-anatomy" class="tab-panel active">
+        <h3>The RCTFX framework</h3>
+        <ol class="steps">
+          <li><div class="step-num">R</div><div><div class="step-main">Role — tell it who to be</div><div class="step-sub">"You are a senior operations analyst with 15 years in manufacturing."</div></div></li>
+          <li><div class="step-num">C</div><div><div class="step-main">Context — give it the situation</div><div class="step-sub">Business problem, audience, decisions this will inform.</div></div></li>
+          <li><div class="step-num">T</div><div><div class="step-main">Task — be explicit with verbs</div><div class="step-sub">Write / Summarize / Analyze / Draft / Critique / Compare.</div></div></li>
+          <li><div class="step-num">F</div><div><div class="step-main">Format — tell it how to structure output</div><div class="step-sub">Bullets, table, paragraphs, length limit.</div></div></li>
+          <li><div class="step-num">X</div><div><div class="step-main">Constraints — what to exclude</div><div class="step-sub">"No jargon. Under 150 words. Don't recommend budget increases."</div></div></li>
+        </ol>
+        <div class="example-toggle" data-example="ex2">
+          <div class="example-toggle-label">See RCTFX applied to a real problem <span id="ex2-icon">▼</span></div>
+          <div class="example-content" id="ex2-content">
+            <strong>R:</strong> You are a supply chain risk analyst.<br>
+            <strong>C:</strong> We have 3 tier-1 suppliers in Southeast Asia and one has flagged a potential 4-week delay due to port congestion. Our Q3 launch depends on their component.<br>
+            <strong>T:</strong> Draft a risk assessment memo for our VP of Operations.<br>
+            <strong>F:</strong> One page max. Sections: situation summary, risk rating (High/Med/Low with reason), 3 mitigation options with tradeoffs, recommended action.<br>
+            <strong>X:</strong> No technical jargon. Assume the reader knows the business but not the supplier relationship details.<br><br>
+            <strong>Result:</strong> Send-ready memo in 6 minutes. Previously took half a day to draft, circulate, and align.
+          </div>
+        </div>
+      </div>
+      <div id="s2-patterns" class="tab-panel">
+        <h3>Prompt patterns by function</h3>
+        <div class="prompt-pattern"><strong>Finance</strong>You are a financial analyst. Given this data [paste], identify the top 3 variances from plan. For each: state the variance, the likely driver, and one corrective action. Format as a table.</div>
+        <div class="prompt-pattern"><strong>Supply chain</strong>You are a supply chain risk analyst. Review this supplier update [paste]. Flag delivery, quality, or compliance risks. Rate each High/Medium/Low with one sentence of reasoning. Priority order.</div>
+        <div class="prompt-pattern"><strong>Strategy</strong>You are a strategy consultant. Summarize this competitive intelligence [paste] into a 3-part exec narrative: market shift → implications for us → recommended response. One paragraph each.</div>
+        <div class="prompt-pattern"><strong>Operations / Manufacturing</strong>You are a process improvement expert. Here is our current process [paste]. Identify the 3 biggest bottlenecks. For each: name it, explain impact, suggest one AI-enabled fix.</div>
+      </div>
+      <div id="s2-failures" class="tab-panel">
+        <h3>When AI gets it wrong — and how to catch it</h3>
+        <div class="fail-grid">
+          <div class="fail-card"><h4>Hallucination</h4><p>Invents facts or numbers that sound plausible.</p><p class="fix">Fix: Verify figures against source data before using in exec reports.</p></div>
+          <div class="fail-card"><h4>Overconfidence</h4><p>Answers when it should say "I don't know."</p><p class="fix">Fix: Add "Note anywhere you're uncertain" to your prompt.</p></div>
+          <div class="fail-card"><h4>Generic output</h4><p>Gives you a template when you needed a judgment.</p><p class="fix">Fix: Add more specific context and constraints, then re-run.</p></div>
+          <div class="fail-card"><h4>Sycophancy</h4><p>Agrees with you even when you're wrong.</p><p class="fix">Fix: Ask it to steelman the opposite view before agreeing.</p></div>
+        </div>
+      </div>
+      <div id="s2-tools" class="tab-panel">
+        <h3>Which AI tool for which job?</h3>
+        <div class="dtree">
+          <div class="dtree-row"><div class="dtree-q">Confidential or sensitive data?</div><div style="display:flex;flex-direction:column;gap:6px"><div class="dtree-a yes"><strong>Yes →</strong> Company-approved enterprise tool only. Never paste sensitive data into consumer AI.</div><div class="dtree-a no"><strong>No →</strong> Continue below.</div></div></div>
+          <div class="dtree-row"><div class="dtree-q">Writing, summarizing, or reasoning?</div><div style="display:flex;flex-direction:column;gap:6px"><div class="dtree-a yes"><strong>Yes →</strong> ChatGPT, Claude, or Gemini all work well.</div><div class="dtree-a no"><strong>No →</strong> Continue below.</div></div></div>
+          <div class="dtree-row"><div class="dtree-q">Need current info or web search?</div><div style="display:flex;flex-direction:column;gap:6px"><div class="dtree-a yes"><strong>Yes →</strong> Perplexity, ChatGPT with search, or Gemini with Google.</div><div class="dtree-a no"><strong>No →</strong> Continue below.</div></div></div>
+          <div class="dtree-row"><div class="dtree-q">Need to build or code something?</div><div style="display:flex;flex-direction:column;gap:6px"><div class="dtree-a yes"><strong>Yes →</strong> Claude or ChatGPT. See Session 4 for the full builder track.</div><div class="dtree-a no"><strong>No →</strong> Any major tool. Pick one and get good at it before diversifying.</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3><span class="group-only-inline">Cross-functional pair challenge</span><span class="solo-only-inline">Cross-domain solo challenge</span></h3>
+      <p><span class="group-only-inline">Pair with someone from a different function. 20 minutes on their problem, then swap.</span><span class="solo-only-inline">Pick a domain you don't work in daily. Use the function prompt patterns from the previous tab to tackle a problem from that domain. Then reflect on what you learned from the outside perspective.</span></p>
+      <div class="group-only">
+        <div class="form-row">
+          <div><div class="label">Pairing partner</div><input type="text" id="s2-partner" placeholder="Name + function"></div>
+          <div><div class="label">Their problem you worked on</div><input type="text" id="s2-prob" placeholder="Brief description"></div>
+        </div>
+      </div>
+      <div class="solo-only">
+        <div class="label">Domain you are simulating</div>
+        <input type="text" id="s2-domain-solo" placeholder="e.g. Finance (if you're in Supply Chain)">
+        <div class="label">Problem you tackled from that domain</div>
+        <textarea id="s2-insight-solo" style="min-height:65px" placeholder="What did you try? What prompt worked? What surprised you about working outside your domain?"></textarea>
+      </div>
+      <div class="label">What worked? What surprised you?</div>
+      <textarea id="s2-insight" style="min-height:65px" placeholder="What prompt worked best? What did you learn?"></textarea>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-save-s2">Save notes</button>
+        <button class="btn btn-ghost" data-goto="tracker">Log a win →</button>
+      </div>
+      <div class="confirm" id="s2-confirm">Saved.</div>
+    </div>
+    <div class="do-now">
+      <div class="do-now-label">Your turn — do this now</div>
+      <p>Pick the function pattern closest to yours from the "By function" tab. Copy it into the prompt lab, swap in your real problem, and run it. Then use "Which tool?" to confirm you're using the right AI tool for this task. Log the output as a win if it's better than what you'd have produced alone.</p>
+    </div>
+    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly. You'll present it in Session 3.</p></div>
+  </div>
+
+  <!-- SESSION 3 -->
+  <div id="session3" class="section">
+    <div class="overline">Session 3 · Week 3 · <span class="group-only-inline">60–90 min</span><span class="solo-only-inline">Go at your own pace</span></div>
+    <h2>Showcase + champion toolkit</h2>
+    <p style="margin-bottom:1.25rem">Come with your ROI story. You leave today as someone who can teach this — not just use it.</p>
+    <div class="challenge"><div class="overline">Challenge of the day</div><h3>Teach one thing</h3><p class="group-only-inline">Each person demos one AI use case — 3 minutes max. Show the before. Show the after. Show the prompt. No slides.</p><p class="solo-only-inline">Document your best before-and-after from this program. Write it up as if you were explaining it to a sceptical colleague. Your future self is the audience — be specific enough that you could repeat it in 6 months.</p></div>
+    <div class="card card-accent">
+      <h3>Your ROI story</h3>
+      <div class="label">Problem you solved</div><input type="text" id="s3-problem" placeholder="What was the task?">
+      <div class="form-row">
+        <div><div class="label">Time before AI</div><input type="text" id="s3-before" placeholder="e.g. 3 hours per week"></div>
+        <div><div class="label">Time after AI</div><input type="text" id="s3-after" placeholder="e.g. 40 minutes per week"></div>
+      </div>
+      <div class="label">Quality impact</div><input type="text" id="s3-quality" placeholder="e.g. Fewer revision rounds, caught risk earlier">
+      <div class="label">Your best prompt from this program</div>
+      <textarea id="s3-prompt" style="min-height:75px" placeholder="Paste it. Most reusable asset from this program."></textarea>
+      <div class="example-toggle" data-example="ex3">
+        <div class="example-toggle-label">See what a strong ROI story looks like <span id="ex3-icon">▼</span></div>
+        <div class="example-content" id="ex3-content">
+          <strong>Problem:</strong> Weekly financial variance commentary for CFO pack — previously 3 hours every Thursday.<br>
+          <strong>Before AI:</strong> 3 hours. Pull data, structure narrative, write, revise, get sign-off on tone.<br>
+          <strong>After AI:</strong> 35 minutes. AI drafts the narrative from pasted data. I edit for nuance and verify numbers. Done in one pass.<br>
+          <strong>Quality impact:</strong> More consistent structure week to week. CFO stopped asking for revisions after week 2.<br>
+          <strong>Time saved per week:</strong> ~2.5 hours.<br>
+          <strong>Annualised:</strong> ~125 hours — more than 3 full working weeks returned.<br><br>
+          <strong>What I do with that time:</strong> I now run a 30-minute strategy session with my team every Thursday instead. Didn't have capacity before.
+        </div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="btn-save-s3">Save + log to wins wall</button></div>
+      <div class="confirm" id="s3-confirm">Saved and logged.</div>
+    </div>
+    <div class="card">
+      <h3>Your champion toolkit</h3>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div><div class="step-main">Teach the loop, not tricks. Problem → prompt → iterate → verify → ship.</div><div class="step-sub">Tricks expire. A repeatable process compounds.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Share prompts, not advice. Prompts are concrete. Advice is abstract.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Lead with ROI. Time saved is a language everyone speaks.</div></div></li>
+        <li><div class="step-num">4</div><div><div class="step-main">Expect resistance. Don't convince — show.</div><div class="step-sub">Skeptics argue with words. They can't argue with a result in front of them.</div></div></li>
+        <li><div class="step-num">5</div><div><div class="step-main">Address the "what about my job?" fear early and directly.</div><div class="step-sub">AI saves time — it doesn't eliminate roles. People who use it do more valuable work.</div></div></li>
+      </ol>
+    </div>
+    <div class="do-now">
+      <div class="do-now-label">Your turn — do this now</div>
+      <p>You have 3 minutes. Open your AI tool. Take the best prompt you built in this program and run it one more time on a current real problem. Screenshot the output. You'll use this in your showcase demo in the next 30 minutes.</p>
+    </div>
+    <div class="pledge-block">
+      <h3>Your 30-day commitment</h3>
+      <p style="color:rgba(255,255,255,.6);margin-bottom:1rem;font-size:13px">People who write this down follow through at a significantly higher rate.</p>
+      <div class="label">I will use AI to...</div>
+      <textarea id="pledge-use" style="min-height:60px" placeholder="Specific task or workflow in the next 30 days..."></textarea>
+      <div class="label">The time I save will go toward...</div>
+      <textarea id="pledge-time" style="min-height:60px" placeholder="Strategic work? Leading differently? Thinking instead of producing?"></textarea>
+      <div class="label">I will share this with...</div>
+      <input type="text" id="pledge-share" placeholder="One person or team you'll teach something to in 30 days">
+      <div class="btn-row"><button class="btn btn-accent" id="btn-save-pledge">Lock in my commitment</button></div>
+      <div class="confirm" id="pledge-confirm" style="color:rgba(100,220,140,.9)">Commitment saved — appears in your session export.</div>
+    </div>
+    <div class="card" style="margin-top:1rem">
+      <h3>Session 4 — is it for you?</h3>
+      <ol class="steps">
+        <li><div class="step-num">✓</div><div><div class="step-main">You can describe what you want precisely before prompting.</div></div></li>
+        <li><div class="step-num">✓</div><div><div class="step-main">You can read AI output critically and know when something is wrong.</div></div></li>
+        <li><div class="step-num">✓</div><div><div class="step-main">You have a specific thing you want to build.</div><div class="step-sub">Session 4 with no target is just browsing. Come with a real use case.</div></div></li>
+      </ol>
+      <div class="btn-row"><button class="btn btn-accent" data-goto="session4">I'm ready — Session 4 →</button></div>
+    </div>
+    <div class="card">
+      <h3><span class="group-only-inline">Cohort feedback</span><span class="solo-only-inline">Personal reflection</span></h3>
+      <div class="label" id="fb-best-label">What worked best?</div><textarea id="fb-best" style="min-height:55px" placeholder="What would you tell someone starting the next cohort?"></textarea>
+      <div class="label" id="fb-change-label">What would you change?</div><textarea id="fb-change" style="min-height:55px" placeholder="Be honest. This is how we improve."></textarea>
+      <div class="label">Would you recommend this?</div>
+      <div class="group-only">
+        <select id="fb-rec"><option value="">Select...</option><option>Definitely — sending it to people this week</option><option>Probably yes</option><option>Not sure</option><option>Probably not</option></select>
+      </div>
+      <div class="solo-only">
+        <select id="fb-rec-solo"><option value="">Select...</option><option>Transformative — I work differently now</option><option>Very useful — I have new habits</option><option>Somewhat useful — I learned some things</option><option>Not what I needed right now</option></select>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-save-fb">Submit feedback</button>
+        <button class="btn btn-ghost" data-goto="connect">Reach out to facilitator →</button>
+      </div>
+      <div class="confirm" id="fb-confirm">Feedback saved. Cohort 2 will be better because of this.</div>
+    </div>
+  </div>
+
+  <!-- SESSION 4 -->
+  <div id="session4" class="section">
+    <div class="overline" style="color:var(--accent)">Session 4 · Optional · Self-selected · <span class="group-only-inline">90 min+</span><span class="solo-only-inline">Go at your own pace</span></div>
+    <h2>Builder track</h2>
+    <p style="margin-bottom:1.25rem">You've mastered prompting. Now build things — workflows, interfaces, tools — using AI as your co-builder.</p>
+    <div class="challenge challenge-dark"><div class="overline" style="color:rgba(232,80,10,.8)">Challenge of the day</div><h3>Ship something real</h3><p>By end of session, you will have designed or built one thing that didn't exist when you walked in. It must solve a real problem.</p></div>
+    <div class="card">
+      <h3>What you can build</h3>
+      <div class="builder-grid">
+        <div class="builder-card" data-tab-group="s4" data-tab="workflow"><h4>Workflow designer</h4><p>Map and redesign a business process with AI — identify bottlenecks, redesign steps, visualize the new flow.</p></div>
+        <div class="builder-card" data-tab-group="s4" data-tab="ui"><h4>UI prototyper</h4><p>Describe a dashboard or tool — AI generates a working HTML preview you open in any browser.</p></div>
+        <div class="builder-card" data-tab-group="s4" data-tab="vibe"><h4>Vibe coding intro</h4><p>Write your first AI-generated app. No prior coding required — but you must read output critically.</p></div>
+      </div>
+    </div>
+    <div class="card" id="s4-tabs-card">
+      <div class="tabs" id="s4-tabs">
+        <button class="tab active" data-tab-group="s4" data-tab="workflow">Workflow designer</button>
+        <button class="tab" data-tab-group="s4" data-tab="ui">UI prototyper</button>
+        <button class="tab" data-tab-group="s4" data-tab="vibe">Vibe coding</button>
+      </div>
+      <div id="s4-workflow" class="tab-panel active">
+        <h3>Redesign a process with AI</h3>
+        <ol class="steps">
+          <li><div class="step-num">1</div><div><div class="step-main">Describe your current process — every step, in order.</div><div class="step-sub">Don't optimize yet. Describe what actually happens, including the messy parts.</div></div></li>
+          <li><div class="step-num">2</div><div><div class="step-main">Use this prompt with your process below it.</div><div class="step-sub step-inline">You are a process improvement expert. Here is my current workflow: [paste]. Identify: (1) the top 3 bottlenecks and why, (2) which steps could be automated with AI, (3) a redesigned process — as a numbered sequence, then as a text flowchart using → for flow and [brackets] for decisions.</div></div></div></li>
+          <li><div class="step-num">3</div><div><div class="step-main">Estimate time saved. Log to the Wins wall.</div></div></li>
+        </ol>
+        <div class="label" style="margin-top:.75rem">Your process to redesign</div>
+        <textarea id="s4-workflow-input" style="min-height:80px" placeholder="Describe your current workflow — every step, in order..."></textarea>
+        <div class="do-now">
+          <div class="do-now-label">Your turn — do this now</div>
+          <p>Fill in your workflow above, copy the prompt, and paste it into your AI tool right now. Don't wait until the prompt is perfect — run a draft version first and see what comes back. You'll iterate from the output.</p>
+        </div>
+        <div class="btn-row"><button class="btn btn-accent" id="btn-copy-workflow">Copy analysis prompt</button></div>
+        <div class="confirm" id="wf-copied">Prompt copied — paste into your AI tool.</div>
+      </div>
+      <div id="s4-ui" class="tab-panel">
+        <h3>Build a working preview with AI</h3>
+        <ol class="steps">
+          <li><div class="step-num">1</div><div><div class="step-main">Define what you want to build in one sentence.</div><div class="step-sub">e.g. "A weekly ops dashboard showing KPIs by region."</div></div></li>
+          <li><div class="step-num">2</div><div><div class="step-main">Use the builder prompt.</div><div class="step-sub step-inline">Build a single-file HTML page for [describe your tool]. Include: [list sections, columns, fields]. Style it cleanly — professional and minimal. Self-contained, no external dependencies. Return only the complete HTML file.</div></div></li>
+          <li><div class="step-num">3</div><div><div class="step-main">Copy HTML → save as .html → open in browser.</div><div class="step-sub">Working prototype in minutes.</div></div></li>
+          <li><div class="step-num">4</div><div><div class="step-main">Iterate in plain language. "Add a date filter. Move summary to top." Each instruction is a prompt.</div></div></li>
+        </ol>
+        <div class="label" style="margin-top:.75rem">What do you want to build?</div>
+        <textarea id="s4-ui-desc" style="min-height:65px" placeholder="Describe it — what it shows, what fields it has, who uses it..."></textarea>
+        <div class="btn-row"><button class="btn btn-accent" id="btn-copy-ui">Copy builder prompt</button></div>
+        <div class="confirm" id="ui-copied">Prompt copied — paste into your AI tool. Save output as .html and open in browser.</div>
+      </div>
+      <div id="s4-vibe" class="tab-panel">
+        <h3>Your first AI-built app</h3>
+        <p style="margin-bottom:.75rem">No prior coding required — but you need judgment.</p>
+        <div class="vibe-steps">
+          <div class="vibe-step"><div class="vibe-step-num">1</div><div class="vibe-step-title">Define precisely</div><div class="vibe-step-text">Problem, users, inputs and outputs?</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">2</div><div class="vibe-step-title">Prompt + generate</div><div class="vibe-step-text">Ask for a single self-contained file first — always.</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">3</div><div class="vibe-step-title">Review critically</div><div class="vibe-step-text">Test every function. Break it intentionally.</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">4</div><div class="vibe-step-title">Iterate plainly</div><div class="vibe-step-text">Describe what's wrong. AI fixes. Repeat.</div></div>
+        </div>
+        <div class="card card-warn" style="margin:.75rem 0">
+          <h3 style="color:#7a2a0f;margin-bottom:.5rem">Before you ship anything internally</h3>
+          <ol class="steps">
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Have someone technically literate review code before deploying on company systems.</div></div></li>
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Never hardcode credentials or sensitive data into AI-generated apps.</div></div></li>
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">If you can't explain what it does, don't deploy it.</div></div></li>
+          </ol>
+        </div>
+        <div class="label">Your app idea</div>
+        <textarea id="s4-vibe-desc" style="min-height:65px" placeholder="What do you want to build? Problem, users, what it does..."></textarea>
+        <div class="btn-row"><button class="btn btn-accent" id="btn-copy-vibe">Copy vibe coding prompt</button></div>
+        <div class="confirm" id="vibe-copied">Prompt copied — paste into Claude or ChatGPT. Start simple. Iterate fast.</div>
+      </div>
+    <div class="between" style="border-color:rgba(232,80,10,.25)"><div class="overline">After Session 4</div><p><strong>You're now a builder.</strong> Find your first real internal use case and ship something — even imperfect — to prove the model.</p><p style="color:var(--muted);font-size:13px">Questions? Reach out via the Connect tab.</p></div>
+  </div>
+
+  <!-- PROMPT LAB -->
+  <div id="promptlab" class="section">
+    <div class="overline">Prompt lab</div>
+    <h2>Build your prompt</h2>
+    <p style="margin-bottom:1.25rem">Use the RCTFX framework. Assemble, copy, paste into your AI tool.</p>
+    <div class="card">
+      <div class="label">R — Role</div><input type="text" id="pl-role" placeholder="e.g. You are a senior financial analyst...">
+      <div class="label">C — Context</div><textarea id="pl-ctx" style="min-height:65px" placeholder="Business problem, audience, decisions this will inform..."></textarea>
+      <div class="label">T — Task</div><textarea id="pl-task" style="min-height:65px" placeholder="Write / Analyze / Summarize / Draft / Critique..."></textarea>
+      <div class="form-row">
+        <div><div class="label">F — Format + length</div><input type="text" id="pl-fmt" placeholder="Table, bullets, under 150 words..."></div>
+        <div><div class="label">X — Constraints</div><input type="text" id="pl-con" placeholder="No jargon. Don't recommend budget increases..."></div>
+      </div>
+      <hr>
+      <div class="label">Assembled prompt</div>
+      <div class="assembled" id="pl-preview">Fill in the fields above, then click Assemble.</div>
+      <div class="btn-row" style="margin-top:.65rem">
+        <button class="btn btn-primary" id="btn-assemble">Assemble</button>
+        <button class="btn btn-ghost" id="btn-copy-prompt">Copy</button>
+        <button class="btn btn-ghost" id="btn-save-prompt">Save</button>
+      </div>
+      <div class="confirm" id="pl-copied">Copied.</div>
+      <div class="confirm" id="pl-saved">Saved.</div>
+    </div>
+    <div class="card"><h3>Saved prompts this session</h3><div id="saved-prompts"><p style="font-size:13px;color:var(--muted)">No prompts saved yet.</p></div></div>
+  </div>
+
+  <!-- WINS WALL -->
+  <div id="tracker" class="section">
+    <div class="overline">Wins wall</div>
+    <h2><span class="group-only-inline">Cohort wins</span><span class="solo-only-inline">Your wins journal</span></h2>
+    <p style="margin-bottom:1.25rem"><span class="group-only-inline">Log a win — visible to everyone in the room. No ongoing channel needed.</span><span class="solo-only-inline">Log a win — your personal record of what's working. The act of naming it makes it stick.</span></p>
+    <div class="stat-strip">
+      <div class="stat-block"><div class="stat-val" id="st-wins">0</div><div class="stat-lbl">Wins logged</div></div>
+      <div class="stat-block"><div class="stat-val" id="st-people">0</div><div class="stat-lbl">Contributors</div></div>
+      <div class="stat-block"><div class="stat-val" id="st-roi">—</div><div class="stat-lbl">ROI captured</div></div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:.75rem;">
+      <button class="btn btn-ghost" id="btn-present">Present wins wall ↗</button>
+    </div>
+    <div class="card card-accent">
+      <h3>Log a win</h3>
+      <div class="form-row">
+        <div><div class="label">Your name</div><input type="text" id="w-name" placeholder="First name"></div>
+        <div><div class="label">Function</div><input type="text" id="w-fn" placeholder="Finance / Supply chain..."></div>
+      </div>
+      <div class="label">What did you do? What was the output?</div>
+      <textarea id="w-win" style="min-height:70px" placeholder="Be specific — 'turned a 40-page report into a 3-slide brief in 20 minutes.'"></textarea>
+      <div class="label">ROI — time saved or quality impact</div>
+      <input type="text" id="w-roi" placeholder="e.g. Saved 2hrs, Cut revision rounds from 4 to 1">
+      <div class="btn-row"><button class="btn btn-primary" id="btn-log-win">Log win →</button></div>
+    </div>
+    <div id="wins-feed"></div>
+    <hr>
+    <div class="btn-row"><button class="btn btn-ghost" id="btn-export">Download session data (JSON)</button></div>
+  </div>
+
+  <!-- GUARDRAILS -->
+  <div id="guardrails" class="section">
+    <div class="overline">Before you go further</div>
+    <h2>Guardrails</h2>
+    <p style="margin-bottom:1.25rem">AI is powerful. Power without judgment creates risk. Non-negotiable.</p>
+    <div class="card card-dark" style="margin-bottom:1.25rem">
+      <h3 style="color:#fff;font-size:15px;margin-bottom:.5rem">The one rule that covers everything</h3>
+      <p style="color:rgba(255,255,255,.75);font-size:15px;line-height:1.75;margin:0">If you're unsure whether something should go into an AI tool — it probably shouldn't. Describe the problem without the sensitive details. You can get 90% of the value without giving AI your confidential data.</p>
+    </div>
+    <div class="guard-list" style="margin-bottom:1.25rem">
+      <div class="guard-item"><div class="guard-dot"></div><div><div class="guard-text">Never paste confidential data, customer PII, or unreleased financials into consumer AI tools.</div><div class="guard-sub">Describe the structure, not the content.</div></div></div>
+      <div class="guard-item"><div class="guard-dot"></div><div><div class="guard-text">Verify before you use. AI outputs are drafts, not decisions.</div><div class="guard-sub">Any figure in an exec report must be checked against source data.</div></div></div>
+      <div class="guard-item"><div class="guard-dot"></div><div><div class="guard-text">AI is a thought partner. You are the decision maker.</div><div class="guard-sub">Judgment, authority, and accountability stay with you.</div></div></div>
+      <div class="guard-item"><div class="guard-dot"></div><div><div class="guard-text">Build trust with AI before you rely on it.</div><div class="guard-sub">Low-stakes tasks first. Understand failure modes before going critical.</div></div></div>
+    </div>
+    <div class="card">
+      <h3>By function</h3>
+      <div class="tabs" id="g-tabs">
+        <button class="tab active" data-tab-group="g" data-tab="finance">Finance</button>
+        <button class="tab" data-tab-group="g" data-tab="supply">Supply chain</button>
+        <button class="tab" data-tab-group="g" data-tab="strategy">Strategy</button>
+        <button class="tab" data-tab-group="g" data-tab="ops">Operations</button>
+      </div>
+      <div id="g-finance" class="tab-panel active">
+        <ol class="steps">
+          <li><div class="step-num">!</div><div><div class="step-main">Never paste unreleased financials into public AI tools.</div><div class="step-sub">Use placeholder numbers to test. Real data only in approved enterprise tools.</div></div></li>
+          <li><div class="step-num">!</div><div><div class="step-main">AI financial analysis is a starting point, not a conclusion.</div><div class="step-sub">Always reconcile against source systems before sharing upward.</div></div></li>
+          <li><div class="step-num">✓</div><div><div class="step-main">Best uses: variance narratives, drafting commentary, formatting reports, proofreading.</div></div></li>
+        </ol>
+      </div>
+      <div id="g-supply" class="tab-panel">
+        <ol class="steps">
+          <li><div class="step-num">!</div><div><div class="step-main">Don't share supplier names, contract terms, or pricing with consumer AI tools.</div></div></li>
+          <li><div class="step-num">!</div><div><div class="step-main">AI risk assessments need cross-referencing with current data. Treat as frameworks, not findings.</div></div></li>
+          <li><div class="step-num">✓</div><div><div class="step-main">Best uses: risk frameworks, supplier communications, summarizing lengthy reports.</div></div></li>
+        </ol>
+      </div>
+      <div id="g-strategy" class="tab-panel">
+        <ol class="steps">
+          <li><div class="step-num">!</div><div><div class="step-main">Don't share unannounced strategic plans, M&amp;A targets, or competitive intel in identifiable form.</div></div></li>
+          <li><div class="step-num">!</div><div><div class="step-main">AI gives frameworks. Your proprietary insight is the competitive advantage layered on top.</div></div></li>
+          <li><div class="step-num">✓</div><div><div class="step-main">Best uses: synthesizing research, structuring narratives, generating options, exec communications.</div></div></li>
+        </ol>
+      </div>
+      <div id="g-ops" class="tab-panel">
+        <ol class="steps">
+          <li><div class="step-num">!</div><div><div class="step-main">Don't share process documentation containing proprietary manufacturing methods or IP.</div></div></li>
+          <li><div class="step-num">!</div><div><div class="step-main">AI process recommendations need validation by people who know the shop floor.</div></div></li>
+          <li><div class="step-num">✓</div><div><div class="step-main">Best uses: documenting SOPs, improvement proposals, structuring handoff notes.</div></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1rem">
+      <h3>Managing leadership expectations</h3>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div><div class="step-main">AI saves time — it doesn't eliminate roles. Lead with this, every time.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Be clear about what AI can't do: judgment, relationships, context, accountability.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Have your "here's what we're doing with the time" story ready before someone asks.</div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- CONNECT -->
+  <div id="connect" class="section">
+    <div class="overline">Support + feedback</div>
+    <h2>Connect with the facilitator</h2>
+    <p style="margin-bottom:1.5rem">Questions, ideas to improve the program, or just want to share a win — reach out directly.</p>
+    <div class="share-block">
+      <div class="share-text"><strong>Know someone who'd benefit?</strong> Share this program — free, works in any browser, no install needed.</div>
+      <button class="btn-share" id="btn-share">Share this program</button>
+    </div>
+    <div class="confirm" id="share-confirm" style="margin-bottom:.75rem">Link copied to clipboard — share it freely.</div>
+    <div class="contact-card">
+      <div class="contact-avatar">MA</div>
+      <div>
+        <div class="contact-name">Mike Adediran</div>
+        <p style="font-size:13px;color:var(--muted);margin:.2rem 0 .6rem">Strategic operations · AI Transformation · Creator of this program</p>
+        <div class="contact-links">
+          <a class="contact-link" href="/cdn-cgi/l/email-protection#412c282a24202524252833202f707001262c20282d6f222e2c"><span class="__cf_email__" data-cfemail="533e3a3836323736373a21323d626213343e323a3f7d303c3e">[email&#160;protected]</span></a>
+          <a class="contact-link" href="https://linkedin.com/in/mikeadediran" target="_blank">linkedin.com/in/mikeadediran</a>
+        </div>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>Send feedback on this program</h3>
+      <div class="label">What's working well?</div><textarea id="ext-best" style="min-height:55px" placeholder="What should stay exactly as it is?"></textarea>
+      <div class="label">What should change?</div><textarea id="ext-change" style="min-height:55px" placeholder="What's missing, confusing, or could be better?"></textarea>
+      <div class="label">Your name (optional)</div><input type="text" id="ext-name" placeholder="First name or anonymous">
+      <div class="btn-row"><button class="btn btn-primary" id="btn-copy-feedback">Copy feedback to send by email</button></div>
+      <div class="confirm" id="ext-confirm">Copied — paste into an email to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb8682808e8a8f8e8f82998a85dadaab8c868a8287c5888486">[email&#160;protected]</a></div>
+    </div>
+    <div class="card">
+      <h3>About this program</h3>
+      <p>The AI Transformation Lab is free, open-source, and tool-agnostic. Created by Mike Adediran. Freely available to share, adapt, and build on. If you run this with your own cohort, share how it went.</p>
+      <div class="tags"><span class="tag">Open source</span><span class="tag">Tool agnostic</span><span class="tag">No install</span><span class="tag">Works offline</span><span class="tag">Free to share</span></div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── State ──
+var S={wins:[],prompts:[],s1:{},s2:{},s3:{},pledge:{},fb:{},ext:{}};
+
+// ── Section labels ──
+var SECTIONS=['overview','session1','session2','session3','session4','promptlab','tracker','guardrails','connect'];
+var BADGES=['Overview','Session 1','Session 2','Session 3','Session 4 ✦','Prompt lab','Wins wall','Guardrails','Connect'];
+
+// ── Facilitator notes ──
+var FAC={
+  overview:'Welcome participants and have them open this file in their own browsers. Ask everyone to name the cohort in the top-right field — this creates immediate ownership. Quick show of hands: "Who\'s used an AI tool in the last week?" Then navigate to Session 1 together. Remind participants: nothing persists on refresh — download data from the Wins wall before closing.',
+  session1:'Start with "What AI actually is" — read through it together. The prompt surgery moment is most powerful done live with a real participant\'s problem. Don\'t rush "Surface your problems" — budget at least 10 minutes. Vague problems = vague results for the whole program. Quality check: introduce the four questions explicitly. Ask: "Would you send this to your VP right now?" If no — the prompt needs more work.',
+  session2:'Don\'t skip the opening debrief — this is where social proof builds. If someone had a bad experience this week, explore it publicly — failure cases are gold. Assign cross-functional pairs yourself: put finance with ops, strategy with supply chain. Decision tree works best as a group exercise.',
+  session3:'The showcase is the emotional high point — protect the time. 3 minutes per person, use a timer. The pledge block is not optional — writing it down meaningfully increases follow-through. At the end, explicitly ask: who wants Session 4? Let them self-identify.',
+  session4:'Treat Session 4 participants as peers — they\'re self-selected and motivated. Workflow designer is safest for non-technical people. UI prototyper is where the most "wow" moments happen — build something live together first. On vibe coding: do not skip the guardrails. The most dangerous moment is someone wanting to immediately deploy AI-generated code without review.',
+  promptlab:'Encourage participants to save prompts throughout each session — this becomes their personal prompt library. Remind everyone to export session data at the end.',
+  tracker:'Most powerful when projected on a shared screen. Celebrate each win publicly — read them out. Energy compounds as the wall fills. Remind participants to export before closing.',
+  guardrails:'Introduce at the start of Session 1, not the end. Navigate here first, read the golden rule together, then move on. Ask: "Has anyone ever pasted something into AI that they maybe shouldn\'t have?" Honesty makes guardrails land better than any rule list.',
+  connect:'Remind participants that Mike is reachable — especially if they hit resistance deploying this in their own org. The share button uses native share on mobile and clipboard on desktop.'
+};
+
+// ── Navigation ──
+function goTo(id){
+  if(SECTIONS.indexOf(id)===-1) return;
+  SECTIONS.forEach(function(s){
+    var el=document.getElementById(s);
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  var target=document.getElementById(id);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.nav-btn[data-section="'+id+'"]').forEach(function(b){b.classList.add('active');});
+  var idx=SECTIONS.indexOf(id);
+  var badge=document.getElementById('current-badge');
+  if(badge) badge.textContent=BADGES[idx]||id;
+  var facNotesEl=document.getElementById('fac-notes');
+  if(facNotesEl && facNotesEl.classList.contains('open')){
+    var ft=document.getElementById('fac-text');
+    if(ft) ft.textContent=FAC[id]||'No specific notes for this section.';
+  }
+  window.scrollTo(0,0);
+}
+
+// ── Tab switching ──
+function switchTab(group,tab){
+  // hide all panels for this group
+  document.querySelectorAll('[id^="'+group+'-"]').forEach(function(p){
+    if(p.classList.contains('tab-panel')) p.classList.remove('active');
+  });
+  // deactivate all tabs in this group
+  document.querySelectorAll('[data-tab-group="'+group+'"]').forEach(function(t){
+    if(t.classList.contains('tab')) t.classList.remove('active');
+  });
+  // activate target panel
+  var panel=document.getElementById(group+'-'+tab);
+  if(panel) panel.classList.add('active');
+  // activate target tab button
+  document.querySelectorAll('[data-tab-group="'+group+'"][data-tab="'+tab+'"]').forEach(function(t){
+    if(t.classList.contains('tab')) t.classList.add('active');
+  });
+}
+
+// ── Facilitator toggle ──
+var facOpen=false;
+function toggleFac(){
+  facOpen=!facOpen;
+  var n=document.getElementById('fac-notes');
+  var ic=document.getElementById('fac-trigger-btn');
+  if(facOpen){
+    n.classList.add('open');
+    ic.textContent="I'm a facilitator \u25b2";
+    var cur=SECTIONS.find(function(s){
+      var el=document.getElementById(s);
+      return el && el.classList.contains('active');
+    })||'overview';
+    document.getElementById('fac-text').textContent=FAC[cur]||'Navigate to a session to see notes.';
+  } else {
+    n.classList.remove('open');
+    ic.textContent="I'm a facilitator \u25bc";
+  }
+}
+
+// ── Universal copy function ──
+// Tries modern clipboard API first, falls back to execCommand, then shows modal
+function universalCopy(text, confirmId){
+  // Try modern clipboard API
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      flash(confirmId);
+    }).catch(function(){
+      tryExecCopy(text, confirmId);
+    });
+  } else {
+    tryExecCopy(text, confirmId);
+  }
+}
+
+function tryExecCopy(text, confirmId){
+  // Try execCommand fallback
+  var ta=document.createElement('textarea');
+  ta.value=text;
+  ta.style.position='fixed';
+  ta.style.top='-9999px';
+  ta.style.left='-9999px';
+  ta.setAttribute('readonly','');
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  // For iOS
+  ta.setSelectionRange(0, 99999);
+  var success=false;
+  try{ success=document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta);
+  if(success){
+    flash(confirmId);
+  } else {
+    // Last resort: show modal
+    showCopyModal(text);
+  }
+}
+
+function showCopyModal(text){
+  var modal=document.getElementById('copy-modal');
+  var ta=document.getElementById('copy-modal-text');
+  ta.value=text;
+  modal.classList.add('open');
+  setTimeout(function(){ ta.focus(); ta.select(); ta.setSelectionRange(0,99999); },100);
+}
+
+// ── Copy modal setup ──
+function initCopyModal(){
+  var tryBtn=document.getElementById('copy-modal-try-btn');
+  var closeBtn=document.getElementById('copy-modal-close-btn');
+  var modal=document.getElementById('copy-modal');
+  if(tryBtn){
+    tryBtn.addEventListener('click',function(){
+      var ta=document.getElementById('copy-modal-text');
+      ta.focus(); ta.select(); ta.setSelectionRange(0,99999);
+      try{ document.execCommand('copy'); } catch(e){}
+    });
+  }
+  if(closeBtn){
+    closeBtn.addEventListener('click',function(){
+      modal.classList.remove('open');
+    });
+  }
+  if(modal){
+    modal.addEventListener('click',function(e){
+      if(e.target===modal) modal.classList.remove('open');
+    });
+  }
+}
+
+// ── Flash confirm ──
+function flash(id, dur){
+  var el=document.getElementById(id);
+  if(!el) return;
+  el.style.display='block';
+  setTimeout(function(){ el.style.display='none'; }, dur||3000);
+}
+
+function v(id){ var el=document.getElementById(id); return el ? el.value.trim() : ''; }
+function now(){ return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+
+// ── Save functions ──
+function saveS1(){ S.s1={name:v('s1-name'),fn:v('s1-fn'),p1:v('s1-p1'),base:v('s1-base'),p2:v('s1-p2')}; flash('s1-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
+function saveS2(){ S.s2={partner:v('s2-partner'),prob:v('s2-prob'),insight:v('s2-insight')}; flash('s2-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
+function saveS3(){
+  S.s3={problem:v('s3-problem'),before:v('s3-before'),after:v('s3-after'),quality:v('s3-quality'),prompt:v('s3-prompt')};
+  if(S.s3.problem){
+    S.wins.unshift({name:S.s1.name||'You',fn:S.s1.fn||'',win:'ROI showcase: '+S.s3.problem,roi:(S.s3.before&&S.s3.after)?S.s3.before+' \u2192 '+S.s3.after:'',time:now()});
+    renderWins();
+  }
+  flash('s3-confirm');
+  if(typeof updateProgressChecks==='function') updateProgressChecks();
+}
+function savePledge(){ S.pledge={use:v('pledge-use'),time:v('pledge-time'),share:v('pledge-share')}; flash('pledge-confirm',3500); }
+function saveFeedback(){ S.fb={best:v('fb-best'),change:v('fb-change'),rec:document.getElementById('fb-rec').value}; flash('fb-confirm'); }
+
+// ── Prompt lab ──
+function assemble(){
+  var role=v('pl-role'),ctx=v('pl-ctx'),task=v('pl-task'),fmt=v('pl-fmt'),con=v('pl-con');
+  var p='';
+  if(role) p+=role+'\n\n';
+  if(ctx) p+='Context: '+ctx+'\n\n';
+  if(task) p+='Task: '+task+'\n\n';
+  if(fmt) p+='Format: '+fmt+'\n';
+  if(con) p+='Constraints: '+con;
+  document.getElementById('pl-preview').textContent=p.trim()||'Fill in the fields above.';
+}
+function savePrompt(){
+  assemble();
+  var t=document.getElementById('pl-preview').textContent;
+  if(!t||t==='Fill in the fields above.') return;
+  S.prompts.push({text:t,time:now()});
+  renderPrompts();
+  flash('pl-saved');
+  if(typeof updateProgressChecks==='function') updateProgressChecks();
+}
+function renderPrompts(){
+  var el=document.getElementById('saved-prompts');
+  if(!S.prompts.length){ el.innerHTML='<p style="font-size:13px;color:var(--muted)">No prompts saved yet.</p>'; return; }
+  el.innerHTML=[].concat(S.prompts).reverse().map(function(p){
+    return '<div class="saved-prompt"><div class="saved-prompt-time">'+p.time+'</div><div class="saved-prompt-text">'+p.text+'</div></div>';
+  }).join('');
+}
+
+// ── Builder prompts ──
+function workflowPrompt(){
+  var wf=v('s4-workflow-input');
+  return 'You are a process improvement expert. Here is my current workflow:\n\n'+(wf||'[paste your workflow here]')+'\n\nPlease:\n1. Identify the top 3 bottlenecks and why they exist\n2. Identify which steps could be partially or fully automated with AI today\n3. Redesign the process to remove or reduce those bottlenecks — present as a numbered sequence\n4. Then present the redesigned flow as a simple text flowchart using \u2192 for flow and [brackets] for decision points';
+}
+function uiPrompt(){
+  var desc=v('s4-ui-desc');
+  return 'Build a single-file HTML page for: '+(desc||'[describe your tool here]')+'\n\nRequirements:\n- Fully self-contained — no external dependencies\n- Clean, professional, minimal design\n- Works when opened directly in any browser\n- All CSS and JS inline\n\nReturn only the complete HTML file.';
+}
+function vibePrompt(){
+  var desc=v('s4-vibe-desc');
+  return 'I want to build: '+(desc||'[describe your app here]')+'\n\nBuild this as a single self-contained HTML file that:\n- Works offline with no external dependencies\n- Has a clean, professional design\n- Is fully functional based on my description\n- Includes clear comments explaining what each major section does\n\nAfter the code, explain:\n1. What you built\n2. What I should test first\n3. What limitations I should be aware of';
+}
+
+// ── Wins wall ──
+function logWin(){
+  var name=v('w-name'),fn=v('w-fn'),win=v('w-win'),roi=v('w-roi');
+  if(!name||!win){ alert('Add your name and describe the win.'); return; }
+  S.wins.unshift({name:name,fn:fn,win:win,roi:roi,time:now()});
+  ['w-name','w-fn','w-win','w-roi'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  renderWins();
+}
+function renderWins(){
+  var el=document.getElementById('wins-feed');
+  var unique=[];
+  S.wins.forEach(function(w){ if(unique.indexOf(w.name)===-1) unique.push(w.name); });
+  document.getElementById('st-wins').textContent=S.wins.length;
+  document.getElementById('st-people').textContent=unique.length;
+  var withRoi=S.wins.filter(function(w){ return w.roi; }).length;
+  document.getElementById('st-roi').textContent=withRoi?withRoi+' entries':'—';
+  if(!S.wins.length){ el.innerHTML='<p style="font-size:13px;color:var(--muted);padding:.75rem 0">No wins logged yet. Be first.</p>'; return; }
+  el.innerHTML=S.wins.map(function(w){
+    var init=w.name.split(' ').map(function(n){ return n[0]; }).join('').toUpperCase().slice(0,2);
+    return '<div class="win-entry"><div class="win-avatar">'+init+'</div><div class="win-body"><span class="win-name">'+w.name+'</span><span class="win-domain">'+w.fn+'</span><div class="win-text">'+w.win+'</div>'+(w.roi?'<div class="win-roi">'+w.roi+'</div>':'')+'<div class="win-time">'+w.time+'</div></div></div>';
+  }).join('');
+}
+
+// ── Export — mobile-safe ──
+function exportData(){
+  var cohort=document.getElementById('cohort-id').value.trim()||'unnamed-cohort';
+  var d={program:'AI Transformation Lab',cohort:cohort,exportedAt:new Date().toISOString(),session1:S.s1,session2:S.s2,session3:S.s3,pledge:S.pledge,feedback:S.fb,wins:S.wins,savedPrompts:S.prompts};
+  var json=JSON.stringify(d,null,2);
+  var filename='ai-transformation-lab-'+cohort.replace(/\s+/g,'-').toLowerCase()+'-'+new Date().toISOString().split('T')[0]+'.json';
+
+  // Try modern Blob download
+  try{
+    var b=new Blob([json],{type:'application/json'});
+    var u=URL.createObjectURL(b);
+    var a=document.createElement('a');
+    a.href=u; a.download=filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(u); },200);
+  } catch(e){
+    // Fallback: show data in copy modal so user can manually save
+    showCopyModal(json);
+  }
+}
+
+// ── Share ──
+function shareProgram(){
+  var shareData={title:'AI Transformation Lab',text:'A free, open-source AI upskilling program. 4 sessions. Real problems. No slides. Works in any browser.',url:window.location.href};
+  if(navigator.share && navigator.canShare && navigator.canShare(shareData)){
+    navigator.share(shareData).catch(function(){});
+  } else {
+    universalCopy(window.location.href,'share-confirm');
+  }
+}
+
+// ── Copy feedback ──
+function copyFeedback(){
+  var txt='AI Transformation Lab — Program Feedback\nFrom: '+(v('ext-name')||'Anonymous')+'\n\nWhat worked well:\n'+v('ext-best')+'\n\nWhat to change:\n'+v('ext-change');
+  universalCopy(txt,'ext-confirm');
+}
+
+// ── Wire all events — runs directly since script is at end of body ──
+var timerInterval = null; var timerSeconds = 0;
+(function(){
+  document.body.classList.add('mode-group');
+
+  initCopyModal();
+  renderWins();
+
+  var currentMode = 'group';
+
+  function updateProgressChecks() {
+    var checks = [
+      { id: 'check-s1', test: function(){ return S.s1 && S.s1.name && S.s1.name.length > 0; }},
+      { id: 'check-s2', test: function(){ return S.s2 && S.s2.partner && S.s2.partner.length > 0; }},
+      { id: 'check-s3', test: function(){ return S.s3 && S.s3.problem && S.s3.problem.length > 0; }},
+      { id: 'check-s4', test: function(){ return S.prompts && S.prompts.length > 0; }}
+    ];
+    checks.forEach(function(c) {
+      var el = document.getElementById(c.id);
+      if (el) {
+        if (c.test()) { el.classList.add('done'); } else { el.classList.remove('done'); }
+      }
+    });
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    var body = document.body;
+    if (mode === 'solo') {
+      body.classList.add('mode-solo');
+      body.classList.remove('mode-group');
+      document.getElementById('btn-mode-solo').classList.add('active');
+      document.getElementById('btn-mode-group').classList.remove('active');
+      document.getElementById('mode-desc-text').textContent = 'Self-paced learning. Exercises are adapted for solo use. Go at your own speed.';
+      var wwin = document.getElementById('w-win');
+      if(wwin) wwin.placeholder = 'What did you try? What was the result? Be specific — this is your personal record.';
+      var fbBest = document.getElementById('fb-best');
+      if(fbBest) fbBest.placeholder = 'What clicked for you? What was the single most valuable thing you learned?';
+      var fbChange = document.getElementById('fb-change');
+      if(fbChange) fbChange.placeholder = 'What was confusing or missing? What would have helped you learn faster?';
+    } else {
+      body.classList.remove('mode-solo');
+      body.classList.add('mode-group');
+      document.getElementById('btn-mode-group').classList.add('active');
+      document.getElementById('btn-mode-solo').classList.remove('active');
+      document.getElementById('mode-desc-text').textContent = 'Facilitator-led cohort experience. All exercises are designed for group participation.';
+      var wwin = document.getElementById('w-win');
+      if(wwin) wwin.placeholder = "Be specific — 'turned a 40-page report into a 3-slide brief in 20 minutes.'";
+      var fbBest = document.getElementById('fb-best');
+      if(fbBest) fbBest.placeholder = 'What would you tell someone starting the next cohort?';
+      var fbChange = document.getElementById('fb-change');
+      if(fbChange) fbChange.placeholder = 'Be honest. This is how we improve.';
+    }
+    updateProgressChecks();
+  }
+
+  var btnModeGroup = document.getElementById('btn-mode-group');
+  if(btnModeGroup) btnModeGroup.addEventListener('click', function(){ setMode('group'); });
+
+  var btnModeSolo = document.getElementById('btn-mode-solo');
+  if(btnModeSolo) btnModeSolo.addEventListener('click', function(){ setMode('solo'); });
+
+  // Nav buttons
+  document.querySelectorAll('.nav-btn[data-section]').forEach(function(btn){
+    btn.addEventListener('click', function(){ goTo(this.getAttribute('data-section')); });
+  });
+
+  // Session cards and any element with data-goto
+  document.querySelectorAll('[data-goto]').forEach(function(el){
+    el.addEventListener('click', function(){ goTo(this.getAttribute('data-goto')); });
+  });
+
+  // Tab buttons
+  document.querySelectorAll('.tab[data-tab-group][data-tab]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      switchTab(this.getAttribute('data-tab-group'), this.getAttribute('data-tab'));
+    });
+  });
+
+  // Builder cards (also have data-tab-group and data-tab)
+  document.querySelectorAll('.builder-card[data-tab-group][data-tab]').forEach(function(card){
+    card.addEventListener('click', function(){
+      switchTab(this.getAttribute('data-tab-group'), this.getAttribute('data-tab'));
+      // Scroll to the tab card
+      var tc=document.getElementById('s4-tabs-card');
+      if(tc) tc.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  // Facilitator trigger
+  var facTrigger=document.getElementById('fac-trigger-btn');
+  if(facTrigger) facTrigger.addEventListener('click', toggleFac);
+
+  // Session 1
+  var bs1=document.getElementById('btn-save-s1');
+  if(bs1) bs1.addEventListener('click', saveS1);
+
+  // Session 2
+  var bs2=document.getElementById('btn-save-s2');
+  if(bs2) bs2.addEventListener('click', saveS2);
+
+  // Session 3
+  var bs3=document.getElementById('btn-save-s3');
+  if(bs3) bs3.addEventListener('click', saveS3);
+
+  var bpl=document.getElementById('btn-save-pledge');
+  if(bpl) bpl.addEventListener('click', savePledge);
+
+  var bfb=document.getElementById('btn-save-fb');
+  if(bfb) bfb.addEventListener('click', saveFeedback);
+
+  // Prompt lab
+  var basmb=document.getElementById('btn-assemble');
+  if(basmb) basmb.addEventListener('click', assemble);
+
+  var bcopyp=document.getElementById('btn-copy-prompt');
+  if(bcopyp) bcopyp.addEventListener('click', function(){
+    assemble();
+    universalCopy(document.getElementById('pl-preview').textContent,'pl-copied');
+  });
+
+  var bsvp=document.getElementById('btn-save-prompt');
+  if(bsvp) bsvp.addEventListener('click', savePrompt);
+
+  // Session 4 builder
+  var bcwf=document.getElementById('btn-copy-workflow');
+  if(bcwf) bcwf.addEventListener('click', function(){ universalCopy(workflowPrompt(),'wf-copied'); });
+
+  var bcui=document.getElementById('btn-copy-ui');
+  if(bcui) bcui.addEventListener('click', function(){ universalCopy(uiPrompt(),'ui-copied'); });
+
+  var bcvb=document.getElementById('btn-copy-vibe');
+  if(bcvb) bcvb.addEventListener('click', function(){ universalCopy(vibePrompt(),'vibe-copied'); });
+
+  // Wins wall
+  var blw=document.getElementById('btn-log-win');
+  if(blw) blw.addEventListener('click', logWin);
+
+  var bexp=document.getElementById('btn-export');
+  if(bexp) bexp.addEventListener('click', exportData);
+
+  // Connect
+  var bsh=document.getElementById('btn-share');
+  if(bsh) bsh.addEventListener('click', shareProgram);
+
+  var bcfb=document.getElementById('btn-copy-feedback');
+  if(bcfb) bcfb.addEventListener('click', copyFeedback);
+
+  // Timer
+  document.querySelectorAll('.fac-timer-btn[data-mins]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var mins = parseInt(this.getAttribute('data-mins'), 10);
+      timerSeconds = mins * 60;
+      clearInterval(timerInterval);
+      var display = document.getElementById('timer-display');
+      var stopBtn = document.getElementById('timer-stop');
+      if(stopBtn) stopBtn.style.display = 'inline-flex';
+      if(display){
+        var m0 = Math.floor(timerSeconds / 60);
+        var s0 = timerSeconds % 60;
+        display.textContent = (m0 < 10 ? '0' : '') + m0 + ':' + (s0 < 10 ? '0' : '') + s0;
+      }
+      timerInterval = setInterval(function(){
+        timerSeconds--;
+        if(timerSeconds <= 0){
+          clearInterval(timerInterval);
+          if(display) display.textContent = 'Done!';
+          return;
+        }
+        var m = Math.floor(timerSeconds / 60);
+        var s = timerSeconds % 60;
+        if(display) display.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }, 1000);
+    });
+  });
+  var timerStop = document.getElementById('timer-stop');
+  if(timerStop) timerStop.addEventListener('click', function(){
+    clearInterval(timerInterval);
+    this.style.display = 'none';
+    var display = document.getElementById('timer-display');
+    if(display) display.textContent = '--:--';
+  });
+
+  // Presentation mode
+  var btnPresent = document.getElementById('btn-present');
+  if(btnPresent) btnPresent.addEventListener('click', function(){
+    var feed = document.getElementById('present-wins-feed');
+    if(feed){
+      if(!S.wins.length){
+        feed.innerHTML = '<div style="color:rgba(255,255,255,.5);font-size:14px">No wins logged yet.</div>';
+      } else {
+        feed.innerHTML = S.wins.map(function(w){
+          var init = w.name.split(' ').map(function(n){ return n[0]; }).join('').toUpperCase().slice(0,2);
+          return '<div style="background:#fff;border-radius:4px;padding:1.1rem 1.25rem;">'
+            + '<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">'
+            + '<div style="width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-family:\'Syne\',sans-serif;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+init+'</div>'
+            + '<div><span style="font-family:\'Syne\',sans-serif;font-size:12px;font-weight:700;color:var(--ink);">'+w.name+'</span><span style="font-size:11px;color:var(--muted);margin-left:6px;">'+w.fn+'</span></div>'
+            + '</div>'
+            + '<div style="font-size:16px;color:var(--ink);line-height:1.5;margin-bottom:.35rem;">'+w.win+'</div>'
+            + (w.roi ? '<div style="font-size:14px;font-family:\'Syne\',sans-serif;font-weight:700;color:var(--success);">'+w.roi+'</div>' : '')
+            + '</div>';
+        }).join('');
+      }
+    }
+    var overlay = document.getElementById('present-overlay');
+    if(overlay) overlay.style.display = 'block';
+  });
+  var btnPresentClose = document.getElementById('btn-present-close');
+  if(btnPresentClose) btnPresentClose.addEventListener('click', function(){
+    var overlay = document.getElementById('present-overlay');
+    if(overlay) overlay.style.display = 'none';
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var overlay = document.getElementById('present-overlay');
+      if(overlay && overlay.style.display !== 'none') overlay.style.display = 'none';
+    }
+  });
+
+  // Worked example toggles
+  document.querySelectorAll('.example-toggle').forEach(function(el){
+    el.addEventListener('click', function(){
+      var key = this.getAttribute('data-example');
+      var content = document.getElementById(key + '-content');
+      var icon = document.getElementById(key + '-icon');
+      if(content){
+        var isOpen = content.classList.contains('open');
+        content.classList.toggle('open', !isOpen);
+        if(icon) icon.textContent = isOpen ? '▼' : '▲';
+      }
+    });
+  });
+
+})();
+</script>
+<div id="present-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--ink);z-index:9000;padding:2rem;overflow-y:auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+    <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;">Cohort Wins</div>
+    <button id="btn-present-close" s
