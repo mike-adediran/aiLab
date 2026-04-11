@@ -802,8 +802,11 @@ body{font-family:'DM Sans','Arial',sans-serif}
           <li><div class="step-num">2</div><div><div class="step-main">Use this prompt with your process below it.</div><div class="step-sub step-inline">The prompt produces three things: a bottleneck analysis table, a redesigned numbered process with time estimates, and a text flowchart. Describe your workflow below, copy the prompt, and paste it into your AI tool.</div></div></li>
           <li><div class="step-num">3</div><div><div class="step-main">Review the three outputs. Share the before vs after time total with the group. Log to the Wins Wall.</div></div></li>
         </ol>
-        <div class="label" style="margin-top:.75rem">Your process to redesign</div>
-        <textarea id="s4-workflow-input" style="min-height:80px" placeholder="Describe your current workflow — every step, in order..."></textarea>
+        <div class="label" style="margin-top:.75rem">Describe your process</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:.5rem;line-height:1.5">The more specific you are, the better the output. Your description slots directly into a structured prompt — the system builds the rest.</p>
+        <textarea id="s4-workflow-input" style="min-height:80px" placeholder="Every step, in order — including the parts that feel messy or manual. e.g. Pull data from system → clean in Excel → email to manager → wait for sign-off → re-pull if rejected"></textarea>
+        <div style="margin:.6rem 0 .4rem;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Your prompt — updates as you type</div>
+        <div id="wf-preview" class="assembled-mini" style="font-size:12px;min-height:60px">Start typing above to see your prompt take shape.</div>
         <div class="do-now">
           <div class="do-now-label">Do this now</div>
           <p>Describe your workflow in the field above. Copy the prompt below and paste it into your AI tool. What comes back is a structured deliverable — not a paragraph. Review it, then log your time saving to the Wins Wall.</p>
@@ -821,7 +824,10 @@ body{font-family:'DM Sans','Arial',sans-serif}
           <li><div class="step-num">4</div><div><div class="step-main">Iterate in plain language.</div><div class="step-sub">"Add a date filter. Move the summary to the top. Change the colour to match our brand." Each instruction is a prompt.</div></div></li>
         </ol>
         <div class="label" style="margin-top:.75rem">What do you want to build?</div>
-        <textarea id="s4-ui-desc" style="min-height:65px" placeholder="Describe it — what it shows, what data it uses, who uses it and for what decision..."></textarea>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:.5rem;line-height:1.5">Describe it in plain language — your description is woven into a full builder prompt automatically.</p>
+        <textarea id="s4-ui-desc" style="min-height:65px" placeholder="e.g. A weekly ops dashboard showing revenue by region, headcount by team, and a RAG status column for each KPI. Used by the ops director every Monday."></textarea>
+        <div style="margin:.6rem 0 .4rem;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Your prompt — updates as you type</div>
+        <div id="ui-preview" class="assembled-mini" style="font-size:12px;min-height:60px">Start typing above to see your prompt take shape.</div>
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-ui">Copy builder prompt</button></div>
         <div class="do-now" id="ui-next-step" style="display:none">
           <div class="do-now-label">Next — do this now</div>
@@ -848,7 +854,10 @@ body{font-family:'DM Sans','Arial',sans-serif}
           </ol>
         </div>
         <div class="label">What do you want to build?</div>
-        <textarea id="s4-vibe-desc" style="min-height:65px" placeholder="Describe the app — what problem it solves, who uses it, what it needs to do, what goes in and what comes out..."></textarea>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:.5rem;line-height:1.5">Describe the app in plain language — your description is built into a complete technical prompt. The more specific you are about what it needs to do, the more functional the output.</p>
+        <textarea id="s4-vibe-desc" style="min-height:65px" placeholder="e.g. A supplier scorecard tracker. Users enter supplier name, delivery score, quality score, and a notes field. It calculates an overall score, highlights anything below 70 in red, and lets you export to CSV."></textarea>
+        <div style="margin:.6rem 0 .4rem;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Your prompt — updates as you type</div>
+        <div id="vibe-preview" class="assembled-mini" style="font-size:12px;min-height:60px">Start typing above to see your prompt take shape.</div>
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-vibe">Copy vibe coding prompt</button></div>
         <div class="do-now" id="vibe-next-step" style="display:none">
           <div class="do-now-label">Next — do this now</div>
@@ -856,7 +865,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         </div>
         <div class="confirm" id="vibe-copied">Copied.</div>
       </div>
-    <div class="between" style="border-color:rgba(232,80,10,.25)"><div class="overline">After Session 4</div><p><strong>You're now a builder.</strong> Find your first real internal use case and ship something — even imperfect — to prove the model.</p><p style="color:var(--muted);font-size:13px">Questions? Reach out via the Connect tab.</p></div>
+    <div class="between" style="border-color:rgba(232,80,10,.25)"><div class="overline">After Session 4</div><p><strong>You're now a builder.</strong> Find your first real internal use case and ship something — even imperfect — to prove the model.</p><p style="margin-top:.5rem;font-size:13px">Before you close — log what you built to the Wins Wall. One sentence: what exists now that did not exist before you started.</p><p style="color:var(--muted);font-size:13px">Questions? Reach out via the Connect tab.</p></div>
     </div>
   </div>
 
@@ -910,6 +919,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div><div class="label">Your name</div><input type="text" id="w-name" placeholder="First name"></div>
         <div><div class="label">Function</div><input type="text" id="w-fn" placeholder="Finance / Supply chain..."></div>
       </div>
+      <div class="solo-only" style="background:var(--soft);border-radius:4px;padding:.65rem .9rem;margin-bottom:.75rem;font-size:13px;color:var(--muted);line-height:1.6;border-left:3px solid var(--ink)">What is the one thing you would tell someone starting the next session tomorrow? Be specific — a prompt that worked, a mistake to avoid, or a result that surprised you.</div>
       <div class="label">What did you do? What was the output?</div>
       <textarea id="w-win" style="min-height:70px" placeholder="Be specific — 'turned a 40-page report into a 3-slide brief in 20 minutes.'"></textarea>
       <div class="label">ROI — time saved or quality impact</div>
@@ -1401,6 +1411,14 @@ function exportData(){
   } catch(e){
     showCopyModal(text);
   }
+  setTimeout(function(){
+    var dl=document.getElementById('btn-export');
+    if(dl && !document.getElementById('btn-share-post-dl')){
+      dl.insertAdjacentHTML('afterend','<p style="font-size:12px;color:var(--muted);margin-top:.65rem;line-height:1.6">Know someone who would benefit? <button class="btn btn-ghost" id="btn-share-post-dl" style="font-size:10px;padding:5px 10px;min-height:0;margin-left:6px">Share the program</button></p>');
+      var sp=document.getElementById('btn-share-post-dl');
+      if(sp) sp.addEventListener('click', shareProgram);
+    }
+  },400);
 }
 
 // ── Share ──
@@ -1571,10 +1589,38 @@ var timerInterval = null; var timerSeconds = 0;
 
   // Session 4 builder
   var bcwf=document.getElementById('btn-copy-workflow');
-  if(bcwf) bcwf.addEventListener('click', function(){ universalCopy(workflowPrompt(),'wf-copied'); });
+  if(bcwf) bcwf.addEventListener('click', function(){
+    var inp=v('s4-workflow-input');
+    if(!inp){
+      var c=document.getElementById('wf-copied');
+      if(c){
+        c.textContent='Add your process description above first — or copy the template and customise it in your AI tool.';
+        c.style.display='block';
+        setTimeout(function(){
+          c.style.display='none';
+          c.textContent='Copied — paste into your AI tool. You will get a bottleneck table, a redesigned process with time estimates, and a flowchart.';
+        },3500);
+      }
+      return;
+    }
+    universalCopy(workflowPrompt(),'wf-copied');
+  });
 
   var bcui=document.getElementById('btn-copy-ui');
   if(bcui) bcui.addEventListener('click', function(){
+    var inp=v('s4-ui-desc');
+    if(!inp){
+      var c=document.getElementById('ui-copied');
+      if(c){
+        c.textContent='Describe what you want to build above first — the more specific you are, the better the output.';
+        c.style.display='block';
+        setTimeout(function(){
+          c.style.display='none';
+          c.textContent='Copied.';
+        },3500);
+      }
+      return;
+    }
     universalCopy(uiPrompt(),'ui-copied');
     var next=document.getElementById('ui-next-step');
     if(next) next.style.display='block';
@@ -1582,6 +1628,19 @@ var timerInterval = null; var timerSeconds = 0;
 
   var bcvb=document.getElementById('btn-copy-vibe');
   if(bcvb) bcvb.addEventListener('click', function(){
+    var inp=v('s4-vibe-desc');
+    if(!inp){
+      var c=document.getElementById('vibe-copied');
+      if(c){
+        c.textContent='Describe your app idea above first — what it does, who uses it, what goes in and comes out.';
+        c.style.display='block';
+        setTimeout(function(){
+          c.style.display='none';
+          c.textContent='Copied.';
+        },3500);
+      }
+      return;
+    }
     universalCopy(vibePrompt(),'vibe-copied');
     var next=document.getElementById('vibe-next-step');
     if(next) next.style.display='block';
@@ -1685,6 +1744,34 @@ var timerInterval = null; var timerSeconds = 0;
       if(bridgePrompts[key]) universalCopy(bridgePrompts[key],'bridge-'+key+'-confirm');
     });
   });
+
+  // Session 4 live previews
+  var wfInput=document.getElementById('s4-workflow-input');
+  var wfPreview=document.getElementById('wf-preview');
+  if(wfInput && wfPreview){
+    wfInput.addEventListener('input', function(){
+      var val=this.value.trim();
+      wfPreview.textContent=val ? workflowPrompt() : 'Start typing above to see your prompt take shape.';
+    });
+  }
+
+  var uiInput=document.getElementById('s4-ui-desc');
+  var uiPrev=document.getElementById('ui-preview');
+  if(uiInput && uiPrev){
+    uiInput.addEventListener('input', function(){
+      var val=this.value.trim();
+      uiPrev.textContent=val ? uiPrompt() : 'Start typing above to see your prompt take shape.';
+    });
+  }
+
+  var vibeInput=document.getElementById('s4-vibe-desc');
+  var vibePrev=document.getElementById('vibe-preview');
+  if(vibeInput && vibePrev){
+    vibeInput.addEventListener('input', function(){
+      var val=this.value.trim();
+      vibePrev.textContent=val ? vibePrompt() : 'Start typing above to see your prompt take shape.';
+    });
+  }
 
   // Worked example toggles
   document.querySelectorAll('.example-toggle').forEach(function(el){
