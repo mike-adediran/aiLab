@@ -663,7 +663,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="label">Your best prompt from this program</div>
       <textarea id="s3-prompt" style="min-height:75px" placeholder="Paste it. Most reusable asset from this program."></textarea>
       <div class="btn-row"><button class="btn btn-primary" id="btn-save-s3">Save + log to wins wall</button></div>
-      <div class="confirm" id="s3-confirm">Saved and logged.</div>
+      <div class="confirm" id="s3-confirm">Saved and logged to the Wins Wall. This becomes your showcase for the teaching exercise — and appears in your session summary download.</div>
     </div>
     <div class="card group-only">
       <h3>Teaching exercise — 20 minutes</h3>
@@ -678,14 +678,14 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="card solo-only">
       <h3>Teaching exercise — your written version</h3>
-      <p>Write this up as if you were explaining it to a sceptical colleague who has never used AI at work.</p>
+      <p>Write this up for a capable colleague who uses AI occasionally but has not seen it applied seriously to professional work yet. Show the before, show the prompt, show the after. Be specific enough that they could replicate your result tomorrow — and honest enough that they know what to still verify themselves.</p>
       <ol class="steps">
         <li><div class="step-num">1</div><div><div class="step-main">Name the task you automated or improved.</div></div></li>
         <li><div class="step-num">2</div><div><div class="step-main">Describe the before: how long, how painful, what could go wrong.</div></div></li>
         <li><div class="step-num">3</div><div><div class="step-main">Describe the after: what the prompt looks like, what changed, what you still check manually.</div></div></li>
       </ol>
       <div class="label">Your written showcase</div>
-      <textarea id="s3-teach" style="min-height:80px" placeholder="Write it up as if explaining to a sceptical colleague — before, after, prompt, what you still verify..."></textarea>
+      <textarea id="s3-teach" style="min-height:80px" placeholder="Write this up for a capable colleague who uses AI occasionally but has not yet seen it transform real work. Show the before, the prompt, the after, and what you still verify manually. Be specific enough that they could replicate your result tomorrow."></textarea>
     </div>
     <div class="do-now">
       <div class="do-now-label">Your turn — do this now</div>
@@ -711,7 +711,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="label">I will share this with...</div>
       <input type="text" id="pledge-share" placeholder="One person or team you'll teach something to in 30 days">
       <div class="btn-row"><button class="btn btn-accent" id="btn-save-pledge">Lock in my commitment</button></div>
-      <div class="confirm" id="pledge-confirm" style="color:rgba(100,220,140,.9)">Commitment saved — appears in your session export.</div>
+      <div class="confirm" id="pledge-confirm" style="color:rgba(100,220,140,.9)">Commitment saved. It is in your session summary.<span class="group-only-inline"> Now — who is going to Session 4? Raise your hand.</span><span class="solo-only-inline"> Ready to build something? Head to Session 4. Or download your summary from the Wins Wall.</span></div>
     </div>
     <div class="card">
       <h3>What you could build in Session 4</h3>
@@ -720,28 +720,28 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div class="bridge-card">
           <h4>Finance</h4>
           <p>Variance commentary that used to take 3 hours — done in 20 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a financial analyst. Here is this week's P&amp;L data by cost centre [paste]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.</div>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a financial analyst. Here is this week's P&amp;L data by cost centre [copy and paste your P&amp;L data here]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.</div>
           <button class="btn btn-ghost" data-bridge="finance">Copy this prompt</button>
           <div class="confirm" id="bridge-finance-confirm">Copied — paste into your AI tool.</div>
         </div>
         <div class="bridge-card">
           <h4>Supply chain</h4>
           <p>Supplier risk assessment that took half a day — done in 6 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a supply chain risk analyst. Review this supplier update [paste]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.</div>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a supply chain risk analyst. Review this supplier update [copy and paste your supplier update here]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.</div>
           <button class="btn btn-ghost" data-bridge="supply">Copy this prompt</button>
           <div class="confirm" id="bridge-supply-confirm">Copied — paste into your AI tool.</div>
         </div>
         <div class="bridge-card">
           <h4>Strategy</h4>
           <p>Competitive intelligence brief that took a day — structured in 15 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a strategy consultant. Summarize this competitive intelligence [paste] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.</div>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a strategy consultant. Summarize this competitive intelligence [copy and paste your intelligence summary here] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.</div>
           <button class="btn btn-ghost" data-bridge="strategy">Copy this prompt</button>
           <div class="confirm" id="bridge-strategy-confirm">Copied — paste into your AI tool.</div>
         </div>
         <div class="bridge-card">
           <h4>Operations</h4>
           <p>Process improvement proposal that took days to draft — outlined in 10 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a process improvement expert. Here is our current workflow [paste]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.</div>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a process improvement expert. Here is our current workflow [copy and paste your current workflow steps here]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.</div>
           <button class="btn btn-ghost" data-bridge="ops">Copy this prompt</button>
           <div class="confirm" id="bridge-ops-confirm">Copied — paste into your AI tool.</div>
         </div>
@@ -776,54 +776,65 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <h3>Redesign a process with AI</h3>
         <ol class="steps">
           <li><div class="step-num">1</div><div><div class="step-main">Describe your current process — every step, in order.</div><div class="step-sub">Don't optimize yet. Describe what actually happens, including the messy parts.</div></div></li>
-          <li><div class="step-num">2</div><div><div class="step-main">Use this prompt with your process below it.</div><div class="step-sub step-inline">You are a process improvement expert. Here is my current workflow: [paste]. Identify: (1) the top 3 bottlenecks and why, (2) which steps could be automated with AI, (3) a redesigned process — as a numbered sequence, then as a text flowchart using → for flow and [brackets] for decisions.</div></div></div></li>
-          <li><div class="step-num">3</div><div><div class="step-main">Estimate time saved. Log to the Wins wall.</div></div></li>
+          <li><div class="step-num">2</div><div><div class="step-main">Use this prompt with your process below it.</div><div class="step-sub step-inline">The prompt produces three things: a bottleneck analysis table, a redesigned numbered process with time estimates, and a text flowchart. Describe your workflow below, copy the prompt, and paste it into your AI tool.</div></div></li>
+          <li><div class="step-num">3</div><div><div class="step-main">Review the three outputs. Share the before vs after time total with the group. Log to the Wins Wall.</div></div></li>
         </ol>
         <div class="label" style="margin-top:.75rem">Your process to redesign</div>
         <textarea id="s4-workflow-input" style="min-height:80px" placeholder="Describe your current workflow — every step, in order..."></textarea>
         <div class="do-now">
-          <div class="do-now-label">Your turn — do this now</div>
-          <p>Fill in your workflow above, copy the prompt, and paste it into your AI tool right now. Don't wait until the prompt is perfect — run a draft version first and see what comes back. You'll iterate from the output.</p>
+          <div class="do-now-label">Do this now</div>
+          <p>Describe your workflow in the field above. Copy the prompt below and paste it into your AI tool. What comes back is a structured deliverable — not a paragraph. Review it, then log your time saving to the Wins Wall.</p>
         </div>
-        <div class="btn-row"><button class="btn btn-accent" id="btn-copy-workflow">Copy analysis prompt</button></div>
-        <div class="confirm" id="wf-copied">Prompt copied — paste into your AI tool.</div>
+        <div class="btn-row"><button class="btn btn-accent" id="btn-copy-workflow">Copy workflow prompt</button></div>
+        <div class="confirm" id="wf-copied">Copied — paste into your AI tool. You will get a bottleneck table, a redesigned process with time estimates, and a flowchart.</div>
       </div>
       <div id="s4-ui" class="tab-panel">
-        <h3>Build a working preview with AI</h3>
+        <h3>Build a working dashboard or form</h3>
+        <p style="margin-bottom:.75rem">Describe what you want — AI generates a working HTML file you can open in any browser or preview directly in your AI tool if it supports it (Claude Artifacts and ChatGPT Canvas both do).</p>
         <ol class="steps">
-          <li><div class="step-num">1</div><div><div class="step-main">Define what you want to build in one sentence.</div><div class="step-sub">e.g. "A weekly ops dashboard showing KPIs by region."</div></div></li>
-          <li><div class="step-num">2</div><div><div class="step-main">Use the builder prompt.</div><div class="step-sub step-inline">Build a single-file HTML page for [describe your tool]. Include: [list sections, columns, fields]. Style it cleanly — professional and minimal. Self-contained, no external dependencies. Return only the complete HTML file.</div></div></li>
-          <li><div class="step-num">3</div><div><div class="step-main">Copy HTML → save as .html → open in browser.</div><div class="step-sub">Working prototype in minutes.</div></div></li>
-          <li><div class="step-num">4</div><div><div class="step-main">Iterate in plain language. "Add a date filter. Move summary to top." Each instruction is a prompt.</div></div></li>
+          <li><div class="step-num">1</div><div><div class="step-main">Describe what you want in plain language.</div><div class="step-sub">e.g. "A weekly ops dashboard showing KPIs by region with a summary row at the top."</div></div></li>
+          <li><div class="step-num">2</div><div><div class="step-main">Copy the prompt and paste into Claude or ChatGPT.</div><div class="step-sub">If your tool has a preview pane (Claude Artifacts, ChatGPT Canvas) — it will render live in the chat. No browser needed.</div></div></li>
+          <li><div class="step-num">3</div><div><div class="step-main">If no preview — copy the HTML output, save as a .html file, open in any browser.</div><div class="step-sub">Takes 30 seconds. Works on any device.</div></div></li>
+          <li><div class="step-num">4</div><div><div class="step-main">Iterate in plain language.</div><div class="step-sub">"Add a date filter. Move the summary to the top. Change the colour to match our brand." Each instruction is a prompt.</div></div></li>
         </ol>
         <div class="label" style="margin-top:.75rem">What do you want to build?</div>
-        <textarea id="s4-ui-desc" style="min-height:65px" placeholder="Describe it — what it shows, what fields it has, who uses it..."></textarea>
+        <textarea id="s4-ui-desc" style="min-height:65px" placeholder="Describe it — what it shows, what data it uses, who uses it and for what decision..."></textarea>
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-ui">Copy builder prompt</button></div>
-        <div class="confirm" id="ui-copied">Prompt copied — paste into your AI tool. Save output as .html and open in browser.</div>
+        <div class="do-now" id="ui-next-step" style="display:none">
+          <div class="do-now-label">Next — do this now</div>
+          <p>Paste the prompt into Claude or ChatGPT. If you see a preview pane appear — your dashboard is already rendering. If not, copy the HTML from the response, save it as a .html file, and open it in your browser. Then iterate: tell it what to change in plain English.</p>
+        </div>
+        <div class="confirm" id="ui-copied">Copied.</div>
       </div>
       <div id="s4-vibe" class="tab-panel">
-        <h3>Your first AI-built app</h3>
-        <p style="margin-bottom:.75rem">No prior coding required — but you need judgment.</p>
+        <h3>Build an app that does something</h3>
+        <p style="margin-bottom:.5rem">UI Prototyper makes something that looks like a tool. Vibe Coding makes something that <em>works</em> like one — with logic, interactivity, and data. The difference: a prototyper shows a dashboard. Vibe coding builds a calculator, a tracker, a scoring tool — something you or your team would use repeatedly.</p>
+        <p style="margin-bottom:.75rem;font-size:13px;color:var(--muted)">No prior coding required — but you must read what the AI produces critically.</p>
         <div class="vibe-steps">
-          <div class="vibe-step"><div class="vibe-step-num">1</div><div class="vibe-step-title">Define precisely</div><div class="vibe-step-text">Problem, users, inputs and outputs?</div></div>
-          <div class="vibe-step"><div class="vibe-step-num">2</div><div class="vibe-step-title">Prompt + generate</div><div class="vibe-step-text">Ask for a single self-contained file first — always.</div></div>
-          <div class="vibe-step"><div class="vibe-step-num">3</div><div class="vibe-step-title">Review critically</div><div class="vibe-step-text">Test every function. Break it intentionally.</div></div>
-          <div class="vibe-step"><div class="vibe-step-num">4</div><div class="vibe-step-title">Iterate plainly</div><div class="vibe-step-text">Describe what's wrong. AI fixes. Repeat.</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">1</div><div class="vibe-step-title">Define precisely</div><div class="vibe-step-text">What does it do? Who uses it? What goes in, what comes out?</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">2</div><div class="vibe-step-title">Generate</div><div class="vibe-step-text">Always ask for a single self-contained file first. Always.</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">3</div><div class="vibe-step-title">Test it hard</div><div class="vibe-step-text">Try to break it. Click everything. Enter bad data. Find the edge cases.</div></div>
+          <div class="vibe-step"><div class="vibe-step-num">4</div><div class="vibe-step-title">Iterate in plain language</div><div class="vibe-step-text">Describe exactly what is wrong. AI fixes. Repeat.</div></div>
         </div>
         <div class="card card-warn" style="margin:.75rem 0">
-          <h3 style="color:#7a2a0f;margin-bottom:.5rem">Before you ship anything internally</h3>
+          <h3 style="color:#7a2a0f;margin-bottom:.5rem">Before you share or deploy anything internally</h3>
           <ol class="steps">
-            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Have someone technically literate review code before deploying on company systems.</div></div></li>
-            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Never hardcode credentials or sensitive data into AI-generated apps.</div></div></li>
-            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">If you can't explain what it does, don't deploy it.</div></div></li>
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Have someone technically literate review the code before running it on company systems.</div></div></li>
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">Never put real credentials, passwords, or sensitive data into AI-generated code.</div></div></li>
+            <li><div class="step-num" style="border-color:#c04020;color:#c04020">!</div><div><div class="step-main" style="color:#7a2a0f">If you cannot explain what it does line by line — do not deploy it.</div></div></li>
           </ol>
         </div>
-        <div class="label">Your app idea</div>
-        <textarea id="s4-vibe-desc" style="min-height:65px" placeholder="What do you want to build? Problem, users, what it does..."></textarea>
+        <div class="label">What do you want to build?</div>
+        <textarea id="s4-vibe-desc" style="min-height:65px" placeholder="Describe the app — what problem it solves, who uses it, what it needs to do, what goes in and what comes out..."></textarea>
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-vibe">Copy vibe coding prompt</button></div>
-        <div class="confirm" id="vibe-copied">Prompt copied — paste into Claude or ChatGPT. Start simple. Iterate fast.</div>
+        <div class="do-now" id="vibe-next-step" style="display:none">
+          <div class="do-now-label">Next — do this now</div>
+          <p>Paste into Claude or ChatGPT. Read what comes back — all of it. Test every function before showing anyone. If it has a bug, describe exactly what went wrong and ask it to fix that specific thing. Do not deploy to company systems without a technical review first.</p>
+        </div>
+        <div class="confirm" id="vibe-copied">Copied.</div>
       </div>
     <div class="between" style="border-color:rgba(232,80,10,.25)"><div class="overline">After Session 4</div><p><strong>You're now a builder.</strong> Find your first real internal use case and ship something — even imperfect — to prove the model.</p><p style="color:var(--muted);font-size:13px">Questions? Reach out via the Connect tab.</p></div>
+    </div>
   </div>
 
   <!-- PROMPT LAB -->
@@ -1229,7 +1240,7 @@ function renderPrompts(){
 // ── Builder prompts ──
 function workflowPrompt(){
   var wf=v('s4-workflow-input');
-  return 'You are a process improvement expert. Here is my current workflow:\n\n'+(wf||'[paste your workflow here]')+'\n\nPlease:\n1. Identify the top 3 bottlenecks and why they exist\n2. Identify which steps could be partially or fully automated with AI today\n3. Redesign the process to remove or reduce those bottlenecks — present as a numbered sequence\n4. Then present the redesigned flow as a simple text flowchart using \u2192 for flow and [brackets] for decision points';
+  return 'You are a process improvement expert.\n\nHere is my current workflow:\n\n'+(wf||'[copy and paste your workflow steps here — every step, in order, including the messy parts]')+'\n\nDeliver this in three parts:\n\nPART 1 — BOTTLENECK ANALYSIS\nPresent as a table with columns: Step | Problem | Impact | AI Fix Possible (Yes/No)\nIdentify the top 3 bottlenecks only.\n\nPART 2 — REDESIGNED PROCESS\nNumber each step of the new process. Estimate time per step in the new version. Show total time before vs after at the bottom.\n\nPART 3 — PROCESS FLOWCHART\nDraw the redesigned flow as a text flowchart. Use \u2192 for sequential flow. Use [Decision: X?] \u2192 Yes: ... / No: ... for decision points. Keep it on one screen.';
 }
 function uiPrompt(){
   var desc=v('s4-ui-desc');
@@ -1237,7 +1248,7 @@ function uiPrompt(){
 }
 function vibePrompt(){
   var desc=v('s4-vibe-desc');
-  return 'I want to build: '+(desc||'[describe your app here]')+'\n\nBuild this as a single self-contained HTML file that:\n- Works offline with no external dependencies\n- Has a clean, professional design\n- Is fully functional based on my description\n- Includes clear comments explaining what each major section does\n\nAfter the code, explain:\n1. What you built\n2. What I should test first\n3. What limitations I should be aware of';
+  return 'I want to build: '+(desc||'[describe your app here — what it does, who uses it, what goes in and what comes out]')+'\n\nBuild this as a single self-contained HTML file that:\n- Works offline with no external dependencies\n- Has a clean, professional design suitable for a business context\n- Is fully functional based on my description\n- Includes clear labels and error handling for unexpected inputs\n\nAfter the code, provide:\n1. A plain-English summary of what you built and how it works\n2. The three things I should test first\n3. Any limitations or assumptions I should know about before sharing this with colleagues';
 }
 
 // ── Wins wall ──
@@ -1510,10 +1521,18 @@ var timerInterval = null; var timerSeconds = 0;
   if(bcwf) bcwf.addEventListener('click', function(){ universalCopy(workflowPrompt(),'wf-copied'); });
 
   var bcui=document.getElementById('btn-copy-ui');
-  if(bcui) bcui.addEventListener('click', function(){ universalCopy(uiPrompt(),'ui-copied'); });
+  if(bcui) bcui.addEventListener('click', function(){
+    universalCopy(uiPrompt(),'ui-copied');
+    var next=document.getElementById('ui-next-step');
+    if(next) next.style.display='block';
+  });
 
   var bcvb=document.getElementById('btn-copy-vibe');
-  if(bcvb) bcvb.addEventListener('click', function(){ universalCopy(vibePrompt(),'vibe-copied'); });
+  if(bcvb) bcvb.addEventListener('click', function(){
+    universalCopy(vibePrompt(),'vibe-copied');
+    var next=document.getElementById('vibe-next-step');
+    if(next) next.style.display='block';
+  });
 
   // Wins wall
   var blw=document.getElementById('btn-log-win');
@@ -1602,10 +1621,10 @@ var timerInterval = null; var timerSeconds = 0;
 
   // Bridge prompt copy buttons
   var bridgePrompts={
-    finance:'You are a financial analyst. Here is my data: [paste data]. Write a structured variance commentary for an executive audience. Include: (1) overall performance vs plan, (2) top 3 variances and their likely drivers, (3) recommended actions. Format as three short paragraphs. Flag any figures you cannot verify.',
-    supply:'You are a supply chain risk analyst. Here is a supplier or logistics update: [paste update]. Identify and prioritise delivery, quality, and compliance risks. For each risk: name it, rate it High/Medium/Low, give one sentence of reasoning, and suggest one immediate action. List in priority order.',
-    strategy:'You are a strategy consultant. Here is competitive intelligence or market data: [paste]. Summarise into a 3-part executive narrative: (1) what is shifting in the market, (2) what this means for us specifically, (3) the recommended response. One focused paragraph each.',
-    ops:'You are a process improvement expert. Here is my current workflow: [paste each step]. Identify: (1) the top 3 bottlenecks and why they exist, (2) which steps could be automated or accelerated with AI today, (3) a redesigned process as a numbered sequence. Then give the redesign as a simple text flowchart using → for flow and [brackets] for decisions.'
+    finance:'You are a financial analyst. Here is this week\'s P&L data by cost centre [copy and paste your P&L data here]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.',
+    supply:'You are a supply chain risk analyst. Review this supplier update [copy and paste your supplier update here]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.',
+    strategy:'You are a strategy consultant. Summarize this competitive intelligence [copy and paste your intelligence summary here] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.',
+    ops:'You are a process improvement expert. Here is our current workflow [copy and paste your current workflow steps here]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.'
   };
   document.querySelectorAll('[data-bridge]').forEach(function(btn){
     btn.addEventListener('click', function(){
