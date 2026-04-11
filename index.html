@@ -359,15 +359,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <button class="mode-btn active" id="btn-mode-group">Attending a group session</button>
       <button class="mode-btn" id="btn-mode-solo">Learning on my own</button>
       <div class="mode-desc" id="mode-desc-text">Facilitator-led cohort experience. All exercises are designed for group participation.</div>
-      <div class="mode-prereq" style="
-    font-size:12px;
-    color:var(--muted);
-    width:100%;
-    margin-top:6px;
-    line-height:1.5;
-    padding-top:6px;
-    border-top:1px solid var(--border);
-  ">You will need access to an AI tool — the free tier of ChatGPT, Claude, or Gemini all work. Have 2 real work problems in mind before you begin.</div>
+      <div style="font-size:12px;color:var(--muted);width:100%;margin-top:6px;line-height:1.6;padding-top:6px;border-top:1px solid var(--border);">You will need access to an AI tool — the free tier of ChatGPT, Claude, or Gemini all work. Have 2 real work problems in mind before you begin.</div>
     </div>
     <div class="mobile-hero">
       <p><strong>Welcome.</strong> A free, hands-on AI upskilling program. 4 sessions. Real problems. No slides. Open on desktop for the full experience — or explore right here.</p>
@@ -416,7 +408,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <li><div class="step-num">1</div><div><div class="step-main">Work through each session at your own speed — there is no time pressure.</div><div class="step-sub">The session time labels are rough guides, not deadlines.</div></div></li>
         <li><div class="step-num">2</div><div><div class="step-main">Do the exercises for real. Reading without doing is the fastest way to forget everything.</div><div class="step-sub">Every "Do this now" callout is a genuine pause point. Stop and do it before moving on.</div></div></li>
         <li><div class="step-num">3</div><div><div class="step-main">Use the wins journal to track what works. Your log is your proof of progress.</div><div class="step-sub">Even rough wins count. Name them.</div></div></li>
-        <li><div class="step-num">4</div><div><div class="step-main">Session 4 is genuinely optional — only go there if Sessions 1–3 felt solid.</div><div class="step-sub">The checklist on the Session 4 card in Session 3 will tell you if you're ready.</div></div></li>
+        <li><div class="step-num">4</div><div><div class="step-main">Session 4 is where things get exciting — you will build something real that did not exist before you started.</div><div class="step-sub">The checklist on the Session 4 card in Session 3 will tell you if you're ready.</div></div></li>
       </ol>
     </div>
   </div>
@@ -451,7 +443,6 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <textarea id="s1-p2" placeholder="What drains your time or creates friction?"></textarea>
       <div class="btn-row">
         <button class="btn btn-primary" id="btn-save-s1">Save my problems</button>
-        <button class="btn btn-ghost" data-goto="promptlab">Prompt lab →</button>
       </div>
       <div class="confirm" id="s1-confirm">Saved. Head to the prompt lab and start with Problem 1.</div>
     </div>
@@ -478,10 +469,6 @@ body{font-family:'DM Sans','Arial',sans-serif}
         </div>
       </div>
     </div>
-    <div class="do-now">
-      <div class="do-now-label">Your turn — do this now</div>
-      <p>Open your AI tool. Take Problem 1 you just wrote above and paste it in with a weak prompt. See what you get. Then rebuild the prompt using the surgery examples above. Run it again. Notice the difference. Don't move on until you've done both runs.</p>
-    </div>
     <div class="card">
       <h3>Output quality check — is it actually better?</h3>
       <div class="quality-grid">
@@ -491,7 +478,11 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div class="quality-item"><h4>Better than alone?</h4><p>If not — the prompt needs work, not more of the same output.</p></div>
       </div>
     </div>
-    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what didn't, and your best prompt.<span class="group-only-inline"> Bring it to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you're ready.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
+    <div class="do-now">
+      <div class="do-now-label">Your turn — do this now</div>
+      <p>Open your AI tool now. Take Problem 1 you saved above. Write a weak prompt first — just describe the task in one sentence. See what comes back. Then rebuild it using the RCTFX framework and the surgery examples above. Run it again. Compare the two outputs. That gap is the skill. Don't move on until you have done both runs.</p>
+    </div>
+    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what did not, and your best prompt.<span class="group-only-inline"> Bring it to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you are ready.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
   </div>
 
   <!-- SESSION 2 -->
@@ -593,9 +584,9 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="do-now">
       <div class="do-now-label">Your turn — do this now</div>
-      <p>Pick the function pattern closest to yours from the "By function" tab. Copy it into the prompt lab, swap in your real problem, and run it. Then use "Which tool?" to confirm you're using the right AI tool for this task. Log the output as a win if it's better than what you'd have produced alone.</p>
+      <p>Open your AI tool. Go to the "By function" tab above and find the pattern closest to your role. Copy it, replace [paste] with a real (anonymised) example from your work, and run it. Then open the Prompt Lab tab in the nav and refine it using RCTFX. Log the output to the Wins Wall if the result is better than what you would have produced alone.</p>
     </div>
-    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly.<span class="group-only-inline"> You'll present it in Session 3.</span><span class="solo-only-inline"> Log it to your wins journal and bring it to Session 3 when you're ready.</span></p></div>
+    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly.<span class="group-only-inline"> You will present it in Session 3.</span><span class="solo-only-inline"> Log it to your wins journal and bring it to Session 3 when you are ready.</span></p></div>
   </div>
 
   <!-- SESSION 3 -->
@@ -641,7 +632,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="do-now">
       <div class="do-now-label">Your turn — do this now</div>
-      <p>You have 3 minutes. Open your AI tool. Take the best prompt you built in this program and run it one more time on a current real problem. Screenshot the output. You'll use this in your showcase demo in the next 30 minutes.</p>
+      <p>Open your AI tool now. Take the best prompt you have built in this program — paste it into the Prompt Lab, refine it one final time, then run it on a current real problem. That output is your showcase. Come back here when you have it.</p>
     </div>
     <div class="pledge-block">
       <h3>Your 30-day commitment</h3>
@@ -764,6 +755,10 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <p style="margin-bottom:1.25rem">Use the RCTFX framework. Assemble, copy, paste into your AI tool.</p>
     <div class="card">
       <div class="label">R — Role</div><input type="text" id="pl-role" placeholder="e.g. You are a senior financial analyst...">
+      <div id="pl-problem-hint" style="display:none;background:var(--soft);border-radius:4px;padding:.65rem .9rem;margin-bottom:.65rem;font-size:12px;color:var(--muted);border-left:3px solid var(--accent);line-height:1.6;">
+        <span style="font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:3px;">Your Problem 1</span>
+        <span id="pl-problem-text"></span>
+      </div>
       <div class="label">C — Context</div><textarea id="pl-ctx" style="min-height:65px" placeholder="Business problem, audience, decisions this will inform..."></textarea>
       <div class="label">T — Task</div><textarea id="pl-task" style="min-height:65px" placeholder="Write / Analyze / Summarize / Draft / Critique..."></textarea>
       <div class="form-row">
@@ -811,7 +806,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div id="wins-feed"></div>
     <hr>
-    <div class="btn-row"><button class="btn btn-ghost" id="btn-export">Download session data (JSON)</button></div>
+    <div class="btn-row"><button class="btn btn-ghost" id="btn-export">Download my session summary</button></div>
   </div>
 
   <!-- GUARDRAILS -->
@@ -983,7 +978,7 @@ function toggleFac(){
   var ic=document.getElementById('fac-trigger-btn');
   if(facOpen){
     n.classList.add('open');
-    ic.textContent="I'm a facilitator \u2014 click to open session notes \u25b2";
+    ic.textContent="I'm a facilitator \u25b2 \u2014 click to close";
     var cur=SECTIONS.find(function(s){
       var el=document.getElementById(s);
       return el && el.classList.contains('active');
@@ -1078,7 +1073,17 @@ function v(id){ var el=document.getElementById(id); return el ? el.value.trim() 
 function now(){ return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
 
 // ── Save functions ──
-function saveS1(){ S.s1={name:v('s1-name'),fn:v('s1-fn'),p1:v('s1-p1'),base:v('s1-base'),p2:v('s1-p2')}; flash('s1-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
+function saveS1(){
+  S.s1={name:v('s1-name'),fn:v('s1-fn'),p1:v('s1-p1'),base:v('s1-base'),p2:v('s1-p2')};
+  flash('s1-confirm');
+  if(typeof updateProgressChecks==='function') updateProgressChecks();
+  var hint=document.getElementById('pl-problem-hint');
+  var txt=document.getElementById('pl-problem-text');
+  if(hint && txt && S.s1.p1){
+    txt.textContent=S.s1.p1;
+    hint.style.display='block';
+  }
+}
 function saveS2(){ S.s2={partner:v('s2-partner'),prob:v('s2-prob'),insight:v('s2-insight')}; flash('s2-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
 function saveS3(){
   S.s3={problem:v('s3-problem'),before:v('s3-before'),after:v('s3-after'),quality:v('s3-quality'),prompt:v('s3-prompt')};
@@ -1159,14 +1164,80 @@ function renderWins(){
 
 // ── Export — mobile-safe ──
 function exportData(){
-  var cohort=document.getElementById('cohort-id').value.trim()||'unnamed-cohort';
-  var d={program:'AI Transformation Lab',cohort:cohort,exportedAt:new Date().toISOString(),session1:S.s1,session2:S.s2,session3:S.s3,pledge:S.pledge,feedback:S.fb,wins:S.wins,savedPrompts:S.prompts};
-  var json=JSON.stringify(d,null,2);
-  var filename='ai-transformation-lab-'+cohort.replace(/\s+/g,'-').toLowerCase()+'-'+new Date().toISOString().split('T')[0]+'.json';
+  var cohort=document.getElementById('cohort-id').value.trim()||'my-cohort';
+  var date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var lines=[];
+  lines.push('AI TRANSFORMATION LAB — SESSION SUMMARY');
+  lines.push('========================================');
+  lines.push('Date: '+date);
+  if(cohort!=='my-cohort') lines.push('Cohort: '+cohort);
+  lines.push('');
 
-  // Try modern Blob download
+  if(S.s1 && S.s1.name){
+    lines.push('WHO I AM');
+    lines.push('--------');
+    lines.push('Name: '+(S.s1.name||''));
+    lines.push('Function: '+(S.s1.fn||''));
+    lines.push('');
+    if(S.s1.p1){
+      lines.push('PROBLEM 1 (biggest time sink)');
+      lines.push(S.s1.p1);
+      if(S.s1.base) lines.push('Time today: '+S.s1.base);
+      lines.push('');
+    }
+    if(S.s1.p2){
+      lines.push('PROBLEM 2 (second frustration)');
+      lines.push(S.s1.p2);
+      lines.push('');
+    }
+  }
+
+  if(S.s3 && S.s3.problem){
+    lines.push('MY ROI STORY');
+    lines.push('------------');
+    lines.push('Problem solved: '+S.s3.problem);
+    if(S.s3.before) lines.push('Before AI: '+S.s3.before);
+    if(S.s3.after) lines.push('After AI: '+S.s3.after);
+    if(S.s3.quality) lines.push('Quality impact: '+S.s3.quality);
+    lines.push('');
+  }
+
+  if(S.prompts && S.prompts.length){
+    lines.push('MY SAVED PROMPTS');
+    lines.push('----------------');
+    S.prompts.forEach(function(p,i){
+      lines.push('Prompt '+(i+1)+' (saved '+p.time+'):');
+      lines.push(p.text);
+      lines.push('');
+    });
+  }
+
+  if(S.pledge && S.pledge.use){
+    lines.push('MY 30-DAY COMMITMENT');
+    lines.push('--------------------');
+    if(S.pledge.use) lines.push('I will use AI to: '+S.pledge.use);
+    if(S.pledge.time) lines.push('Time saved goes toward: '+S.pledge.time);
+    if(S.pledge.share) lines.push('I will share this with: '+S.pledge.share);
+    lines.push('');
+  }
+
+  if(S.wins && S.wins.length){
+    lines.push('WINS LOGGED');
+    lines.push('-----------');
+    S.wins.forEach(function(w){
+      lines.push('- '+w.name+(w.fn?' ('+w.fn+')':'')+': '+w.win+(w.roi?' ['+w.roi+']':''));
+    });
+    lines.push('');
+  }
+
+  lines.push('========================================');
+  lines.push('AI Transformation Lab \u2014 mike-adediran.github.io/aiLab');
+
+  var text=lines.join('\n');
+  var filename='ai-lab-summary-'+(S.s1&&S.s1.name?S.s1.name.toLowerCase().replace(/\s+/g,'-')+'-':'')+new Date().toISOString().split('T')[0]+'.txt';
+
   try{
-    var b=new Blob([json],{type:'application/json'});
+    var b=new Blob([text],{type:'text/plain'});
     var u=URL.createObjectURL(b);
     var a=document.createElement('a');
     a.href=u; a.download=filename;
@@ -1174,8 +1245,7 @@ function exportData(){
     a.click();
     setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(u); },200);
   } catch(e){
-    // Fallback: show data in copy modal so user can manually save
-    showCopyModal(json);
+    showCopyModal(text);
   }
 }
 
