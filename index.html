@@ -332,7 +332,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       padding:4px 0;
       -webkit-tap-highlight-color:transparent;
       touch-action:manipulation;
-    ">I'm a facilitator &#9660;</button>
+    ">I'm a facilitator — click to open session notes &#9660;</button>
   </div>
   <div class="fac-notes" id="fac-notes">
     <div class="fac-heading">For the person running this session</div>
@@ -359,6 +359,15 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <button class="mode-btn active" id="btn-mode-group">Attending a group session</button>
       <button class="mode-btn" id="btn-mode-solo">Learning on my own</button>
       <div class="mode-desc" id="mode-desc-text">Facilitator-led cohort experience. All exercises are designed for group participation.</div>
+      <div class="mode-prereq" style="
+    font-size:12px;
+    color:var(--muted);
+    width:100%;
+    margin-top:6px;
+    line-height:1.5;
+    padding-top:6px;
+    border-top:1px solid var(--border);
+  ">You will need access to an AI tool — the free tier of ChatGPT, Claude, or Gemini all work. Have 2 real work problems in mind before you begin.</div>
     </div>
     <div class="mobile-hero">
       <p><strong>Welcome.</strong> A free, hands-on AI upskilling program. 4 sessions. Real problems. No slides. Open on desktop for the full experience — or explore right here.</p>
@@ -368,6 +377,15 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div class="sess-wk">Week 1</div><div class="sess-title">Foundation + problem framing</div>
         <div class="sess-desc">Understand real capability. Surface your problems. Set a baseline.</div>
         <div class="sess-check" id="check-s1"></div>
+        <div class="sess-start group-only" style="
+    font-family:'Syne','Arial Black',sans-serif;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-top:.5rem;
+  ">Start here →</div>
       </div>
       <div class="sess-card" data-goto="session2">
         <div class="sess-wk">Week 2</div><div class="sess-title">Applied lab + prompt mastery</div>
@@ -399,15 +417,6 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <li><div class="step-num">2</div><div><div class="step-main">Do the exercises for real. Reading without doing is the fastest way to forget everything.</div><div class="step-sub">Every "Do this now" callout is a genuine pause point. Stop and do it before moving on.</div></div></li>
         <li><div class="step-num">3</div><div><div class="step-main">Use the wins journal to track what works. Your log is your proof of progress.</div><div class="step-sub">Even rough wins count. Name them.</div></div></li>
         <li><div class="step-num">4</div><div><div class="step-main">Session 4 is genuinely optional — only go there if Sessions 1–3 felt solid.</div><div class="step-sub">The checklist on the Session 4 card in Session 3 will tell you if you're ready.</div></div></li>
-      </ol>
-    </div>
-    <div class="card card-dark">
-      <div class="label" style="color:rgba(255,255,255,.4)">How this works</div>
-      <ol class="steps">
-        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">1</div><div><div class="step-main" style="color:#fff">Each session tab is your live guide — follow steps, work in the prompt lab, log wins.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">No slides. Everything lives here.</div></div></li>
-        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">2</div><div><div class="step-main" style="color:#fff">Bring your top 2 real problems. Vague problems get vague AI help.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Captured in Session 1 before anything else.</div></div></li>
-        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">3</div><div><div class="step-main" style="color:#fff">Each week has one async challenge — 15 minutes max. Don't skip it.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Where real learning compounds between sessions.</div></div></li>
-        <li><div class="step-num" style="border-color:rgba(255,255,255,.25);color:#fff">4</div><div><div class="step-main" style="color:#fff">Download your session data before closing. Nothing persists on refresh.</div><div class="step-sub" style="color:rgba(255,255,255,.5)">Export button on the Wins wall.</div></div></li>
       </ol>
     </div>
   </div>
@@ -482,7 +491,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div class="quality-item"><h4>Better than alone?</h4><p>If not — the prompt needs work, not more of the same output.</p></div>
       </div>
     </div>
-    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what didn't, and your best prompt. Bring it to Session 2.</p><p style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
+    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what didn't, and your best prompt.<span class="group-only-inline"> Bring it to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you're ready.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
   </div>
 
   <!-- SESSION 2 -->
@@ -586,7 +595,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="do-now-label">Your turn — do this now</div>
       <p>Pick the function pattern closest to yours from the "By function" tab. Copy it into the prompt lab, swap in your real problem, and run it. Then use "Which tool?" to confirm you're using the right AI tool for this task. Log the output as a win if it's better than what you'd have produced alone.</p>
     </div>
-    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly. You'll present it in Session 3.</p></div>
+    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly.<span class="group-only-inline"> You'll present it in Session 3.</span><span class="solo-only-inline"> Log it to your wins journal and bring it to Session 3 when you're ready.</span></p></div>
   </div>
 
   <!-- SESSION 3 -->
@@ -974,7 +983,7 @@ function toggleFac(){
   var ic=document.getElementById('fac-trigger-btn');
   if(facOpen){
     n.classList.add('open');
-    ic.textContent="I'm a facilitator \u25b2";
+    ic.textContent="I'm a facilitator \u2014 click to open session notes \u25b2";
     var cur=SECTIONS.find(function(s){
       var el=document.getElementById(s);
       return el && el.classList.contains('active');
@@ -982,7 +991,7 @@ function toggleFac(){
     document.getElementById('fac-text').textContent=FAC[cur]||'Navigate to a session to see notes.';
   } else {
     n.classList.remove('open');
-    ic.textContent="I'm a facilitator \u25bc";
+    ic.textContent="I'm a facilitator \u2014 click to open session notes \u25bc";
   }
 }
 
