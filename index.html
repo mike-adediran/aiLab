@@ -202,6 +202,11 @@ hr{border:none;border-top:1.5px solid var(--border);margin:1.25rem 0}
 .reflect{background:var(--soft);border:1.5px solid var(--border);border-left:4px solid var(--ink);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0}
 .reflect .reflect-label{font-family:'Syne','Arial Black',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
 .reflect textarea{margin-bottom:0;min-height:70px;border-color:var(--border);font-size:13px}
+.mini-builder{background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0}
+.mini-builder .mini-label{font-family:'Syne','Arial Black',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.mini-builder input,.mini-builder textarea{margin-bottom:.75rem}
+.mini-builder .assembled-mini{background:var(--card);border:1.5px dashed var(--border);border-radius:4px;padding:.85rem 1rem;font-size:13px;color:var(--ink);line-height:1.7;white-space:pre-wrap;word-break:break-word;min-height:60px;margin-bottom:.65rem}
+.nav-btn{min-width:80px}
 .roi-dims{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:.75rem 0}
 .roi-dim{display:flex;align-items:flex-start;gap:8px;background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:.75rem .9rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .roi-dim input[type=checkbox]{margin:2px 0 0 0;width:auto;flex-shrink:0;accent-color:var(--accent)}
@@ -433,11 +438,11 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <div class="overline">Session 1 · Week 1 · <span class="group-only-inline">60–90 min</span><span class="solo-only-inline">Go at your own pace</span></div>
     <h2>Foundation + problem framing</h2>
     <p style="margin-bottom:1.25rem">You've used AI tools before. Today we go deeper — and apply it to work you actually own.</p>
-    <div class="challenge"><div class="overline">Challenge of the day</div><h3>The 30-minute task</h3><p class="group-only-inline">Pick one recurring task that takes more than 30 minutes a week. By end of session, produce a version using AI — and estimate the time saved. Log it to the Wins wall.</p><p class="solo-only-inline">Pick one recurring task that takes more than 30 minutes a week. Work through this session at your own pace. By the end, produce an AI version of that task and note the time difference in your wins journal.</p></div>
+    <div class="challenge"><div class="overline">Challenge of the day</div><h3>The task you have been putting off</h3><p class="group-only-inline">Pick one task that drains you — something that takes real time and effort, that you have been avoiding because it feels too big to start. By end of session, produce a version using AI and see what changes.</p><p class="solo-only-inline">Pick one task that drains you — something that takes real time and effort, that you have been avoiding because it feels too big to start. Work through this session at your own pace. By the end, produce an AI version of that task and note what changed.</p></div>
     <div class="card">
       <h3>What AI actually is — and isn't</h3>
       <ol class="steps">
-        <li><div class="step-num">1</div><div><div class="step-main">AI is a reasoning engine, not a search engine.</div><div class="step-sub">It generates — doesn't retrieve. It can be wrong. Confidently wrong. Verification stays with you, always.</div></div></li>
+        <li><div class="step-num">1</div><div><div class="step-main">AI reasons and generates — and can now search too.</div><div class="step-sub">But it can still be confidently wrong about what it finds. It does not know what it does not know. Verification stays with you, always.</div></div></li>
         <li><div class="step-num">2</div><div><div class="step-main">Your prompt is your lever. Everything else is commentary.</div><div class="step-sub">A 3-word prompt gives you a generic intern. A structured prompt gives you a great analyst.</div></div></li>
         <li><div class="step-num">3</div><div><div class="step-main">Treat it like a smart new hire who needs a proper brief.</div><div class="step-sub">Role, context, task, format. Give all four and you'll be amazed. Give one and you'll be disappointed.</div></div></li>
         <li><div class="step-num">4</div><div><div class="step-main">People who get the most from AI iterate fast.</div><div class="step-sub">First output is a draft. Run corrections. Tighten again. Three passes beats one "perfect" prompt every time.</div></div></li>
@@ -496,7 +501,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="btn-row">
         <button class="btn btn-primary" id="btn-save-s1">Save my problems</button>
       </div>
-      <div class="confirm" id="s1-confirm">Saved. Head to the prompt lab and start with Problem 1.</div>
+      <div class="confirm" id="s1-confirm">Saved. Now do Practice Round 1 below — take Problem 1 straight into your AI tool.</div>
     </div>
     <div class="do-now">
       <div class="do-now-label">Practice round 1 — do this now</div>
@@ -507,12 +512,30 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <textarea id="r1-s1" placeholder="What did the output look like? Was it useful? What was missing?"></textarea>
     </div>
     <div class="do-now">
-      <div class="do-now-label">Practice round 2 — do this now</div>
-      <p>Now rebuild that prompt using RCTFX. Use the five levers above — Role, Context, Task, Format, Constraints. Paste it into your AI tool and run it. Compare the two outputs side by side.</p>
+      <div class="do-now-label">Practice round 2 — build it with RCTFX</div>
+      <p>Now structure that prompt properly. Use the five fields below — your Problem 1 is already in Context. Fill in the rest, assemble, copy, and paste into your AI tool. Compare what comes back with Round 1.</p>
+    </div>
+    <div class="mini-builder" id="mini-rctfx">
+      <div class="mini-label">R — Role</div>
+      <input type="text" id="mb-role" placeholder="e.g. You are a senior financial analyst...">
+      <div class="mini-label">C — Context</div>
+      <textarea id="mb-ctx" style="min-height:55px" placeholder="Your Problem 1 will appear here once saved above — or describe the situation..."></textarea>
+      <div class="mini-label">T — Task</div>
+      <input type="text" id="mb-task" placeholder="Write / Analyze / Summarize / Draft...">
+      <div class="mini-label">F — Format + length</div>
+      <input type="text" id="mb-fmt" placeholder="Bullets, table, under 150 words...">
+      <div class="mini-label">X — Constraints</div>
+      <input type="text" id="mb-con" placeholder="No jargon. Don't recommend budget increases...">
+      <div class="btn-row" style="margin:.5rem 0">
+        <button class="btn btn-primary" id="mb-assemble">Assemble prompt</button>
+        <button class="btn btn-ghost" id="mb-copy">Copy</button>
+      </div>
+      <div class="confirm" id="mb-copied">Copied — paste into your AI tool now.</div>
+      <div class="assembled-mini" id="mb-preview">Fill in the fields above and click Assemble.</div>
     </div>
     <div class="reflect">
       <div class="reflect-label">What changed?</div>
-      <textarea id="r2-s1" placeholder="How was the second output different? What made the biggest difference — the role, the format, the constraints?"></textarea>
+      <textarea id="r2-s1" placeholder="How was the Round 2 output different? Which RCTFX lever made the biggest difference?"></textarea>
     </div>
     <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Take Problem 2 — the one you identified above but have not worked on yet. Apply RCTFX to it. Run it twice with different variations. Note what worked and what did not.<span class="group-only-inline"> Bring your best result to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you have done this at least twice.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
   </div>
@@ -566,10 +589,10 @@ body{font-family:'DM Sans','Arial',sans-serif}
       </div>
       <div id="s2-patterns" class="tab-panel active">
         <h3>Prompt patterns by function</h3>
-        <div class="prompt-pattern"><strong>Finance</strong>You are a financial analyst. Given this data [paste], identify the top 3 variances from plan. For each: state the variance, the likely driver, and one corrective action. Format as a table.</div>
-        <div class="prompt-pattern"><strong>Supply chain</strong>You are a supply chain risk analyst. Review this supplier update [paste]. Flag delivery, quality, or compliance risks. Rate each High/Medium/Low with one sentence of reasoning. Priority order.</div>
-        <div class="prompt-pattern"><strong>Strategy</strong>You are a strategy consultant. Summarize this competitive intelligence [paste] into a 3-part exec narrative: market shift → implications for us → recommended response. One paragraph each.</div>
-        <div class="prompt-pattern"><strong>Operations / Manufacturing</strong>You are a process improvement expert. Here is our current process [paste]. Identify the 3 biggest bottlenecks. For each: name it, explain impact, suggest one AI-enabled fix.</div>
+        <div class="prompt-pattern"><strong>Finance</strong>You are a financial analyst. Given this data [copy and paste your financial data here], identify the top 3 variances from plan. For each: state the variance, the likely driver, and one corrective action. Format as a table.</div>
+        <div class="prompt-pattern"><strong>Supply chain</strong>You are a supply chain risk analyst. Review this supplier update [copy and paste your supplier update here]. Flag delivery, quality, or compliance risks. Rate each High/Medium/Low with one sentence of reasoning. Priority order.</div>
+        <div class="prompt-pattern"><strong>Strategy</strong>You are a strategy consultant. Summarize this competitive intelligence [copy and paste your intelligence summary here] into a 3-part exec narrative: market shift → implications for us → recommended response. One paragraph each.</div>
+        <div class="prompt-pattern"><strong>Operations / Manufacturing</strong>You are a process improvement expert. Here is our current process [copy and paste your process steps here]. Identify the 3 biggest bottlenecks. For each: name it, explain impact, suggest one AI-enabled fix.</div>
       </div>
       <div id="s2-failures" class="tab-panel">
         <h3>When AI gets it wrong — and how to catch it</h3>
@@ -689,7 +712,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="do-now">
       <div class="do-now-label">Your turn — do this now</div>
-      <p>Open your AI tool now. Take the best prompt you have built in this program — paste it into the Prompt Lab, refine it one final time, then run it on a current real problem. That output is your showcase. Come back here when you have it.</p>
+      <p>Go to the Prompt Lab tab in the nav. Assemble your best prompt there — refine the Role, tighten the Format, add one Constraint you have not tried yet. Copy the assembled prompt. Then open your AI tool, paste it in, and run it on a current real problem. That output is your showcase. Come back here when you have it.</p>
     </div>
     <div class="card">
       <h3>Your champion toolkit</h3>
@@ -719,31 +742,31 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="bridge-grid">
         <div class="bridge-card">
           <h4>Finance</h4>
-          <p>Variance commentary that used to take 3 hours — done in 20 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a financial analyst. Here is this week's P&amp;L data by cost centre [copy and paste your P&amp;L data here]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.</div>
+          <p>A board-ready variance commentary — structured, sourced, and send-ready. Not a paragraph. A document.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a senior financial analyst preparing a CFO board pack.<br><br>Here is this month's P&amp;L data by cost centre:<br>[copy and paste your data here]<br><br>Produce the following — formatted exactly as shown:<br><br>EXECUTIVE SUMMARY (2 sentences max — headline number vs budget and the single most important driver)<br><br>VARIANCE TABLE<br>| Cost Centre | Budget | Actual | Variance | Driver | Action Owner |<br>(Top 5 variances only, worst first)<br><br>RISKS TO FLAG<br>List 1–3 items that need CFO attention before month end. One sentence each.<br><br>No jargon. No filler. If you are uncertain about a figure, flag it explicitly rather than guessing.</div>
           <button class="btn btn-ghost" data-bridge="finance">Copy this prompt</button>
-          <div class="confirm" id="bridge-finance-confirm">Copied — paste into your AI tool.</div>
+          <div class="confirm" id="bridge-finance-confirm">Copied — paste into your AI tool and see what comes back.</div>
         </div>
         <div class="bridge-card">
           <h4>Supply chain</h4>
-          <p>Supplier risk assessment that took half a day — done in 6 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a supply chain risk analyst. Review this supplier update [copy and paste your supplier update here]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.</div>
+          <p>A formal risk register — not a summary. Colour-coded, prioritised, and escalation-ready.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a supply chain risk manager preparing a weekly risk register for the VP of Operations.<br><br>Here is this week's supplier and logistics update:<br>[copy and paste your update here]<br><br>Produce the following:<br><br>RISK REGISTER TABLE<br>| Risk | Category | Severity (H/M/L) | Likelihood (H/M/L) | Impact if ignored | Recommended action | Owner |<br>(List every risk you identify — highest severity first)<br><br>ESCALATE TODAY<br>Flag any item requiring a decision or action within 24 hours. One sentence per item.<br><br>WATCH LIST<br>Items to monitor but not yet escalate. Two sentences max each.<br><br>Be specific. Do not generalise. If information is missing to assess a risk, say so explicitly.</div>
           <button class="btn btn-ghost" data-bridge="supply">Copy this prompt</button>
-          <div class="confirm" id="bridge-supply-confirm">Copied — paste into your AI tool.</div>
+          <div class="confirm" id="bridge-supply-confirm">Copied — paste into your AI tool and see what comes back.</div>
         </div>
         <div class="bridge-card">
           <h4>Strategy</h4>
-          <p>Competitive intelligence brief that took a day — structured in 15 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a strategy consultant. Summarize this competitive intelligence [copy and paste your intelligence summary here] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.</div>
+          <p>A one-page strategic brief with options and trade-offs — the kind a consultant charges for.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a strategy consultant preparing a one-page brief for a leadership team offsite.<br><br>Here is the competitive intelligence or market context to work from:<br>[copy and paste your context here]<br><br>Produce the following:<br><br>WHAT IS SHIFTING (1 paragraph)<br>The single most important change in the market or competitive landscape — and why it matters now.<br><br>IMPLICATIONS FOR US (1 paragraph)<br>What this means specifically for our position, priorities, or assumptions.<br><br>RESPONSE OPTIONS<br>| Option | What it involves | Upside | Risk | Recommended? |<br>(3 options — bold the one you would recommend and say why in one sentence)<br><br>Direct tone. No consulting clichés. The leadership team has 10 minutes to read this.</div>
           <button class="btn btn-ghost" data-bridge="strategy">Copy this prompt</button>
-          <div class="confirm" id="bridge-strategy-confirm">Copied — paste into your AI tool.</div>
+          <div class="confirm" id="bridge-strategy-confirm">Copied — paste into your AI tool and see what comes back.</div>
         </div>
         <div class="bridge-card">
           <h4>Operations</h4>
-          <p>Process improvement proposal that took days to draft — outlined in 10 minutes.</p>
-          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a process improvement expert. Here is our current workflow [copy and paste your current workflow steps here]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.</div>
+          <p>A before/after process redesign with a change proposal — structured enough to share with your team today.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a process improvement lead preparing a change proposal for a department head.<br><br>Here is our current process:<br>[copy and paste your process steps here — every step, in order]<br><br>Produce the following:<br><br>BEFORE vs AFTER TABLE<br>| Step | Current state | Redesigned state | Time saved | AI involved? |<br>(Every step — show clearly what changes and what stays)<br><br>REDESIGNED PROCESS<br>Number each step. Estimate realistic time per step. Show total time before and after at the bottom.<br><br>WHY THIS WILL WORK<br>Two sentences: the single biggest change and the resistance you should expect from the team.<br><br>Be concrete. No generic improvement advice. If a step cannot be improved with AI, say so and explain why.</div>
           <button class="btn btn-ghost" data-bridge="ops">Copy this prompt</button>
-          <div class="confirm" id="bridge-ops-confirm">Copied — paste into your AI tool.</div>
+          <div class="confirm" id="bridge-ops-confirm">Copied — paste into your AI tool and see what comes back.</div>
         </div>
       </div>
       <div class="btn-row" style="margin-top:.5rem">
@@ -845,7 +868,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <div class="card">
       <div class="label">R — Role</div><input type="text" id="pl-role" placeholder="e.g. You are a senior financial analyst...">
       <div id="pl-problem-hint" style="display:none;background:var(--soft);border-radius:4px;padding:.65rem .9rem;margin-bottom:.65rem;font-size:12px;color:var(--muted);border-left:3px solid var(--accent);line-height:1.6;">
-        <span style="font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:3px;">Your Problem 1</span>
+        <span style="font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:3px;">Problem 1 saved from Session 1 — use this as your Context starting point</span>
         <span id="pl-problem-text"></span>
       </div>
       <div class="label">C — Context</div><textarea id="pl-ctx" style="min-height:65px" placeholder="Business problem, audience, decisions this will inform..."></textarea>
@@ -1010,7 +1033,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="card">
       <h3>About this program</h3>
-      <p>The AI Transformation Lab is free, open-source, and tool-agnostic. Created by Mike Adediran. Freely available to share, adapt, and build on. If you run this with your own cohort, share how it went.</p>
+      <p>The AI Transformation Lab is free, open-source, and tool-agnostic. Freely available to share, adapt, and build on. If you run this with your own cohort, share how it went.</p>
       <div class="tags"><span class="tag">Open source</span><span class="tag">Tool agnostic</span><span class="tag">No install</span><span class="tag">Works offline</span><span class="tag">Free to share</span></div>
     </div>
   </div>
@@ -1190,6 +1213,10 @@ function saveS1(){
   if(hint && txt && S.s1.p1){
     txt.textContent=S.s1.p1;
     hint.style.display='block';
+  }
+  var mbCtx=document.getElementById('mb-ctx');
+  if(mbCtx && S.s1.p1){
+    mbCtx.value=S.s1.p1;
   }
 }
 function saveS2(){ S.s2={partner:v('s2-partner'),prob:v('s2-prob'),insight:v('s2-insight'),r1:v('r1-s2')}; flash('s2-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
@@ -1489,6 +1516,32 @@ var timerInterval = null; var timerSeconds = 0;
   var bs1=document.getElementById('btn-save-s1');
   if(bs1) bs1.addEventListener('click', saveS1);
 
+  var mbAssemble=document.getElementById('mb-assemble');
+  if(mbAssemble) mbAssemble.addEventListener('click', function(){
+    var role=document.getElementById('mb-role').value.trim();
+    var ctx=document.getElementById('mb-ctx').value.trim();
+    var task=document.getElementById('mb-task').value.trim();
+    var fmt=document.getElementById('mb-fmt').value.trim();
+    var con=document.getElementById('mb-con').value.trim();
+    var p='';
+    if(role) p+=role+'\n\n';
+    if(ctx) p+='Context: '+ctx+'\n\n';
+    if(task) p+='Task: '+task+'\n\n';
+    if(fmt) p+='Format: '+fmt+'\n';
+    if(con) p+='Constraints: '+con;
+    var preview=document.getElementById('mb-preview');
+    if(preview) preview.textContent=p.trim()||'Fill in the fields above and click Assemble.';
+  });
+
+  var mbCopy=document.getElementById('mb-copy');
+  if(mbCopy) mbCopy.addEventListener('click', function(){
+    var preview=document.getElementById('mb-preview');
+    var text=preview?preview.textContent:'';
+    if(text && text!=='Fill in the fields above and click Assemble.'){
+      universalCopy(text,'mb-copied');
+    }
+  });
+
   // Session 2
   var bs2=document.getElementById('btn-save-s2');
   if(bs2) bs2.addEventListener('click', saveS2);
@@ -1621,10 +1674,10 @@ var timerInterval = null; var timerSeconds = 0;
 
   // Bridge prompt copy buttons
   var bridgePrompts={
-    finance:'You are a financial analyst. Here is this week\'s P&L data by cost centre [copy and paste your P&L data here]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.',
-    supply:'You are a supply chain risk analyst. Review this supplier update [copy and paste your supplier update here]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.',
-    strategy:'You are a strategy consultant. Summarize this competitive intelligence [copy and paste your intelligence summary here] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.',
-    ops:'You are a process improvement expert. Here is our current workflow [copy and paste your current workflow steps here]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.'
+    finance:'You are a senior financial analyst preparing a CFO board pack.\n\nHere is this month\'s P&L data by cost centre:\n[copy and paste your data here]\n\nProduce the following — formatted exactly as shown:\n\nEXECUTIVE SUMMARY (2 sentences max — headline number vs budget and the single most important driver)\n\nVARIANCE TABLE\n| Cost Centre | Budget | Actual | Variance | Driver | Action Owner |\n(Top 5 variances only, worst first)\n\nRISKS TO FLAG\nList 1–3 items that need CFO attention before month end. One sentence each.\n\nNo jargon. No filler. If you are uncertain about a figure, flag it explicitly rather than guessing.',
+    supply:'You are a supply chain risk manager preparing a weekly risk register for the VP of Operations.\n\nHere is this week\'s supplier and logistics update:\n[copy and paste your update here]\n\nProduce the following:\n\nRISK REGISTER TABLE\n| Risk | Category | Severity (H/M/L) | Likelihood (H/M/L) | Impact if ignored | Recommended action | Owner |\n(List every risk you identify — highest severity first)\n\nESCALATE TODAY\nFlag any item requiring a decision or action within 24 hours. One sentence per item.\n\nWATCH LIST\nItems to monitor but not yet escalate. Two sentences max each.\n\nBe specific. Do not generalise. If information is missing to assess a risk, say so explicitly.',
+    strategy:'You are a strategy consultant preparing a one-page brief for a leadership team offsite.\n\nHere is the competitive intelligence or market context to work from:\n[copy and paste your context here]\n\nProduce the following:\n\nWHAT IS SHIFTING (1 paragraph)\nThe single most important change in the market or competitive landscape — and why it matters now.\n\nIMPLICATIONS FOR US (1 paragraph)\nWhat this means specifically for our position, priorities, or assumptions.\n\nRESPONSE OPTIONS\n| Option | What it involves | Upside | Risk | Recommended? |\n(3 options — bold the one you would recommend and say why in one sentence)\n\nDirect tone. No consulting clichés. The leadership team has 10 minutes to read this.',
+    ops:'You are a process improvement lead preparing a change proposal for a department head.\n\nHere is our current process:\n[copy and paste your process steps here — every step, in order]\n\nProduce the following:\n\nBEFORE vs AFTER TABLE\n| Step | Current state | Redesigned state | Time saved | AI involved? |\n(Every step — show clearly what changes and what stays)\n\nREDESIGNED PROCESS\nNumber each step. Estimate realistic time per step. Show total time before and after at the bottom.\n\nWHY THIS WILL WORK\nTwo sentences: the single biggest change and the resistance you should expect from the team.\n\nBe concrete. No generic improvement advice. If a step cannot be improved with AI, say so and explain why.'
   };
   document.querySelectorAll('[data-bridge]').forEach(function(btn){
     btn.addEventListener('click', function(){
