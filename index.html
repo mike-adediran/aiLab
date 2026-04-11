@@ -999,9 +999,16 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <h2>Connect with the facilitator</h2>
     <p style="margin-bottom:1.5rem">Questions, ideas to improve the program, or just want to share a win — reach out directly.</p>
     <div class="share-block">
-      <div class="share-text"><strong>Know someone who'd benefit?</strong> Share this program — free, works in any browser, no install needed.</div>
-      <button class="btn-share" id="btn-share">Share this program</button>
+      <div>
+        <strong>Know someone who'd benefit?</strong>
+        <p style="font-size:13px;color:var(--muted);margin-top:3px;margin-bottom:0">Share the program — free, works in any browser, no install needed.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button class="btn-share" id="btn-share">Share this program</button>
+        <button class="btn btn-ghost" id="btn-copy-link" style="white-space:nowrap">Copy link</button>
+      </div>
     </div>
+    <div class="confirm" id="link-copied" style="margin-top:.5rem">Link copied — paste it anywhere.</div>
     <div class="confirm" id="share-confirm" style="margin-bottom:.75rem">Link copied to clipboard — share it freely.</div>
     <div class="contact-card">
       <div class="contact-avatar">MA</div>
@@ -1414,9 +1421,15 @@ function exportData(){
   setTimeout(function(){
     var dl=document.getElementById('btn-export');
     if(dl && !document.getElementById('btn-share-post-dl')){
-      dl.insertAdjacentHTML('afterend','<p style="font-size:12px;color:var(--muted);margin-top:.65rem;line-height:1.6">Know someone who would benefit? <button class="btn btn-ghost" id="btn-share-post-dl" style="font-size:10px;padding:5px 10px;min-height:0;margin-left:6px">Share the program</button></p>');
+      dl.insertAdjacentHTML('afterend','<p style="font-size:12px;color:var(--muted);margin-top:.65rem;line-height:1.6">Know someone who would benefit? <button class="btn btn-ghost" id="btn-share-post-dl" style="font-size:10px;padding:5px 10px;min-height:0;margin-left:6px">Share</button><button class="btn btn-ghost" id="btn-copylink-post-dl" style="font-size:10px;padding:5px 10px;min-height:0;margin-left:6px">Copy link</button><span id="dl-link-confirm" style="font-size:11px;color:var(--success);margin-left:8px;display:none">Copied!</span></p>');
       var sp=document.getElementById('btn-share-post-dl');
       if(sp) sp.addEventListener('click', shareProgram);
+      var clp=document.getElementById('btn-copylink-post-dl');
+      if(clp) clp.addEventListener('click', function(){
+        universalCopy('https://mike-adediran.github.io/aiLab/','dl-link-confirm');
+        var conf=document.getElementById('dl-link-confirm');
+        if(conf) conf.style.display='inline';
+      });
     }
   },400);
 }
@@ -1656,6 +1669,11 @@ var timerInterval = null; var timerSeconds = 0;
   // Connect
   var bsh=document.getElementById('btn-share');
   if(bsh) bsh.addEventListener('click', shareProgram);
+
+  var bcl=document.getElementById('btn-copy-link');
+  if(bcl) bcl.addEventListener('click', function(){
+    universalCopy('https://mike-adediran.github.io/aiLab/','link-copied');
+  });
 
   var bcfb=document.getElementById('btn-copy-feedback');
   if(bcfb) bcfb.addEventListener('click', copyFeedback);
