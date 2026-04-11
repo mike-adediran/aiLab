@@ -186,6 +186,7 @@ textarea:focus,input[type=text]:focus,select:focus{outline:none;border-color:var
 .btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
 .btn-share{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 18px;border-radius:2px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.65rem}
+.btn-sm{font-size:9px;padding:6px 12px;min-height:32px}
 .confirm{font-size:11px;color:var(--success);font-family:'Syne',sans-serif;font-weight:700;margin-top:5px;display:none;letter-spacing:.05em;text-transform:uppercase}
 .saved-prompt{background:var(--soft);border-radius:4px;padding:.8rem 1rem;margin-bottom:.5rem;border-left:3px solid var(--accent)}
 .saved-prompt-time{font-size:10px;color:var(--muted);font-family:'Syne',sans-serif;margin-bottom:4px}
@@ -198,6 +199,18 @@ hr{border:none;border-top:1.5px solid var(--border);margin:1.25rem 0}
 .do-now{background:#fff9f7;border:1.5px solid var(--accent);border-left:4px solid var(--accent);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0}
 .do-now .do-now-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
 .do-now p{font-size:14px;color:var(--ink);font-weight:500;margin:0;line-height:1.6}
+.reflect{background:var(--soft);border:1.5px solid var(--border);border-left:4px solid var(--ink);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0}
+.reflect .reflect-label{font-family:'Syne','Arial Black',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.reflect textarea{margin-bottom:0;min-height:70px;border-color:var(--border);font-size:13px}
+.roi-dims{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:.75rem 0}
+.roi-dim{display:flex;align-items:flex-start;gap:8px;background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:.75rem .9rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.roi-dim input[type=checkbox]{margin:2px 0 0 0;width:auto;flex-shrink:0;accent-color:var(--accent)}
+.roi-dim-text{font-size:12px;color:var(--ink);line-height:1.5}
+.roi-dim-text strong{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:2px;color:var(--muted)}
+.bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0}
+.bridge-card{background:var(--soft);border-radius:4px;padding:1rem;border-top:3px solid var(--accent)}
+.bridge-card h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.bridge-card p{font-size:12px;color:var(--muted);margin-bottom:.6rem;line-height:1.5}
 .example-toggle{background:var(--soft);border:1.5px solid var(--border);border-radius:4px;padding:.75rem 1rem;margin:.75rem 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .example-toggle-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between}
 .example-content{display:none;margin-top:.75rem;font-size:13px;color:var(--ink);line-height:1.7;border-top:1px solid var(--border);padding-top:.75rem}
@@ -247,6 +260,8 @@ body{font-family:'DM Sans','Arial',sans-serif}
   .vibe-steps{grid-template-columns:1fr 1fr}
   .card{overflow:hidden}
   .surgery{grid-template-columns:1fr}
+  .roi-dims{grid-template-columns:1fr}
+  .bridge-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
   .wrap{padding:1rem .9rem 4rem;width:100%}
@@ -428,6 +443,43 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <li><div class="step-num">4</div><div><div class="step-main">People who get the most from AI iterate fast.</div><div class="step-sub">First output is a draft. Run corrections. Tighten again. Three passes beats one "perfect" prompt every time.</div></div></li>
       </ol>
     </div>
+    <div class="card">
+      <h3>The RCTFX framework — how to talk to AI</h3>
+      <p style="margin-bottom:.75rem">Every great AI output starts with a structured prompt. RCTFX gives you five levers. Use all five and you will be amazed. Use one and you will be disappointed.</p>
+      <ol class="steps">
+        <li><div class="step-num">R</div><div>
+          <div class="step-main">Role — tell it who to be</div>
+          <div class="step-sub">"You are a senior supply chain analyst with 10 years in manufacturing." Sets tone, depth, and vocabulary instantly.</div>
+        </div></li>
+        <li><div class="step-num">C</div><div>
+          <div class="step-main">Context — give it the situation</div>
+          <div class="step-sub">What is the business problem? Who is the audience? What decision will this inform? The more relevant context, the less generic the output.</div>
+        </div></li>
+        <li><div class="step-num">T</div><div>
+          <div class="step-main">Task — be explicit with verbs</div>
+          <div class="step-sub">Write / Summarize / Analyze / Draft / Critique / Compare. "Help me with" is weak. "Draft a 150-word summary for..." is strong.</div>
+        </div></li>
+        <li><div class="step-num">F</div><div>
+          <div class="step-main">Format — tell it how to structure the output</div>
+          <div class="step-sub">Bullets, table, paragraphs, length limit. Without this it guesses — often wrong.</div>
+        </div></li>
+        <li><div class="step-num">X</div><div>
+          <div class="step-main">Constraints — what to exclude</div>
+          <div class="step-sub">"No jargon. Under 150 words. Don't recommend budget increases." Negative instructions are underused and very effective.</div>
+        </div></li>
+      </ol>
+      <div class="example-toggle" data-example="rctfx-ex">
+        <div class="example-toggle-label">See RCTFX applied to a real problem <span id="rctfx-ex-icon">▼</span></div>
+        <div class="example-content" id="rctfx-ex-content">
+          <strong>R:</strong> You are a supply chain risk analyst.<br><br>
+          <strong>C:</strong> We have 3 tier-1 suppliers in Southeast Asia. One has flagged a potential 4-week delay due to port congestion. Our Q3 launch depends on their component.<br><br>
+          <strong>T:</strong> Draft a risk assessment memo for our VP of Operations.<br><br>
+          <strong>F:</strong> One page max. Sections: situation summary, risk rating (High/Med/Low with reason), 3 mitigation options with tradeoffs, recommended action.<br><br>
+          <strong>X:</strong> No technical jargon. Assume the reader knows the business but not the supplier relationship details.<br><br>
+          <strong>Result:</strong> Send-ready memo in 6 minutes. Previously took half a day to draft, circulate, and align.
+        </div>
+      </div>
+    </div>
     <div class="card card-accent">
       <h3>Surface your problems — before we go any further</h3>
       <p>This shapes your entire experience. Be specific — vague problems get vague AI help.</p>
@@ -446,43 +498,23 @@ body{font-family:'DM Sans','Arial',sans-serif}
       </div>
       <div class="confirm" id="s1-confirm">Saved. Head to the prompt lab and start with Problem 1.</div>
     </div>
-    <div class="card">
-      <h3>Live: prompt surgery</h3>
-      <p>Watch how the same request changes in quality as the prompt improves.</p>
-      <div class="surgery">
-        <div class="surg-bad"><div class="surg-lbl bad">Weak</div>Summarize the supply chain report.</div>
-        <div class="surg-good"><div class="surg-lbl good">Strong</div>You are a supply chain analyst. Summarize this report for a VP audience. Lead with the top 3 risks, then recommended actions with owners and timelines. Under 200 words.</div>
-      </div>
-      <div class="surgery">
-        <div class="surg-bad"><div class="surg-lbl bad">Weak</div>Write a finance update.</div>
-        <div class="surg-good"><div class="surg-lbl good">Strong</div>Write a one-page Q3 finance update for a CFO. Tone: direct, no jargon. Structure: headline number → 3 drivers of variance → one forward-looking risk. Bullets for the drivers.</div>
-      </div>
-      <div class="example-toggle" data-example="ex1">
-        <div class="example-toggle-label">See a real worked example <span id="ex1-icon">▼</span></div>
-        <div class="example-content" id="ex1-content">
-          <strong>Problem:</strong> Every Monday I spend 2 hours pulling last week's sales data from three systems and writing a summary email for my VP.<br><br>
-          <strong>Weak prompt:</strong> "Summarize last week's sales."<br>
-          <strong>Output:</strong> A generic paragraph with no structure, no variance analysis, no action items. Would need complete rewrite.<br><br>
-          <strong>Strong prompt:</strong> "You are a sales analyst. Here is last week's data by region [paste]. Write a 150-word summary for a VP. Structure: 1) headline number vs target, 2) top 2 regions and why, 3) one risk to flag. Bullet points only."<br>
-          <strong>Output:</strong> Structured, send-ready in one pass. Time: 8 minutes instead of 2 hours.<br><br>
-          <strong>ROI:</strong> 1hr 52min saved. Every week.
-        </div>
-      </div>
+    <div class="do-now">
+      <div class="do-now-label">Practice round 1 — do this now</div>
+      <p>Open your AI tool. Take Problem 1 you just saved. Write a single sentence describing it — no structure, no framework. Paste it in and see what comes back. Copy the output somewhere you can refer to it.</p>
     </div>
-    <div class="card">
-      <h3>Output quality check — is it actually better?</h3>
-      <div class="quality-grid">
-        <div class="quality-item"><h4>Is it accurate?</h4><p>Verify numbers and claims against source data. Never assume.</p></div>
-        <div class="quality-item"><h4>Appropriate for the audience?</h4><p>Would you send this to the intended recipient right now?</p></div>
-        <div class="quality-item"><h4>Does it reflect your judgment?</h4><p>AI generates options. Your expertise shapes the final call.</p></div>
-        <div class="quality-item"><h4>Better than alone?</h4><p>If not — the prompt needs work, not more of the same output.</p></div>
-      </div>
+    <div class="reflect">
+      <div class="reflect-label">What did you notice?</div>
+      <textarea id="r1-s1" placeholder="What did the output look like? Was it useful? What was missing?"></textarea>
     </div>
     <div class="do-now">
-      <div class="do-now-label">Your turn — do this now</div>
-      <p>Open your AI tool now. Take Problem 1 you saved above. Write a weak prompt first — just describe the task in one sentence. See what comes back. Then rebuild it using the RCTFX framework and the surgery examples above. Run it again. Compare the two outputs. That gap is the skill. Don't move on until you have done both runs.</p>
+      <div class="do-now-label">Practice round 2 — do this now</div>
+      <p>Now rebuild that prompt using RCTFX. Use the five levers above — Role, Context, Task, Format, Constraints. Paste it into your AI tool and run it. Compare the two outputs side by side.</p>
     </div>
-    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Use AI on Problem 1 at least twice. Log what worked, what did not, and your best prompt.<span class="group-only-inline"> Bring it to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you are ready.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
+    <div class="reflect">
+      <div class="reflect-label">What changed?</div>
+      <textarea id="r2-s1" placeholder="How was the second output different? What made the biggest difference — the role, the format, the constraints?"></textarea>
+    </div>
+    <div class="between"><div class="overline">Between Session 1 and 2</div><p><strong>Challenge of the week:</strong> Take Problem 2 — the one you identified above but have not worked on yet. Apply RCTFX to it. Run it twice with different variations. Note what worked and what did not.<span class="group-only-inline"> Bring your best result to Session 2.</span><span class="solo-only-inline"> Come back to Session 2 when you have done this at least twice.</span></p><p class="group-only" style="color:var(--muted);font-size:13px">Time commitment: 15–20 minutes.</p></div>
   </div>
 
   <!-- SESSION 2 -->
@@ -490,7 +522,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <div class="overline">Session 2 · Week 2 · <span class="group-only-inline">60–90 min</span><span class="solo-only-inline">Go at your own pace</span></div>
     <h2>Applied lab + prompt mastery</h2>
     <p style="margin-bottom:1.25rem">Bring your best prompt from the week. Today we go deeper — and solve each other's problems.</p>
-    <div class="challenge"><div class="overline">Challenge of the day</div><h3>Solve someone else's problem</h3><p class="group-only-inline">Pair with someone from a different function. 20 minutes on their Problem 1 — you bring prompting skill, they bring domain knowledge. Then swap.</p><p class="solo-only-inline">Pick a problem outside your primary domain — imagine you work in a different function. Use AI to tackle it using only the prompt patterns from this session. This builds transferable skill faster than staying in your lane.</p></div>
+    <div class="challenge"><div class="overline">Challenge of the day</div><h3>Your best prompt yet</h3><p class="group-only-inline">Share the best prompt you built this week with the group. Show the output. Then pair with someone from a different function and tackle each other's problems using what you know so far.</p><p class="solo-only-inline">Revisit the best prompt you built this week. Your goal today: make it even better using prompt surgery and the failure modes guide. Then apply it to a problem outside your domain.</p></div>
     <div class="card">
       <h3>Opening debrief — 20 minutes</h3>
       <ol class="steps">
@@ -506,34 +538,33 @@ body{font-family:'DM Sans','Arial',sans-serif}
       </ol>
     </div>
     <div class="card">
+      <h3>Prompt surgery — live</h3>
+      <p>Take a prompt someone wrote this week. Diagnose it together using the RCTFX framework.</p>
+      <div class="surgery">
+        <div class="surg-bad"><div class="surg-lbl bad">Before</div>Write me a report on Q3 performance.</div>
+        <div class="surg-good"><div class="surg-lbl good">After</div>You are a financial analyst. Q3 data: [paste]. Write a 3-part exec narrative: performance vs plan → top 3 variances → recommended actions. One short paragraph each. Flag uncertainty.</div>
+      </div>
+      <div class="example-toggle" data-example="surgery-ex">
+        <div class="example-toggle-label">Try it yourself — diagnose this prompt <span id="surgery-ex-icon">▼</span></div>
+        <div class="example-content" id="surgery-ex-content">
+          <strong>Weak prompt:</strong> "Summarise this for my manager."<br><br>
+          <strong>What's missing?</strong><br>
+          — Role: Who should the AI be?<br>
+          — Context: What is "this"? Why does the manager need it?<br>
+          — Task: Summary of what — key decisions? Risks? Next steps?<br>
+          — Format: Email? Bullet points? One paragraph?<br>
+          — Constraints: How long? What to exclude?<br><br>
+          <strong>Improved version:</strong> You are an executive communications specialist. Here is a project status update: [paste]. Write a 150-word summary for my manager highlighting: current status, top risk, and recommended next action. Plain language. No jargon.
+        </div>
+      </div>
+    </div>
+    <div class="card">
       <div class="tabs" id="s2-tabs">
-        <button class="tab active" data-tab-group="s2" data-tab="anatomy">Prompt anatomy</button>
-        <button class="tab" data-tab-group="s2" data-tab="patterns">By function</button>
+        <button class="tab active" data-tab-group="s2" data-tab="patterns">By function</button>
         <button class="tab" data-tab-group="s2" data-tab="failures">Failure modes</button>
         <button class="tab" data-tab-group="s2" data-tab="tools">Which tool?</button>
       </div>
-      <div id="s2-anatomy" class="tab-panel active">
-        <h3>The RCTFX framework</h3>
-        <ol class="steps">
-          <li><div class="step-num">R</div><div><div class="step-main">Role — tell it who to be</div><div class="step-sub">"You are a senior operations analyst with 15 years in manufacturing."</div></div></li>
-          <li><div class="step-num">C</div><div><div class="step-main">Context — give it the situation</div><div class="step-sub">Business problem, audience, decisions this will inform.</div></div></li>
-          <li><div class="step-num">T</div><div><div class="step-main">Task — be explicit with verbs</div><div class="step-sub">Write / Summarize / Analyze / Draft / Critique / Compare.</div></div></li>
-          <li><div class="step-num">F</div><div><div class="step-main">Format — tell it how to structure output</div><div class="step-sub">Bullets, table, paragraphs, length limit.</div></div></li>
-          <li><div class="step-num">X</div><div><div class="step-main">Constraints — what to exclude</div><div class="step-sub">"No jargon. Under 150 words. Don't recommend budget increases."</div></div></li>
-        </ol>
-        <div class="example-toggle" data-example="ex2">
-          <div class="example-toggle-label">See RCTFX applied to a real problem <span id="ex2-icon">▼</span></div>
-          <div class="example-content" id="ex2-content">
-            <strong>R:</strong> You are a supply chain risk analyst.<br>
-            <strong>C:</strong> We have 3 tier-1 suppliers in Southeast Asia and one has flagged a potential 4-week delay due to port congestion. Our Q3 launch depends on their component.<br>
-            <strong>T:</strong> Draft a risk assessment memo for our VP of Operations.<br>
-            <strong>F:</strong> One page max. Sections: situation summary, risk rating (High/Med/Low with reason), 3 mitigation options with tradeoffs, recommended action.<br>
-            <strong>X:</strong> No technical jargon. Assume the reader knows the business but not the supplier relationship details.<br><br>
-            <strong>Result:</strong> Send-ready memo in 6 minutes. Previously took half a day to draft, circulate, and align.
-          </div>
-        </div>
-      </div>
-      <div id="s2-patterns" class="tab-panel">
+      <div id="s2-patterns" class="tab-panel active">
         <h3>Prompt patterns by function</h3>
         <div class="prompt-pattern"><strong>Finance</strong>You are a financial analyst. Given this data [paste], identify the top 3 variances from plan. For each: state the variance, the likely driver, and one corrective action. Format as a table.</div>
         <div class="prompt-pattern"><strong>Supply chain</strong>You are a supply chain risk analyst. Review this supplier update [paste]. Flag delivery, quality, or compliance risks. Rate each High/Medium/Low with one sentence of reasoning. Priority order.</div>
@@ -582,11 +613,15 @@ body{font-family:'DM Sans','Arial',sans-serif}
       </div>
       <div class="confirm" id="s2-confirm">Saved.</div>
     </div>
+    <div class="reflect">
+      <div class="reflect-label">Reflect — what did working outside your domain reveal?</div>
+      <textarea id="r1-s2" placeholder="What surprised you? What would you do differently next time? What does this tell you about cross-functional AI use?"></textarea>
+    </div>
     <div class="do-now">
       <div class="do-now-label">Your turn — do this now</div>
       <p>Open your AI tool. Go to the "By function" tab above and find the pattern closest to your role. Copy it, replace [paste] with a real (anonymised) example from your work, and run it. Then open the Prompt Lab tab in the nav and refine it using RCTFX. Log the output to the Wins Wall if the result is better than what you would have produced alone.</p>
     </div>
-    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Capture one concrete ROI from your AI usage this week. Quantify it — even roughly.<span class="group-only-inline"> You will present it in Session 3.</span><span class="solo-only-inline"> Log it to your wins journal and bring it to Session 3 when you are ready.</span></p></div>
+    <div class="between"><div class="overline">Between Session 2 and 3</div><p><strong>Challenge of the week:</strong> Pick one real task from your job — something you do at least once a week. Apply AI to it. Capture the before and after: time taken, quality of output, what you had to change or verify.</p><p><span class="group-only-inline">You will build your ROI story from this in Session 3. One concrete example is worth more than five vague ones.</span><span class="solo-only-inline">This becomes your ROI story in Session 3. Be specific enough that you could explain the time and quality difference to a sceptical colleague.</span></p></div>
   </div>
 
   <!-- SESSION 3 -->
@@ -595,6 +630,20 @@ body{font-family:'DM Sans','Arial',sans-serif}
     <h2>Showcase + champion toolkit</h2>
     <p style="margin-bottom:1.25rem">Come with your ROI story. You leave today as someone who can teach this — not just use it.</p>
     <div class="challenge"><div class="overline">Challenge of the day</div><h3>Teach one thing</h3><p class="group-only-inline">Each person demos one AI use case — 3 minutes max. Show the before. Show the after. Show the prompt. No slides.</p><p class="solo-only-inline">Document your best before-and-after from this program. Write it up as if you were explaining it to a sceptical colleague. Your future self is the audience — be specific enough that you could repeat it in 6 months.</p></div>
+    <div class="card">
+      <h3>Output quality check</h3>
+      <p>Speed without quality is just fast mediocrity. Before you present any AI output, run it through these four questions.</p>
+      <div class="quality-grid">
+        <div class="quality-item"><h4>Is it accurate?</h4><p>Verify every fact, figure, and claim against source data. AI sounds confident even when wrong.</p></div>
+        <div class="quality-item"><h4>Is it complete?</h4><p>Did it address everything you asked? Missing steps or criteria are common failure modes.</p></div>
+        <div class="quality-item"><h4>Does it sound like you?</h4><p>Generic output is a signal the prompt lacked context. Add your voice before sending.</p></div>
+        <div class="quality-item"><h4>Would you sign your name to it?</h4><p>If you would not put your name on it as-is, it is not ready. Edit until you would.</p></div>
+      </div>
+    </div>
+    <div class="reflect">
+      <div class="reflect-label">Reflect — your ROI story before you build it</div>
+      <textarea id="r1-s3" placeholder="What is the clearest before-and-after you have from this program? Roughly how much time did it save? What was the quality difference?"></textarea>
+    </div>
     <div class="card card-accent">
       <h3>Your ROI story</h3>
       <div class="label">Problem you solved</div><input type="text" id="s3-problem" placeholder="What was the task?">
@@ -602,23 +651,45 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div><div class="label">Time before AI</div><input type="text" id="s3-before" placeholder="e.g. 3 hours per week"></div>
         <div><div class="label">Time after AI</div><input type="text" id="s3-after" placeholder="e.g. 40 minutes per week"></div>
       </div>
-      <div class="label">Quality impact</div><input type="text" id="s3-quality" placeholder="e.g. Fewer revision rounds, caught risk earlier">
+      <div class="label">Which dimensions of ROI does this capture? (tick all that apply)</div>
+      <div class="roi-dims">
+        <label class="roi-dim"><input type="checkbox" id="roi-time"><div class="roi-dim-text"><strong>Time saved</strong>Hours returned to you or your team</div></label>
+        <label class="roi-dim"><input type="checkbox" id="roi-quality"><div class="roi-dim-text"><strong>Quality improved</strong>Fewer errors, revisions, or escalations</div></label>
+        <label class="roi-dim"><input type="checkbox" id="roi-risk"><div class="roi-dim-text"><strong>Risk reduced</strong>Caught issues earlier or more consistently</div></label>
+        <label class="roi-dim"><input type="checkbox" id="roi-decision"><div class="roi-dim-text"><strong>Better decisions</strong>More data, better framing, faster synthesis</div></label>
+        <label class="roi-dim"><input type="checkbox" id="roi-confidence"><div class="roi-dim-text"><strong>Confidence increased</strong>You or your team feels more capable</div></label>
+        <label class="roi-dim"><input type="checkbox" id="roi-capacity"><div class="roi-dim-text"><strong>Capacity unlocked</strong>You can now do things that were not feasible before</div></label>
+      </div>
       <div class="label">Your best prompt from this program</div>
       <textarea id="s3-prompt" style="min-height:75px" placeholder="Paste it. Most reusable asset from this program."></textarea>
-      <div class="example-toggle" data-example="ex3">
-        <div class="example-toggle-label">See what a strong ROI story looks like <span id="ex3-icon">▼</span></div>
-        <div class="example-content" id="ex3-content">
-          <strong>Problem:</strong> Weekly financial variance commentary for CFO pack — previously 3 hours every Thursday.<br>
-          <strong>Before AI:</strong> 3 hours. Pull data, structure narrative, write, revise, get sign-off on tone.<br>
-          <strong>After AI:</strong> 35 minutes. AI drafts the narrative from pasted data. I edit for nuance and verify numbers. Done in one pass.<br>
-          <strong>Quality impact:</strong> More consistent structure week to week. CFO stopped asking for revisions after week 2.<br>
-          <strong>Time saved per week:</strong> ~2.5 hours.<br>
-          <strong>Annualised:</strong> ~125 hours — more than 3 full working weeks returned.<br><br>
-          <strong>What I do with that time:</strong> I now run a 30-minute strategy session with my team every Thursday instead. Didn't have capacity before.
-        </div>
-      </div>
       <div class="btn-row"><button class="btn btn-primary" id="btn-save-s3">Save + log to wins wall</button></div>
       <div class="confirm" id="s3-confirm">Saved and logged.</div>
+    </div>
+    <div class="card group-only">
+      <h3>Teaching exercise — 20 minutes</h3>
+      <p>Each person gets 3 minutes. Show the before. Show the after. Show the prompt. Take questions for 2 minutes. Timer is in the facilitator notes.</p>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div><div class="step-main">Open your AI tool. Pull up the prompt and output you are showcasing.</div><div class="step-sub">Do not start with slides or explanation. Start with the output.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Narrate: "Here is what I used to do. Here is what I do now. Here is the prompt."</div><div class="step-sub">Three sentences. Then show.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Take one question. Then hand off to the next person.</div></div></li>
+      </ol>
+      <div class="label">Notes from the showcase (what surprised you watching others?)</div>
+      <textarea id="s3-showcase" style="min-height:65px" placeholder="What use cases did you see that you had not considered? What prompts do you want to steal?"></textarea>
+    </div>
+    <div class="card solo-only">
+      <h3>Teaching exercise — your written version</h3>
+      <p>Write this up as if you were explaining it to a sceptical colleague who has never used AI at work.</p>
+      <ol class="steps">
+        <li><div class="step-num">1</div><div><div class="step-main">Name the task you automated or improved.</div></div></li>
+        <li><div class="step-num">2</div><div><div class="step-main">Describe the before: how long, how painful, what could go wrong.</div></div></li>
+        <li><div class="step-num">3</div><div><div class="step-main">Describe the after: what the prompt looks like, what changed, what you still check manually.</div></div></li>
+      </ol>
+      <div class="label">Your written showcase</div>
+      <textarea id="s3-teach" style="min-height:80px" placeholder="Write it up as if explaining to a sceptical colleague — before, after, prompt, what you still verify..."></textarea>
+    </div>
+    <div class="do-now">
+      <div class="do-now-label">Your turn — do this now</div>
+      <p>Open your AI tool now. Take the best prompt you have built in this program — paste it into the Prompt Lab, refine it one final time, then run it on a current real problem. That output is your showcase. Come back here when you have it.</p>
     </div>
     <div class="card">
       <h3>Your champion toolkit</h3>
@@ -629,10 +700,6 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <li><div class="step-num">4</div><div><div class="step-main">Expect resistance. Don't convince — show.</div><div class="step-sub">Skeptics argue with words. They can't argue with a result in front of them.</div></div></li>
         <li><div class="step-num">5</div><div><div class="step-main">Address the "what about my job?" fear early and directly.</div><div class="step-sub">AI saves time — it doesn't eliminate roles. People who use it do more valuable work.</div></div></li>
       </ol>
-    </div>
-    <div class="do-now">
-      <div class="do-now-label">Your turn — do this now</div>
-      <p>Open your AI tool now. Take the best prompt you have built in this program — paste it into the Prompt Lab, refine it one final time, then run it on a current real problem. That output is your showcase. Come back here when you have it.</p>
     </div>
     <div class="pledge-block">
       <h3>Your 30-day commitment</h3>
@@ -646,31 +713,42 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="btn-row"><button class="btn btn-accent" id="btn-save-pledge">Lock in my commitment</button></div>
       <div class="confirm" id="pledge-confirm" style="color:rgba(100,220,140,.9)">Commitment saved — appears in your session export.</div>
     </div>
-    <div class="card" style="margin-top:1rem">
-      <h3>Session 4 — is it for you?</h3>
-      <ol class="steps">
-        <li><div class="step-num">✓</div><div><div class="step-main">You can describe what you want precisely before prompting.</div></div></li>
-        <li><div class="step-num">✓</div><div><div class="step-main">You can read AI output critically and know when something is wrong.</div></div></li>
-        <li><div class="step-num">✓</div><div><div class="step-main">You have a specific thing you want to build.</div><div class="step-sub">Session 4 with no target is just browsing. Come with a real use case.</div></div></li>
-      </ol>
-      <div class="btn-row"><button class="btn btn-accent" data-goto="session4">I'm ready — Session 4 →</button></div>
-    </div>
     <div class="card">
-      <h3><span class="group-only-inline">Cohort feedback</span><span class="solo-only-inline">Personal reflection</span></h3>
-      <div class="label" id="fb-best-label">What worked best?</div><textarea id="fb-best" style="min-height:55px" placeholder="What would you tell someone starting the next cohort?"></textarea>
-      <div class="label" id="fb-change-label">What would you change?</div><textarea id="fb-change" style="min-height:55px" placeholder="Be honest. This is how we improve."></textarea>
-      <div class="label">Would you recommend this?</div>
-      <div class="group-only">
-        <select id="fb-rec"><option value="">Select...</option><option>Definitely — sending it to people this week</option><option>Probably yes</option><option>Not sure</option><option>Probably not</option></select>
+      <h3>What you could build in Session 4</h3>
+      <p style="margin-bottom:.75rem">Session 4 is where things get exciting. Here are real prompts people have used to build something that did not exist before they started. Copy any of these into your AI tool right now and see what comes back.</p>
+      <div class="bridge-grid">
+        <div class="bridge-card">
+          <h4>Finance</h4>
+          <p>Variance commentary that used to take 3 hours — done in 20 minutes.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a financial analyst. Here is this week's P&amp;L data by cost centre [paste]. Write variance commentary for the CFO pack. Structure: headline vs budget, top 3 variances with likely drivers, one forward-looking risk. Under 200 words. No jargon.</div>
+          <button class="btn btn-ghost" data-bridge="finance">Copy this prompt</button>
+          <div class="confirm" id="bridge-finance-confirm">Copied — paste into your AI tool.</div>
+        </div>
+        <div class="bridge-card">
+          <h4>Supply chain</h4>
+          <p>Supplier risk assessment that took half a day — done in 6 minutes.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a supply chain risk analyst. Review this supplier update [paste]. Flag any delivery, quality, or compliance risks. Rate each High / Medium / Low with one sentence of reasoning. List in priority order. Flag anything needing escalation today.</div>
+          <button class="btn btn-ghost" data-bridge="supply">Copy this prompt</button>
+          <div class="confirm" id="bridge-supply-confirm">Copied — paste into your AI tool.</div>
+        </div>
+        <div class="bridge-card">
+          <h4>Strategy</h4>
+          <p>Competitive intelligence brief that took a day — structured in 15 minutes.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a strategy consultant. Summarize this competitive intelligence [paste] into a 3-part exec narrative: what is shifting in the market, what it means for us, and our recommended response. One paragraph each. Direct tone. No filler.</div>
+          <button class="btn btn-ghost" data-bridge="strategy">Copy this prompt</button>
+          <div class="confirm" id="bridge-strategy-confirm">Copied — paste into your AI tool.</div>
+        </div>
+        <div class="bridge-card">
+          <h4>Operations</h4>
+          <p>Process improvement proposal that took days to draft — outlined in 10 minutes.</p>
+          <div class="assembled" style="font-size:12px;min-height:0;margin-bottom:.6rem">You are a process improvement expert. Here is our current workflow [paste]. Identify the 3 biggest bottlenecks and why they exist. For each: name it, explain the business impact, and suggest one specific AI-enabled fix. Be concrete — no generic advice.</div>
+          <button class="btn btn-ghost" data-bridge="ops">Copy this prompt</button>
+          <div class="confirm" id="bridge-ops-confirm">Copied — paste into your AI tool.</div>
+        </div>
       </div>
-      <div class="solo-only">
-        <select id="fb-rec-solo"><option value="">Select...</option><option>Transformative — I work differently now</option><option>Very useful — I have new habits</option><option>Somewhat useful — I learned some things</option><option>Not what I needed right now</option></select>
+      <div class="btn-row" style="margin-top:.5rem">
+        <button class="btn btn-accent" data-goto="session4">I am ready — take me to Session 4 →</button>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="btn-save-fb">Submit feedback</button>
-        <button class="btn btn-ghost" data-goto="connect">Reach out to facilitator →</button>
-      </div>
-      <div class="confirm" id="fb-confirm">Feedback saved. Cohort 2 will be better because of this.</div>
     </div>
   </div>
 
@@ -893,6 +971,25 @@ body{font-family:'DM Sans','Arial',sans-serif}
       </div>
     </div>
     <div class="card card-accent">
+      <h3><span class="group-only-inline">Session feedback</span><span class="solo-only-inline">Your reflection</span></h3>
+      <div class="label"><span class="group-only-inline">What worked best in this cohort?</span><span class="solo-only-inline">What clicked for you?</span></div>
+      <textarea id="fb-best" style="min-height:55px" placeholder="What would you tell someone starting the next cohort?"></textarea>
+      <div class="label"><span class="group-only-inline">What would you change?</span><span class="solo-only-inline">What was confusing or missing?</span></div>
+      <textarea id="fb-change" style="min-height:55px" placeholder="Be honest. This is how we improve."></textarea>
+      <div class="label">Would you recommend this?</div>
+      <div class="group-only">
+        <select id="fb-rec"><option value="">Select...</option><option>Definitely — sending it to people this week</option><option>Probably yes</option><option>Not sure</option><option>Probably not</option></select>
+      </div>
+      <div class="solo-only">
+        <select id="fb-rec-solo"><option value="">Select...</option><option>Transformative — I work differently now</option><option>Very useful — I have new habits</option><option>Somewhat useful — I learned some things</option><option>Not what I needed right now</option></select>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-save-fb">Submit feedback</button>
+        <button class="btn btn-ghost" data-goto="connect">Reach out to facilitator →</button>
+      </div>
+      <div class="confirm" id="fb-confirm">Feedback saved — thank you.</div>
+    </div>
+    <div class="card card-accent">
       <h3>Send feedback on this program</h3>
       <div class="label">What's working well?</div><textarea id="ext-best" style="min-height:55px" placeholder="What should stay exactly as it is?"></textarea>
       <div class="label">What should change?</div><textarea id="ext-change" style="min-height:55px" placeholder="What's missing, confusing, or could be better?"></textarea>
@@ -919,9 +1016,9 @@ var BADGES=['Overview','Session 1','Session 2','Session 3','Session 4 ✦','Prom
 // ── Facilitator notes ──
 var FAC={
   overview:'Welcome participants and have them open this file in their own browsers. Ask everyone to name the cohort in the top-right field — this creates immediate ownership. Quick show of hands: "Who\'s used an AI tool in the last week?" Then navigate to Session 1 together. Remind participants: nothing persists on refresh — download data from the Wins wall before closing.',
-  session1:'Start with "What AI actually is" — read through it together. The prompt surgery moment is most powerful done live with a real participant\'s problem. Don\'t rush "Surface your problems" — budget at least 10 minutes. Vague problems = vague results for the whole program. Quality check: introduce the four questions explicitly. Ask: "Would you send this to your VP right now?" If no — the prompt needs more work.',
-  session2:'Don\'t skip the opening debrief — this is where social proof builds. If someone had a bad experience this week, explore it publicly — failure cases are gold. Assign cross-functional pairs yourself: put finance with ops, strategy with supply chain. Decision tree works best as a group exercise.',
-  session3:'The showcase is the emotional high point — protect the time. 3 minutes per person, use a timer. The pledge block is not optional — writing it down meaningfully increases follow-through. At the end, explicitly ask: who wants Session 4? Let them self-identify.',
+  session1:'Start with "What AI actually is" then move straight into RCTFX — teach the framework before they try it. The two practice rounds are the core of Session 1. Do not skip either. Between rounds ask 2-3 people to share what they noticed. Give participants 3 minutes to fill in reflection fields before moving on. Do not rush "Surface your problems" — vague problems here means vague results for the whole program.',
+  session2:'Open with the debrief — ask who tried Problem 2 for the between-session challenge. Prompt surgery works best done live with a real participant example. The cross-functional pairing is the centrepiece of this session — assign pairs yourself, put finance with ops, strategy with supply chain. Give 20 minutes minimum. Give participants 3 minutes to fill in the reflection field after the exercise before the group shares.',
+  session3:'This session moves from quality to ROI to teaching. The quality check lands better now that participants have real prompt experience — use it to set the standard before ROI stories begin. The six ROI dimensions remove the "I cannot measure it" objection — let people pick whichever applies. Teaching exercise is the emotional high point — 3 minutes per person, use the timer. The Session 4 bridge prompts are designed to create a wow moment — have participants copy and run one in their AI tool before deciding whether to continue to Session 4.',
   session4:'Treat Session 4 participants as peers — they\'re self-selected and motivated. Workflow designer is safest for non-technical people. UI prototyper is where the most "wow" moments happen — build something live together first. On vibe coding: do not skip the guardrails. The most dangerous moment is someone wanting to immediately deploy AI-generated code without review.',
   promptlab:'Encourage participants to save prompts throughout each session — this becomes their personal prompt library. Remind everyone to export session data at the end.',
   tracker:'Most powerful when projected on a shared screen. Celebrate each win publicly — read them out. Energy compounds as the wall fills. Remind participants to export before closing.',
@@ -1074,7 +1171,7 @@ function now(){ return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'
 
 // ── Save functions ──
 function saveS1(){
-  S.s1={name:v('s1-name'),fn:v('s1-fn'),p1:v('s1-p1'),base:v('s1-base'),p2:v('s1-p2')};
+  S.s1={name:v('s1-name'),fn:v('s1-fn'),p1:v('s1-p1'),base:v('s1-base'),p2:v('s1-p2'),r1:v('r1-s1'),r2:v('r2-s1')};
   flash('s1-confirm');
   if(typeof updateProgressChecks==='function') updateProgressChecks();
   var hint=document.getElementById('pl-problem-hint');
@@ -1084,9 +1181,13 @@ function saveS1(){
     hint.style.display='block';
   }
 }
-function saveS2(){ S.s2={partner:v('s2-partner'),prob:v('s2-prob'),insight:v('s2-insight')}; flash('s2-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
+function saveS2(){ S.s2={partner:v('s2-partner'),prob:v('s2-prob'),insight:v('s2-insight'),r1:v('r1-s2')}; flash('s2-confirm'); if(typeof updateProgressChecks==='function') updateProgressChecks(); }
 function saveS3(){
-  S.s3={problem:v('s3-problem'),before:v('s3-before'),after:v('s3-after'),quality:v('s3-quality'),prompt:v('s3-prompt')};
+  var dimIds=['roi-time','roi-quality','roi-risk','roi-decision','roi-confidence','roi-capacity'];
+  var dimLabels=['Time saved','Quality improved','Risk reduced','Better decisions','Confidence increased','Capacity unlocked'];
+  var dims=[];
+  dimIds.forEach(function(id,i){ var el=document.getElementById(id); if(el&&el.checked) dims.push(dimLabels[i]); });
+  S.s3={problem:v('s3-problem'),before:v('s3-before'),after:v('s3-after'),prompt:v('s3-prompt'),dims:dims,showcase:v('s3-showcase'),teach:v('s3-teach'),reflect:v('r1-s3')};
   if(S.s3.problem){
     S.wins.unshift({name:S.s1.name||'You',fn:S.s1.fn||'',win:'ROI showcase: '+S.s3.problem,roi:(S.s3.before&&S.s3.after)?S.s3.before+' \u2192 '+S.s3.after:'',time:now()});
     renderWins();
@@ -1183,13 +1284,25 @@ function exportData(){
       lines.push('PROBLEM 1 (biggest time sink)');
       lines.push(S.s1.p1);
       if(S.s1.base) lines.push('Time today: '+S.s1.base);
+      if(S.s1.r1) lines.push('Reflection (round 1): '+S.s1.r1);
       lines.push('');
     }
     if(S.s1.p2){
       lines.push('PROBLEM 2 (second frustration)');
       lines.push(S.s1.p2);
+      if(S.s1.r2) lines.push('Reflection (round 2): '+S.s1.r2);
       lines.push('');
     }
+  }
+
+  if(S.s2 && (S.s2.partner||S.s2.prob||S.s2.r1)){
+    lines.push('SESSION 2 — CROSS-FUNCTIONAL EXERCISE');
+    lines.push('--------------------------------------');
+    if(S.s2.partner) lines.push('Partner: '+S.s2.partner);
+    if(S.s2.prob) lines.push('Problem worked on: '+S.s2.prob);
+    if(S.s2.insight) lines.push('What worked: '+S.s2.insight);
+    if(S.s2.r1) lines.push('Reflection: '+S.s2.r1);
+    lines.push('');
   }
 
   if(S.s3 && S.s3.problem){
@@ -1198,7 +1311,10 @@ function exportData(){
     lines.push('Problem solved: '+S.s3.problem);
     if(S.s3.before) lines.push('Before AI: '+S.s3.before);
     if(S.s3.after) lines.push('After AI: '+S.s3.after);
-    if(S.s3.quality) lines.push('Quality impact: '+S.s3.quality);
+    if(S.s3.dims && S.s3.dims.length) lines.push('ROI dimensions: '+S.s3.dims.join(', '));
+    if(S.s3.reflect) lines.push('Pre-session reflection: '+S.s3.reflect);
+    if(S.s3.showcase) lines.push('Showcase notes: '+S.s3.showcase);
+    if(S.s3.teach) lines.push('Teaching notes: '+S.s3.teach);
     lines.push('');
   }
 
@@ -1482,6 +1598,20 @@ var timerInterval = null; var timerSeconds = 0;
       var overlay = document.getElementById('present-overlay');
       if(overlay && overlay.style.display !== 'none') overlay.style.display = 'none';
     }
+  });
+
+  // Bridge prompt copy buttons
+  var bridgePrompts={
+    finance:'You are a financial analyst. Here is my data: [paste data]. Write a structured variance commentary for an executive audience. Include: (1) overall performance vs plan, (2) top 3 variances and their likely drivers, (3) recommended actions. Format as three short paragraphs. Flag any figures you cannot verify.',
+    supply:'You are a supply chain risk analyst. Here is a supplier or logistics update: [paste update]. Identify and prioritise delivery, quality, and compliance risks. For each risk: name it, rate it High/Medium/Low, give one sentence of reasoning, and suggest one immediate action. List in priority order.',
+    strategy:'You are a strategy consultant. Here is competitive intelligence or market data: [paste]. Summarise into a 3-part executive narrative: (1) what is shifting in the market, (2) what this means for us specifically, (3) the recommended response. One focused paragraph each.',
+    ops:'You are a process improvement expert. Here is my current workflow: [paste each step]. Identify: (1) the top 3 bottlenecks and why they exist, (2) which steps could be automated or accelerated with AI today, (3) a redesigned process as a numbered sequence. Then give the redesign as a simple text flowchart using → for flow and [brackets] for decisions.'
+  };
+  document.querySelectorAll('[data-bridge]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key=this.getAttribute('data-bridge');
+      if(bridgePrompts[key]) universalCopy(bridgePrompts[key],'bridge-'+key+'-confirm');
+    });
   });
 
   // Worked example toggles
