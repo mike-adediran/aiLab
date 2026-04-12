@@ -1,8 +1,8 @@
-# AI Transformation Lab
+# Applied AI Lab
 
-A free, open-source, tool-agnostic AI upskilling program for professionals.
+A free, open-source, tool-agnostic Applied AI program for professionals.
 
-**No installation. No server. No cost. Open it in any browser.**
+**Real problems. Real outputs. No slides. Works in any browser.**
 
 → **[Launch the lab](https://mike-adediran.github.io/aiLab/)**
 
@@ -10,7 +10,7 @@ A free, open-source, tool-agnostic AI upskilling program for professionals.
 
 ## What it is
 
-The AI Transformation Lab is a hands-on learning experience designed to help professionals — regardless of technical background — understand AI, apply it to real work problems, and build the habits that make the gains stick.
+The Applied AI Lab is a hands-on program designed to help professionals — regardless of technical background — apply AI to work that actually matters to them, build judgment about when and how to use it, and develop the habits that make the gains stick.
 
 It is not a slide deck. It is not a course. It is a live workspace you open in a browser and work through with real problems you bring from your own job.
 
@@ -35,12 +35,14 @@ The program runs across four sessions. Sessions 1–3 are for everyone. Session 
 
 **Built-in tools:**
 - Prompt lab with RCTFX framework
+- Mini prompt builder within sessions (no tab switching)
 - Wins wall for cohort progress tracking
 - Facilitator notes per session (toggle with "I'm a facilitator")
 - Session timer
-- ROI capture and export
+- ROI capture across six dimensions and plain-text export
 - Presentation mode for wins wall
 - Group and self-paced modes
+- Live prompt preview in Session 4 builder track
 - Works offline after first load
 
 ---
@@ -54,7 +56,7 @@ The program runs across four sessions. Sessions 1–3 are for everyone. Session 
 3. Set the mode to **"Attending a group session"**
 4. Follow each session tab in order — the interface guides the session
 5. Participants log wins to the Wins Wall in real time
-6. At the end, everyone downloads their session data from the Wins Wall
+6. At the end, everyone downloads their session summary from the Wins Wall
 
 **Recommended cadence:** One session per week over three weeks, then an optional fourth session for self-selected builders.
 
@@ -64,7 +66,7 @@ The program runs across four sessions. Sessions 1–3 are for everyone. Session 
 2. Set the mode to **"Learning on my own"**
 3. Work through each session at your own pace
 4. Use the wins journal to track what's working
-5. Download your session data at the end
+5. Download your session summary at the end
 
 ---
 
@@ -102,4 +104,6 @@ MIT — free to use, adapt, and share. Attribution appreciated but not required.
 
 ## Creator
 
-Questions, feedback, or want to share how you used this? Reach out at [mikeadediran11@gmail.com](mailto:mikeadediran11@gmail.com) or connect on [LinkedIn](https://linkedin.com/in/mikeadediran).
+Created by [Mike Adediran](https://linkedin.com/in/mikeadediran).
+
+Questions, feedback, or want to share what you built? Reach out at [mikeadediran11@gmail.com](mailto:mikeadediran11@gmail.com) or connect on [LinkedIn](https://linkedin.com/in/mikeadediran).

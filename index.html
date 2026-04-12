@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A free, open-source AI upskilling program for professionals. 4 sessions. Real problems. No slides.">
-<meta property="og:title" content="AI Transformation Lab">
-<meta property="og:description" content="A free, open-source AI upskilling program for professionals. 4 sessions. Real problems. No slides. Works in any browser.">
+<meta name="description" content="A free, open-source Applied AI program for professionals. Real problems. Real outputs. Works in any browser.">
+<meta property="og:title" content="Applied AI Lab">
+<meta property="og:description" content="A free, open-source Applied AI program for professionals. Real problems. Real outputs. Works in any browser.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mike-adediran.github.io/aiLab/">
 <meta name="twitter:card" content="summary_large_image">
@@ -13,10 +13,10 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://mike-adediran.github.io/aiLab/og-image.png">
-<meta name="twitter:title" content="AI Transformation Lab">
-<meta name="twitter:description" content="A free, open-source AI upskilling program. 4 sessions. Real problems. No slides.">
+<meta name="twitter:title" content="Applied AI Lab">
+<meta name="twitter:description" content="A free, open-source Applied AI program. Real problems. Real outputs. No slides.">
 <meta name="theme-color" content="#e8500a">
-<title>AI Transformation Lab</title>
+<title>Applied AI Lab</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -316,7 +316,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
   <div class="lab-header">
     <div>
       <div class="lab-eyebrow">Open-source · Tool-agnostic · Free to share</div>
-      <div class="lab-title">AI <span>Transformation</span> Lab</div>
+      <div class="lab-title">Applied <span>AI</span> Lab</div>
     </div>
     <div class="header-right">
       <div class="session-badge" id="current-badge">Overview</div>
@@ -382,7 +382,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div style="font-size:12px;color:var(--muted);width:100%;margin-top:6px;line-height:1.6;padding-top:6px;border-top:1px solid var(--border);">You will need access to an AI tool — the free tier of ChatGPT, Claude, or Gemini all work. Have 2 real work problems in mind before you begin.</div>
     </div>
     <div class="mobile-hero">
-      <p><strong>Welcome.</strong> A free, hands-on AI upskilling program. 4 sessions. Real problems. No slides. Open on desktop for the full experience — or explore right here.</p>
+      <p><strong>Welcome.</strong> A free, hands-on Applied AI program. 4 sessions. Real problems. Real outputs. Open on desktop for the full experience — or explore right here.</p>
     </div>
     <div class="sess-grid">
       <div class="sess-card curr" data-goto="session1">
@@ -996,7 +996,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
   <!-- CONNECT -->
   <div id="connect" class="section">
     <div class="overline">Support + feedback</div>
-    <h2>Connect with the facilitator</h2>
+    <h2>Connect with the creator</h2>
     <p style="margin-bottom:1.5rem">Questions, ideas to improve the program, or just want to share a win — reach out directly.</p>
     <div class="share-block">
       <div>
@@ -1014,7 +1014,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
       <div class="contact-avatar">MA</div>
       <div>
         <div class="contact-name">Mike Adediran</div>
-        <p style="font-size:13px;color:var(--muted);margin:.2rem 0 .6rem">Strategic operations · AI Transformation · Creator of this program</p>
+        <p style="font-size:13px;color:var(--muted);margin:.2rem 0 .6rem">Applied AI · Strategic operations</p>
         <div class="contact-links">
           <a class="contact-link" href="/cdn-cgi/l/email-protection#412c282a24202524252833202f707001262c20282d6f222e2c"><span class="__cf_email__" data-cfemail="533e3a3836323736373a21323d626213343e323a3f7d303c3e">[email&#160;protected]</span></a>
           <a class="contact-link" href="https://linkedin.com/in/mikeadediran" target="_blank">linkedin.com/in/mikeadediran</a>
@@ -1050,7 +1050,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
     </div>
     <div class="card">
       <h3>About this program</h3>
-      <p>The AI Transformation Lab is free, open-source, and tool-agnostic. Freely available to share, adapt, and build on. If you run this with your own cohort, share how it went.</p>
+      <p>The Applied AI Lab is free, open-source, and tool-agnostic. Freely available to share, adapt, and build on. If you run this with your own cohort, share how it went.</p>
       <div class="tags"><span class="tag">Open source</span><span class="tag">Tool agnostic</span><span class="tag">No install</span><span class="tag">Works offline</span><span class="tag">Free to share</span></div>
     </div>
   </div>
@@ -1323,7 +1323,7 @@ function exportData(){
   var cohort=document.getElementById('cohort-id').value.trim()||'my-cohort';
   var date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   var lines=[];
-  lines.push('AI TRANSFORMATION LAB — SESSION SUMMARY');
+  lines.push('APPLIED AI LAB — SESSION SUMMARY');
   lines.push('========================================');
   lines.push('Date: '+date);
   if(cohort!=='my-cohort') lines.push('Cohort: '+cohort);
@@ -1402,7 +1402,7 @@ function exportData(){
   }
 
   lines.push('========================================');
-  lines.push('AI Transformation Lab \u2014 mike-adediran.github.io/aiLab');
+  lines.push('Applied AI Lab \u2014 mike-adediran.github.io/aiLab');
 
   var text=lines.join('\n');
   var filename='ai-lab-summary-'+(S.s1&&S.s1.name?S.s1.name.toLowerCase().replace(/\s+/g,'-')+'-':'')+new Date().toISOString().split('T')[0]+'.txt';
@@ -1436,7 +1436,7 @@ function exportData(){
 
 // ── Share ──
 function shareProgram(){
-  var shareData={title:'AI Transformation Lab',text:'A free, open-source AI upskilling program. 4 sessions. Real problems. No slides. Works in any browser.',url:window.location.href};
+  var shareData={title:'Applied AI Lab',text:'A free, open-source Applied AI program. Real problems. Real outputs. Works in any browser.',url:window.location.href};
   if(navigator.share && navigator.canShare && navigator.canShare(shareData)){
     navigator.share(shareData).catch(function(){});
   } else {
@@ -1446,7 +1446,7 @@ function shareProgram(){
 
 // ── Copy feedback ──
 function copyFeedback(){
-  var txt='AI Transformation Lab — Program Feedback\nFrom: '+(v('ext-name')||'Anonymous')+'\n\nWhat worked well:\n'+v('ext-best')+'\n\nWhat to change:\n'+v('ext-change');
+  var txt='Applied AI Lab — Program Feedback\nFrom: '+(v('ext-name')||'Anonymous')+'\n\nWhat worked well:\n'+v('ext-best')+'\n\nWhat to change:\n'+v('ext-change');
   universalCopy(txt,'ext-confirm');
 }
 
