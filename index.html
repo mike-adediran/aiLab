@@ -820,7 +820,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <ol class="steps">
           <li><div class="step-num">1</div><div><div class="step-main">Describe what you want in plain language.</div><div class="step-sub">e.g. "A weekly ops dashboard showing KPIs by region with a summary row at the top."</div></div></li>
           <li><div class="step-num">2</div><div><div class="step-main">Copy the prompt and paste into Claude or ChatGPT.</div><div class="step-sub">If your tool has a preview pane (Claude Artifacts, ChatGPT Canvas) — it will render live in the chat. No browser needed.</div></div></li>
-          <li><div class="step-num">3</div><div><div class="step-main">If no preview — copy the HTML output, save as a .html file, open in any browser.</div><div class="step-sub">Takes 30 seconds. Works on any device.</div></div></li>
+          <li><div class="step-num">3</div><div><div class="step-main">If no preview — copy the HTML, open a plain text editor (Notepad on Windows, TextEdit on Mac), paste it, and save as filename.html — not a Word or Notes file.</div><div class="step-sub">Then open that file in Chrome or any browser. Notes and Word apps strip the code — always use a plain text editor to save HTML.</div></div></li>
           <li><div class="step-num">4</div><div><div class="step-main">Iterate in plain language.</div><div class="step-sub">"Add a date filter. Move the summary to the top. Change the colour to match our brand." Each instruction is a prompt.</div></div></li>
         </ol>
         <div class="label" style="margin-top:.75rem">What do you want to build?</div>
@@ -1288,7 +1288,7 @@ function workflowPrompt(){
 }
 function uiPrompt(){
   var desc=v('s4-ui-desc');
-  return 'Build a single-file HTML page for: '+(desc||'[describe your tool here]')+'\n\nRequirements:\n- Fully self-contained — no external dependencies\n- Clean, professional, minimal design\n- Works when opened directly in any browser\n- All CSS and JS inline\n\nReturn only the complete HTML file.';
+  return 'Build a single-file HTML page for: '+(desc||'[describe your tool here]')+'\n\nRequirements:\n- Fully self-contained — no external dependencies\n- Clean, professional, minimal design\n- Works when opened directly in any browser\n- All CSS and JS inline in one file\n\nDelivery:\n1. First render a live preview directly in this chat so I can see it immediately\n2. Then provide the complete HTML file as a downloadable artifact\n\nIf your interface supports artifacts or canvas preview (Claude, ChatGPT), use it. The preview is the primary deliverable — the file is for saving and sharing.';
 }
 function vibePrompt(){
   var desc=v('s4-vibe-desc');
