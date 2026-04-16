@@ -812,7 +812,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
           <p>Describe your workflow in the field above. Copy the prompt below and paste it into your AI tool. What comes back is a structured deliverable — not a paragraph. Review it, then log your time saving to the Wins Wall.</p>
         </div>
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-workflow">Copy workflow prompt</button></div>
-        <div class="confirm" id="wf-copied">Copied — paste into your AI tool. You will get a bottleneck table, a redesigned process with time estimates, and a flowchart.</div>
+        <div class="confirm" id="wf-copied">Copied — paste into Claude or ChatGPT. The output renders directly in the chat. You will get a bottleneck table, a redesigned process with time estimates, and a flowchart.</div>
       </div>
       <div id="s4-ui" class="tab-panel">
         <h3>Build a working dashboard or form</h3>
@@ -861,7 +861,7 @@ body{font-family:'DM Sans','Arial',sans-serif}
         <div class="btn-row"><button class="btn btn-accent" id="btn-copy-vibe">Copy vibe coding prompt</button></div>
         <div class="do-now" id="vibe-next-step" style="display:none">
           <div class="do-now-label">Next — do this now</div>
-          <p>Paste into Claude or ChatGPT. Read what comes back — all of it. Test every function before showing anyone. If it has a bug, describe exactly what went wrong and ask it to fix that specific thing. Do not deploy to company systems without a technical review first.</p>
+          <p>Paste into Claude or ChatGPT. A live preview should appear directly in the chat — test it there first before downloading anything. If you need to save it, copy the HTML into a plain text editor (Notepad on Windows, TextEdit on Mac) and save as filename.html. Never paste HTML into Notes or Word — they strip the code. Test every function before showing anyone. If something breaks, describe exactly what went wrong and ask the AI to fix that specific thing.</p>
         </div>
         <div class="confirm" id="vibe-copied">Copied.</div>
       </div>
@@ -1284,7 +1284,7 @@ function renderPrompts(){
 // ── Builder prompts ──
 function workflowPrompt(){
   var wf=v('s4-workflow-input');
-  return 'You are a process improvement expert.\n\nHere is my current workflow:\n\n'+(wf||'[copy and paste your workflow steps here — every step, in order, including the messy parts]')+'\n\nDeliver this in three parts:\n\nPART 1 — BOTTLENECK ANALYSIS\nPresent as a table with columns: Step | Problem | Impact | AI Fix Possible (Yes/No)\nIdentify the top 3 bottlenecks only.\n\nPART 2 — REDESIGNED PROCESS\nNumber each step of the new process. Estimate time per step in the new version. Show total time before vs after at the bottom.\n\nPART 3 — PROCESS FLOWCHART\nDraw the redesigned flow as a text flowchart. Use \u2192 for sequential flow. Use [Decision: X?] \u2192 Yes: ... / No: ... for decision points. Keep it on one screen.';
+  return 'You are a process improvement expert.\n\nHere is my current workflow:\n\n'+(wf||'[copy and paste your workflow steps here — every step, in order, including the messy parts]')+'\n\nDeliver this in three parts:\n\nPART 1 — BOTTLENECK ANALYSIS\nPresent as a table with columns: Step | Problem | Impact | AI Fix Possible (Yes/No)\nIdentify the top 3 bottlenecks only.\n\nPART 2 — REDESIGNED PROCESS\nNumber each step of the new process. Estimate time per step in the new version. Show total time before vs after at the bottom.\n\nPART 3 — PROCESS FLOWCHART\nDraw the redesigned flow as a text flowchart. Use \u2192 for sequential flow. Use [Decision: X?] \u2192 Yes: ... / No: ... for decision points. Keep it on one screen.\n\nRender the output directly in this chat so I can review it immediately. If your interface supports artifacts or canvas (Claude, ChatGPT), use it for the table and flowchart.';
 }
 function uiPrompt(){
   var desc=v('s4-ui-desc');
@@ -1292,7 +1292,7 @@ function uiPrompt(){
 }
 function vibePrompt(){
   var desc=v('s4-vibe-desc');
-  return 'I want to build: '+(desc||'[describe your app here — what it does, who uses it, what goes in and what comes out]')+'\n\nBuild this as a single self-contained HTML file that:\n- Works offline with no external dependencies\n- Has a clean, professional design suitable for a business context\n- Is fully functional based on my description\n- Includes clear labels and error handling for unexpected inputs\n\nAfter the code, provide:\n1. A plain-English summary of what you built and how it works\n2. The three things I should test first\n3. Any limitations or assumptions I should know about before sharing this with colleagues';
+  return 'I want to build: '+(desc||'[describe your app here — what it does, who uses it, what goes in and what comes out]')+'\n\nBuild this as a single self-contained HTML file that:\n- Works offline with no external dependencies\n- Has a clean, professional design suitable for a business context\n- Is fully functional based on my description\n- Includes clear labels and error handling for unexpected inputs\n\nDelivery:\n1. First render a live preview directly in this chat so I can test it immediately\n2. Then provide the complete HTML file as a downloadable artifact\n\nIf your interface supports artifacts or canvas preview (Claude, ChatGPT), use it. Do not ask me to copy and paste code into a separate file as the first step — preview first, file second.\n\nAfter delivering, provide:\n1. A plain-English summary of what you built and how it works\n2. The three things I should test first\n3. Any limitations or assumptions I should know about before sharing this with colleagues\n\nIf I need to save the file: I will copy the HTML into a plain text editor (Notepad on Windows, TextEdit on Mac) and save as filename.html — not into Notes or Word.';
 }
 
 // ── Wins wall ──
